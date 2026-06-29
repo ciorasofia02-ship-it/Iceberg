@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Quiz de Istorie 🏛️</title>
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+    .quiz-container {
+      background-color: white;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 20px;
+      color: #34495e;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    }
+    button:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+    .score-container {
+      display: none;
+    }
+    .score-text {
+      font-size: 24px;
+      color: #27ae60;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .restart-btn {
+      background-color: #2ecc71;
+    }
+    .restart-btn:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>🏛️ Super Quiz de Istorie</h1>
+    
+    <!-- Zona pentru întrebări -->
+    <div id="quiz-section">
+      <div class="question" id="question-text">Întrebarea apare aici...</div>
+      <div class="btn-container" id="answer-buttons">
+        <!-- Butoanele se vor genera singure aici -->
+      </div>
+    </div>
+
+    <!-- Zona pentru scorul final -->
+    <div id="score-section" class="score-container">
+      <div class="score-text" id="final-score">Felicitări! Scorul tău este: 0/0</div>
+      <button class="restart-btn" onclick="restartQuiz()">Joacă din nou 🔄</button>
+    </div>
+  </div>
+
+  <script>
+    // Aici pui câte întrebări vrei tu!
+    const questions = [
+      {
+        question: "În ce an a început Primul Război Mondial?",
+        answers: ["1914", "1939", "1905", "1918"],
+        correct: 0 // Prima variantă (1914) este cea corectă
+      },
+      {
+        question: "Cine a fost conducătorul dacilor?",
+        answers: ["Traian", "Decebal", "Burebista", "Ștefan cel Mare"],
+        correct: 1 // A doua variantă (Decebal) este corectă
+      },
+      {
+        question: "Ce domnitor a construit foarte multe biserici în Moldova?",
+        answers: ["Mihai Viteazul", "Alexandru Ioan Cuza", "Ștefan cel Mare", "Carol I"],
+        correct: 2 // A treia variantă este corectă
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      document.getElementById("quiz-section").style.display = "block";
+      document.getElementById("score-section").style.display = "none";
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      document.getElementById("question-text").innerText = currentQuestion.question;
+      
+      const buttonContainer = document.getElementById("answer-buttons");
+      buttonContainer.innerHTML = ""; // Ștergem butoanele vechi
+
+      // Generăm butoanele noi pentru răspunsuri
+      currentQuestion.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.innerText = answer;
+        button.onclick = () => checkAnswer(index);
+        buttonContainer.appendChild(button);
+      });
+    }
+
+    function checkAnswer(selectedIndex) {
+      const currentQuestion = questions[currentQuestionIndex];
+      
+      if (selectedIndex === currentQuestion.correct) {
+        alert("🎉 Corect!");
+        score++;
+      } else {
+        alert("❌ Greșit! Răspunsul corect era: " + currentQuestion.answers[currentQuestion.correct]);
+      }
+
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    }
+
+    function showScore() {
+      document.getElementById("quiz-section").style.display = "none";
+      document.getElementById("score-section").style.display = "block";
+      document.getElementById("final-score").innerText = "🏆 Joc terminat! Scorul tău: " + score + " din " + questions.length;
+    }
+
+    function restartQuiz() {
+      startQuiz();
+    }
+
+    // Pornește quiz-ul când se încarcă pagina
+    startQuiz();
+  </script>
+
+</body>
+</html>
