@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecoul Istoriei - Imperiul Roman</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-gold: #d4af37;
+            --text-light: #e0e0e0;
+            --text-dark: #a0a0a0;
+            --success: #4caf50;
+            --error: #f44336;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 2px solid var(--accent-gold);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: var(--accent-gold);
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        /* Stiluri Quiz */
+        .question-container {
+            margin-bottom: 25px;
+            padding: 15px;
+            border-left: 3px solid var(--accent-gold);
+            background: #252525;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .question-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background-color: #333;
+            color: var(--text-light);
+            border: 1px solid #444;
+            padding: 12px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            background-color: var(--accent-gold);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .option-btn[disabled] {
+            cursor: not-allowed;
+        }
+
+        .correct {
+            background-color: var(--success) !important;
+            color: white !important;
+        }
+
+        .wrong {
+            background-color: var(--error) !important;
+            color: white !important;
+        }
+
+        #submit-btn {
+            background-color: var(--accent-gold);
+            color: #121212;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        #submit-btn:hover {
+            background-color: #bfa030;
+        }
+
+        #results-box {
+            display: none;
+            text-align: center;
+            background: #252525;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .rank {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Ecoul Istoriei</h1>
+        <p>„Dincolo de legende, în istorie.”</p>
+    </header>
+
+    <!-- SECȚIUNEA LECȚIE -->
+    <div class="section-card">
+        <h2>🏛️ Sinteză: Apogeul și Secretele Imperiului Roman</h2>
+        <p><strong>1. Trecerea de la Republică la Imperiu (27 î.e.n.):</strong> După decenii de războaie civile, Octavian, fiul adoptiv al lui Iulius Cezar, primește titlul de <em>Augustus</em>. El devine primul împărat, inaugurând „Principatul” — un sistem în care instituțiile republicane (cum e Senatul) sunt păstrate doar de fațadă, puterea reală fiind concentrată în mâna unui singur om.</p>
+        <p><strong>2. Pax Romana:</strong> Timp de două secole, imperiul a cunoscut o perioadă de stabilitate internă relativă și dezvoltare economică înfloritoare. S-au construit mii de kilometri de drumuri pavate, apeducte și orașe fortificate. Armata a devenit una complet profesionistă, menținând securitatea la granițe (Limes).</p>
+        <p><strong>3. Romanizarea și Etnogeneza:</strong> Cucerirea unor noi provincii (precum Dacia în 106 e.n.) a însemnat extinderea modului de viață roman. Localnicii au preluat limba latină populară, legile, cultura și ulterior creștinismul. Chiar și după retragerea armatei (cum a fost Retragerea Aureliană din 271 e.n.), populația de rând a rămas pe loc, dând naștere popoarelor neolatine, inclusiv poporului român.</p>
+    </div>
+
+    <!-- SECȚIUNEA EVALUARE -->
+    <div class="section-card">
+        <h2>🗡️ Evaluare Națională: Măreția Romei (25 Întrebări)</h2>
+        <p>Alege răspunsurile corecte. Testul verifică gândirea logică și cunoștințele de nivel avansat.</p>
+        
+        <div id="quiz-container">
+            <!-- Întrebările se vor încărca aici prin JavaScript -->
+        </div>
+
+        <button id="submit-btn" onclick="calculateScore()">Trimite Evaluarea</button>
+    </div>
+
+    <!-- REZULTATE -->
+    <div id="results-box" class="section-card">
+        <h2>📜 Verdictul Cenzorului Roman</h2>
+        <p id="score-text" style="font-size: 1.3rem;"></p>
+        <p id="rank-text" class="rank"></p>
+    </div>
+</div>
+
+<script>
+    // Cele 25 de întrebări de nivel ridicat
+    const quizData = [
+        { q: "Cine a fost primul împărat oficial al Imperiului Roman?", a: ["Iulius Cezar", "Octavian Augustus", "Nero", "Traian"], c: 1 },
+        { q: "În ce an a fost întemeiat Imperiul Roman prin instaurarea Principatului?", a: ["753 î.e.n.", "44 î.e.n.", "27 î.e.n.", "106 e.n."], c: 2 },
+        { q: "Ce înseamnă conceptul de 'Pax Romana'?", a: ["O alianță de pace cu Cartagina", "O perioadă de aproximativ 200 de ani de stabilitate internă", "Războiul total împotriva barbarilor", "Tratatul semnat de Traian și Decebal"], c: 1 },
+        { q: "Care era rolul principal al fortificațiilor de tip 'Limes'?", a: ["Depozitarea aurului adus din provincii", "Marcarea și apărarea granițelor imperiului", "Temple dedicate zeilor romani", "Școli pentru gladiatori"], c: 1 },
+        { q: "Ce transformare a adus reforma militară a lui Marius în recrutarea soldaților?", a: ["Trecerea la o armată de profesioniști plătiți", "Recrutarea exclusivă a sclavilor", "Interzicerea armelor de fier", "Desființarea legiunilor"], c: 0 },
+        { q: "Ce renumit istoric roman a scris despre corupția moravurilor în opera 'Anale'?", a: ["Livius", "Tacit", "Suetoniu", "Plutarh"], c: 1 },
+        { q: "Care provincie romană era considerată 'grânarul imperiului' datorită producției masive de cereale?", a: ["Dacia", "Britania", "Egipt", "Galia"], c: 2 },
+        { q: "Ce suliță specială foloseau legionarii, concepută să se îndoaie după impact?", a: ["Gladius", "Pilum", "Scutum", "Sarișa"], c: 1 },
+        { q: "În timpul cărui împărat Imperiul Roman a atins maxima sa expansiune teritorială?", a: ["Augustus", "Nero", "Traian", "Constantin cel Mare"], c: 2 },
+        { q: "Ce reprezenta 'Constitutio Antoniniana' dată de Caracalla în 212 e.n.?", a: ["Împărțirea imperiului în două", "Acordarea cetățeniei romane tuturor oamenilor liberi", "Interzicerea cultelor păgâne", "Legalizarea creștinismului"], c: 1 },
+        { q: "Din ce munți au extras romanii o cantitate uriașă de aur după cucerirea Daciei?", a: ["Munții Carpați (Apuseni)", "Munții Alpi", "Munții Pindului", "Munții Atlas"], c: 0 },
+        { q: "Cum se numea formația de luptă defensivă în care scuturile acopereau grupul de soldați din toate părțile?", a: ["Falanga", "Testudo (Țestoasa)", "Triarii", "Manipul"], c: 1 },
+        { q: "Ce eveniment crucial a avut loc în anul 313 e.n. prin Edictul de la Milan?", a: ["Prăbușirea Romei", "Tolerarea și acordarea libertății de cult creștinilor", "Bătălia de la Posada", "Retragerea Aureliană"], c: 1 },
+        { q: "Cine a mutat capitala imperiului la Constantinopol în anul 330 e.n.?", a: ["Dioclețian", "Constantin cel Mare", "Theodosius", "Marcus Aurelius"], c: 1 },
+        { q: "Ce sistem politic bazat pe conducerea a patru lideri a introdus Dioclețian pentru a gestiona criza?", a: ["Triumvirat", "Tetrarhie", "Monarhie absolută", "Anarhie militară"], c: 1 },
+        { q: "În ce an s-a produs împărțirea definitivă a imperiului în cel de Apus și cel de Răsărit?", a: ["395 e.n.", "476 e.n.", "1453 e.n.", "271 e.n."], c: 0 },
+        { q: "Care a fost principala cauză internă a colapsului economic al Romei în secolul al III-lea?", a: ["Lipsa totală a sclavilor", "Inflația masivă și devalorizarea monedei", "Invazia vikingilor", "Distrugerea apeductelor"], c: 1 },
+        { q: "Ce popor migrator condus de Attila a pus o presiune uriașă pe granițele Romei în secolul al V-lea?", a: ["Goții", "Hunii", "Vandalii", "Tătaril"], c: 1 },
+        { q: "În ce an s-a prăbușit Imperiul Roman de Apus, moment considerat sfârșitul Antichității?", a: ["476 e.n.", "1453 e.n.", "271 e.n.", "106 e.n."], c: 0 },
+        { q: "Cine a fost ultimul împărat al Imperiului Roman de Apus?", a: ["Romulus Augustulus", "Iustinian", "Julius Nepos", "Tarquinius Superbus"], c: 0 },
+        { q: "Ce limbă vorbită de coloniști și soldați a stat la baza formării limbii române?", a: ["Latina clasică (literară)", "Latina vulgară (populară)", "Limba greacă veche", "Limba dacică"], c: 1 },
+        { q: "Ce bătălie celebră din 312 e.n. l-a determinat pe Constantin să adopte simbolurile creștine?", a: ["Bătălia de la Podul Milvius", "Bătălia de la Cannae", "Bătălia de la Actium", "Bătălia de la Tapae"], c: 0 },
+        { q: "Care era principala monedă de argint folosită în tranzacțiile zilnice din Imperiu?", a: ["Solidus", "Denar", "As", "Sesterț"], c: 1 },
+        { q: "Ce drum faimos lega Roma de Capua și sudul Italiei, fiind numit 'Regina Viarum'?", a: ["Via Traiana", "Via Appia", "Via Flaminia", "Via Militaris"], c: 1 },
+        { q: "Ce înseamnă procesul de etnogeneză?", a: ["Cucerirea unui teritoriu prin forță", "Procesul de formare a unui popor și a limbii sale", "O reformă religioasă radicală", "Construirea de orașe romane"], c: 1 }
+    ];
+
+    // Generarea întrebărilor pe site
+    function loadQuiz() {
+        const container = document.getElementById('quiz-container');
+        quizData.forEach((item, index) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-container';
+            
+            const qText = document.createElement('div');
+            qText.className = 'question-text';
+            qText.innerText = `${index + 1}. ${item.q}`;
+            qDiv.appendChild(qText);
+
+            const optionsGrid = document.createElement('div');
+            optionsGrid.className = 'options-grid';
+
+            item.a.forEach((opt, optIndex) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.type = 'button';
+                btn.onclick = () => selectOption(index, optIndex, btn);
+                optionsGrid.appendChild(btn);
+            });
+
+            qDiv.appendChild(optionsGrid);
+            container.appendChild(qDiv);
+        });
+    }
+
+    const userAnswers = {};
+
+    function selectOption(qIndex, optIndex, btn) {
+        // Resetează selecția precedentă din rândul acelei întrebări
+        const parent = btn.parentElement;
+        const buttons = parent.getElementsByClassName('option-btn');
+        for (let b of buttons) {
+            b.classList.remove('correct', 'wrong');
+        }
+        
+        userAnswers[qIndex] = optIndex;
+        
+        // Verifică răspunsul pe loc (interactiv)
+        if (optIndex === quizData[qIndex].c) {
+            btn.classList.add('correct');
+        } else {
+            btn.classList.add('wrong');
+            buttons[quizData[qIndex].c].classList.add('correct');
+        }
+
+        // Blochează butoanele pentru acea întrebare după răspuns
+        for (let b of buttons) {
+            b.setAttribute('disabled', 'true');
+        }
+    }
+
+    function calculateScore() {
+        let score = 0;
+        quizData.forEach((item, index) => {
+            if (userAnswers[index] === item.c) {
+                score++;
+            }
+        });
+
+        const resultsBox = document.getElementById('results-box');
+        const scoreText = document.getElementById('score-text');
+        const rankText = document.getElementById('rank-text');
+
+        scoreText.innerText = `Ai obținut ${score} din ${quizData.length} puncte corecte.`;
+        
+        let rank = "";
+        if (score === 25) rank = "👑 Împărat al Romei / Olimpic Național!";
+        else if (score >= 20) rank = "🛡️ Legat de Legiune (General)";
+        else if (score >= 15) rank = "🗡️ Centurion Experimentat";
+        else if (score >= 10) rank = "🛡️ Legionar Roman";
+        else rank = "🌾 Recrut în instruire. Mai citește manualul lui Ghețau!";
+
+        rankText.innerText = `Rangul tău: ${rank}`;
+        resultsBox.style.display = 'block';
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    // Inițializează quiz-ul la încărcare
+    window.onload = loadQuiz;
+</script>
+
+</body>
+</html>
