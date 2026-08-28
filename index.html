@@ -1,175 +1,165 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Quiz de Istorie 🏛️</title>
-  <style>
-    body {
-      background-color: #f0f4f8;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding: 20px;
-      margin: 0;
-    }
-    .quiz-container {
-      background-color: white;
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #2c3e50;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-    .question {
-      font-size: 20px;
-      color: #34495e;
-      margin-bottom: 25px;
-      font-weight: bold;
-    }
-    .btn-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 15px;
-      font-size: 18px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
-    }
-    button:hover {
-      background-color: #2980b9;
-      transform: translateY(-2px);
-    }
-    button:active {
-      transform: translateY(1px);
-    }
-    .score-container {
-      display: none;
-    }
-    .score-text {
-      font-size: 24px;
-      color: #27ae60;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    .restart-btn {
-      background-color: #2ecc71;
-    }
-    .restart-btn:hover {
-      background-color: #27ae60;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Antiqua - Lecții de Istorie</title>
+    <style>
+        :root {
+            --primary: #8b0000;
+            --secondary: #d4af37;
+            --bg: #fdfbf7;
+            --card-bg: #ffffff;
+            --text: #2c2c2c;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+        header {
+            background-color: var(--primary);
+            color: var(--secondary);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 4px solid var(--secondary);
+        }
+        .latin-banner {
+            font-style: italic;
+            background-color: #5a0000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+        .lang-btn-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .lang-btn {
+            background: var(--secondary);
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .lesson-card {
+            background: var(--card-bg);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 6px solid var(--secondary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .quiz-section {
+            background: #f4efe6;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid var(--secondary);
+            margin-top: 30px;
+        }
+        .quiz-option {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="quiz-container">
-    <h1>🏛️ Super Quiz de Istorie</h1>
-    
-    <!-- Zona pentru întrebări -->
-    <div id="quiz-section">
-      <div class="question" id="question-text">Întrebarea apare aici...</div>
-      <div class="btn-container" id="answer-buttons">
-        <!-- Butoanele se vor genera singure aici -->
-      </div>
+    <div class="latin-banner">
+        📜 <i>"Historia est magistra vitae"</i> &nbsp;|&nbsp; <i>"Alea iacta est"</i>
     </div>
 
-    <!-- Zona pentru scorul final -->
-    <div id="score-section" class="score-container">
-      <div class="score-text" id="final-score">Felicitări! Scorul tău este: 0/0</div>
-      <button class="restart-btn" onclick="restartQuiz()">Joacă din nou 🔄</button>
+    <header>
+        <h1>🏛️ Historia Antiqua</h1>
+        <p id="subtitle">Explorează marile civilizații ale Antichității</p>
+    </header>
+
+    <div class="lang-btn-container">
+        <button class="lang-btn" onclick="setLanguage('ro')">🇷🇴 Română</button>
+        <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 English</button>
     </div>
-  </div>
 
-  <script>
-    // Aici pui câte întrebări vrei tu!
-    const questions = [
-      {
-        question: "În ce an a început Primul Război Mondial?",
-        answers: ["1914", "1939", "1905", "1918"],
-        correct: 0 // Prima variantă (1914) este cea corectă
-      },
-      {
-        question: "Cine a fost conducătorul dacilor?",
-        answers: ["Traian", "Decebal", "Burebista", "Ștefan cel Mare"],
-        correct: 1 // A doua variantă (Decebal) este corectă
-      },
-      {
-        question: "Ce domnitor a construit foarte multe biserici în Moldova?",
-        answers: ["Mihai Viteazul", "Alexandru Ioan Cuza", "Ștefan cel Mare", "Carol I"],
-        correct: 2 // A treia variantă este corectă
-      }
-    ];
+    <main>
+        <article class="lesson-card">
+            <h2 class="lang-ro">1. Egiptul Antic: Tărâmul Faraonilor</h2>
+            <h2 class="lang-en" style="display:none;">1. Ancient Egypt: Land of the Pharaohs</h2>
+            
+            <p class="lang-ro">Civilizația egipteană s-a dezvoltat de-a lungul fluviului Nil. Egiptenii au construit piramide gigantice ca morminte pentru faraoni, au folosit scrierea hieroglifică și au dezvoltat cunoștințe avansate de matematică și astronomie.</p>
+            <p class="lang-en" style="display:none;">Egyptian civilization developed along the Nile River. The Egyptians built gigantic pyramids as tombs for pharaohs, used hieroglyphic writing, and developed advanced knowledge of mathematics and astronomy.</p>
+        </article>
 
-    let currentQuestionIndex = 0;
-    let score = 0;
+        <article class="lesson-card">
+            <h2 class="lang-ro">2. Grecia Antică: Leagănul Democrației</h2>
+            <h2 class="lang-en" style="display:none;">2. Ancient Greece: Cradle of Democracy</h2>
+            
+            <p class="lang-ro">Grecii au creat orașe-state (polisuri) precum Atena și Sparta. În Atena a apărut prima democrație din lume. Grecii au pus bazele filozofiei, teatrului și au organizat primele Jocuri Olimpice.</p>
+            <p class="lang-en" style="display:none;">The Greeks created city-states (poleis) such as Athens and Sparta. The world's first democracy emerged in Athens. The Greeks laid the foundations of philosophy, theater, and organized the first Olympic Games.</p>
+        </article>
 
-    function startQuiz() {
-      currentQuestionIndex = 0;
-      score = 0;
-      document.getElementById("quiz-section").style.display = "block";
-      document.getElementById("score-section").style.display = "none";
-      showQuestion();
-    }
+        <article class="lesson-card">
+            <h2 class="lang-ro">3. Imperiul Roman: Puterea Legiunilor</h2>
+            <h2 class="lang-en" style="display:none;">3. The Roman Empire: Power of the Legions</h2>
+            
+            <p class="lang-ro">Pornind de la un mic sat de pe râul Tibru, Roma a devenit un imperiu vast ce cuprindea întreaga Mare Mediterană. Romanii au fost maeștri în construcții (drumuri, apeducte, Colosseumul) și în drept.</p>
+            <p class="lang-en" style="display:none;">Starting from a small village on the Tiber River, Rome became a vast empire spanning the entire Mediterranean Sea. The Romans were masters of engineering (roads, aqueducts, the Colosseum) and law.</p>
+        </article>
 
-    function showQuestion() {
-      const currentQuestion = questions[currentQuestionIndex];
-      document.getElementById("question-text").innerText = currentQuestion.question;
-      
-      const buttonContainer = document.getElementById("answer-buttons");
-      buttonContainer.innerHTML = ""; // Ștergem butoanele vechi
+        <section class="quiz-section">
+            <h2 class="lang-ro">🧠 Quiz de verificare</h2>
+            <h2 class="lang-en" style="display:none;">🧠 Knowledge Check Quiz</h2>
 
-      // Generăm butoanele noi pentru răspunsuri
-      currentQuestion.answers.forEach((answer, index) => {
-        const button = document.createElement("button");
-        button.innerText = answer;
-        button.onclick = () => checkAnswer(index);
-        buttonContainer.appendChild(button);
-      });
-    }
+            <form id="quizForm">
+                <p class="lang-ro"><b>1. Unde a apărut prima democrație?</b></p>
+                <p class="lang-en" style="display:none;"><b>1. Where did the first democracy appear?</b></p>
+                <label class="quiz-option"><input type="radio" name="q1" value="wrong"> Roma / Rome</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="correct"> Atena / Athens</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="wrong"> Memphis</label>
 
-    function checkAnswer(selectedIndex) {
-      const currentQuestion = questions[currentQuestionIndex];
-      
-      if (selectedIndex === currentQuestion.correct) {
-        alert("🎉 Corect!");
-        score++;
-      } else {
-        alert("❌ Greșit! Răspunsul corect era: " + currentQuestion.answers[currentQuestion.correct]);
-      }
+                <p class="lang-ro"><b>2. Ce fluviu a susținut dezvoltarea Egiptului Antic?</b></p>
+                <p class="lang-en" style="display:none;"><b>2. Which river sustained Ancient Egypt?</b></p>
+                <label class="quiz-option"><input type="radio" name="q2" value="wrong"> Dunărea / Danube</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="correct"> Nilul / Nile</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="wrong"> Tibrul / Tiber</label>
 
-      currentQuestionIndex++;
+                <br>
+                <button type="button" class="submit-btn" onclick="checkQuiz()">Verifică răspunsurile / Check Answers</button>
+            </form>
 
-      if (currentQuestionIndex < questions.length) {
-        showQuestion();
-      } else {
-        showScore();
-      }
-    }
+            <div id="quiz-result"></div>
+        </section>
+    </main>
 
-    function showScore() {
-      document.getElementById("quiz-section").style.display = "none";
-      document.getElementById("score-section").style.display = "block";
-      document.getElementById("final-score").innerText = "🏆 Joc terminat! Scorul tău: " + score + " din " + questions.length;
-    }
+    <script>
+        function setLanguage(lang) {
+            const roElements = document.querySelectorAll('.lang-ro');
+            const enElements = document.querySelectorAll('.lang-en');
+            const subtitle = document.getElementById('subtitle');
 
-    function restartQuiz() {
-      startQuiz();
-    }
-
-    // Pornește quiz-ul când se încarcă pagina
-    startQuiz();
-  </script>
-
-</body>
-</html>
+            if (lang === 'en') {
+                roElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display
