@@ -1,295 +1,885 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Istorie Universală - Ciora Maria Sofia</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #d4af37;
-            --bg: #f4f7f6;
-            --card-bg: #ffffff;
-            --text: #333333;
-            --accent: #c0392b;
-        }
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            line-height: 1.6;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-        }
-        header {
-            background-color: var(--primary);
-            color: var(--secondary);
-            text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 5px solid var(--secondary);
-        }
-        .site-logo {
-            max-width: 150px;
-            height: auto;
-            border-radius: 50%;
-            border: 3px solid var(--secondary);
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        h1 { margin: 0; font-size: 2.5rem; }
-        #subtitle { margin: 5px 0 0; font-size: 1.2rem; font-style: italic; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .lang-btn-container {
-            text-align: center;
-            padding: 15px;
-            background-color: #eaeaea;
-        }
-        .lang-btn {
-            background: var(--card-bg);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 25px;
-            margin: 0 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        .lang-btn:hover, .lang-btn.active {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
+<title>CIORA MARIA SOFIA | Istorie</title>
 
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            padding-bottom: 40px;
-        }
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-        .war-title { color: var(--accent); border-bottom-color: var(--accent); }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
-        .lesson-card {
-            background: var(--card-bg);
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .lesson-card:hover { transform: translateY(-5px); }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        .lesson-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-        }
+body{
+    background:#080b10;
+    color:#e8e4dc;
+    font-family:Inter, sans-serif;
+    line-height:1.7;
+}
 
-        .quiz-section {
-            background-color: var(--primary);
-            color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 50px;
-            border: 3px solid var(--secondary);
-        }
-        .quiz-section h2 { color: var(--secondary); border-bottom-color: var(--secondary); }
-        .quiz-option {
-            display: block;
-            margin: 15px 0;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .quiz-option:hover { background: rgba(255,255,255,0.2); }
-        input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
+header{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    background:
+        radial-gradient(circle at center,#202733 0%,#0b0f15 45%,#05070a 100%);
+}
 
-        .submit-btn {
-            background: var(--secondary);
-            color: #000;
-            border: none;
-            padding: 12px 24px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            width: 100%;
-            margin-top: 20px;
-        }
-        .submit-btn:hover { background-color: #f1c40f; }
+.hero{
+    max-width:900px;
+}
 
-        #quiz-result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 4px;
-            font-weight: bold;
-            text-align: center;
-            display: none;
-        }
+.symbol{
+    font-family:Cinzel,serif;
+    font-size:95px;
+    color:#c9a45c;
+    letter-spacing:-15px;
+    margin-bottom:20px;
+}
 
-        [lang="en"] .lang-ro { display: none; }
-        [lang="ro"] .lang-en { display: none; }
-    </style>
+.line{
+    width:160px;
+    height:1px;
+    background:#c9a45c;
+    margin:25px auto;
+}
+
+h1,h2,h3{
+    font-family:Cinzel,serif;
+}
+
+h1{
+    font-size:clamp(38px,7vw,80px);
+    letter-spacing:5px;
+    color:#d8b66c;
+}
+
+.subtitle{
+    color:#aaa;
+    font-size:18px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    font-family:Inter,sans-serif;
+}
+
+.enter{
+    margin-top:40px;
+    padding:15px 35px;
+    background:transparent;
+    border:1px solid #c9a45c;
+    color:#d8b66c;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.enter:hover{
+    background:#c9a45c;
+    color:#080b10;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:rgba(5,7,10,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #252b35;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+nav a:hover{
+    color:#d8b66c;
+}
+
+main{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:38px;
+    color:#d8b66c;
+}
+
+.section-title p{
+    color:#888;
+    margin-top:10px;
+}
+
+.lesson{
+    background:linear-gradient(145deg,#11161e,#0c1016);
+    border:1px solid #272d37;
+    padding:35px;
+    margin-bottom:35px;
+    border-radius:4px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.lesson-number{
+    color:#c9a45c;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.lesson h3{
+    font-size:29px;
+    margin:8px 0 20px;
+    color:#eee;
+}
+
+.year{
+    display:inline-block;
+    border-left:3px solid #c9a45c;
+    padding-left:12px;
+    color:#d8b66c;
+    font-weight:600;
+    margin:15px 0;
+}
+
+.lesson p{
+    color:#b8bbc0;
+}
+
+.fact{
+    margin-top:20px;
+    padding:18px;
+    background:#0a0d12;
+    border:1px solid #242a33;
+    color:#c8c8c8;
+}
+
+.timeline{
+    border-left:1px solid #c9a45c;
+    padding-left:30px;
+}
+
+.timeline-item{
+    margin-bottom:30px;
+}
+
+.timeline-item strong{
+    color:#d8b66c;
+}
+
+#quiz{
+    margin-top:100px;
+}
+
+.question{
+    background:#10151c;
+    border:1px solid #292f38;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.question h3{
+    font-family:Inter,sans-serif;
+    font-size:17px;
+    margin-bottom:15px;
+    color:#eee;
+}
+
+.option{
+    display:block;
+    padding:12px;
+    margin:7px 0;
+    border:1px solid #282e37;
+    cursor:pointer;
+    color:#aaa;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#c9a45c;
+    color:#fff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+#submitQuiz{
+    display:block;
+    margin:40px auto 20px;
+    padding:16px 40px;
+    background:#c9a45c;
+    color:#080b10;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+#result{
+    text-align:center;
+    font-family:Cinzel,serif;
+    font-size:28px;
+    color:#d8b66c;
+    margin-top:30px;
+}
+
+footer{
+    text-align:center;
+    padding:60px 20px;
+    border-top:1px solid #252b35;
+    color:#666;
+}
+
+footer strong{
+    color:#c9a45c;
+}
+
+.lang{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:20;
+}
+
+.lang button{
+    padding:10px 18px;
+    background:#151a21;
+    border:1px solid #c9a45c;
+    color:#d8b66c;
+}
+
+@media(max-width:600px){
+    .symbol{
+        font-size:65px;
+    }
+
+    .lesson{
+        padding:25px 20px;
+    }
+
+    nav{
+        gap:12px;
+    }
+}
+</style>
 </head>
-<body lang="ro">
 
-    <header>
-        <img src="watermarked_img_4572207863756392785.png" alt="Logo CMS Ciora Maria Sofia" class="site-logo">
-        
-        <h1 class="lang-ro">Călătorie prin Istorie</h1>
-        <h1 class="lang-en">Journey Through History</h1>
-        
-        <p id="subtitle" class="lang-ro">De la Antichitate la Marile Războaie</p>
-        <p id="subtitle" class="lang-en">From Antiquity to the Great Wars</p>
-    </header>
+<body>
 
-    <div class="lang-btn-container">
-        <button id="btn-ro" class="lang-btn active" onclick="setLanguage('ro')">Română</button>
-        <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
+<header id="home">
+
+    <div class="hero">
+
+        <div class="symbol">CMS</div>
+
+        <div class="line"></div>
+
+        <h1>CIORA MARIA SOFIA</h1>
+
+        <p class="subtitle">
+            Istorie • History • Civilizație • Civilization
+        </p>
+
+        <div class="line"></div>
+
+        <p style="color:#999;max-width:650px;margin:auto;">
+            O călătorie cronologică prin lumea Greciei antice,
+            Imperiul Roman, războaiele daco-romane și Primul Război Mondial.
+        </p>
+
+        <a href="#lectii">
+            <button class="enter">ÎNCEPE STUDIUL</button>
+        </a>
+
     </div>
 
-    <main>
-        
-        <!-- SECȚIUNEA 1: ANTICHITATE -->
-        <h2 class="lang-ro">🏛️ Epoca Antică (cca. 3000 î.Hr. – 476 d.Hr.)</h2>
-        <h2 class="lang-en">🏛️ The Ancient Era (c. 3000 BC – 476 AD)</h2>
+</header>
 
-        <!-- Lectia 1: Egipt -->
-        <article class="lesson-card">
-            <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=800&auto=format&fit=crop" alt="Piramidele din Egipt" class="lesson-image">
-            
-            <h3 class="lang-ro">Egiptul Antic (cca. 3100 î.Hr. – 30 î.Hr.)</h3>
-            <h3 class="lang-en">Ancient Egypt (c. 3100 BC – 30 BC)</h3>
-            
-            <p class="lang-ro">Civilizația egipteană a înflorit datorită fluviului Nil, care oferea pământ fertil. Au construit piramide impunătoare ca morminte pentru faraoni, au creat scrierea hieroglifică și au avut cunoștințe avansate de medicină și astronomie.</p>
-            <p class="lang-en">Egyptian civilization flourished thanks to the Nile River, which provided fertile land. They built imposing pyramids as tombs for pharaohs, created hieroglyphic writing, and had advanced knowledge of medicine and astronomy.</p>
-        </article>
 
-        <!-- Lectia 2: Roma -->
-        <article class="lesson-card">
-            <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=800&auto=format&fit=crop" alt="Colosseumul din Roma" class="lesson-image">
-            
-            <h3 class="lang-ro">Imperiul Roman (753 î.Hr. – 476 d.Hr.)</h3>
-            <h3 class="lang-en">The Roman Empire (753 BC – 476 AD)</h3>
-            
-            <p class="lang-ro">Fondată în 753 î.Hr., Roma a pornit ca un mic oraș și a ajuns un imperiu vast ce înconjura Marea Mediterană. Romanii au fost maeștri în inginerie (drumuri, apeducte), organizare militară și au pus bazele sistemului de drept modern.</p>
-            <p class="lang-en">Founded in 753 BC, Rome started as a small city and became a vast empire surrounding the Mediterranean Sea. The Romans were masters of engineering (roads, aqueducts), military organization, and laid the foundations of the modern legal system.</p>
-        </article>
+<nav>
+    <a href="#lectii">LECȚII</a>
+    <a href="#cronologie">CRONOLOGIE</a>
+    <a href="#quiz">QUIZ</a>
+</nav>
 
-        <!-- SECȚIUNEA 2: RĂZBOAIELE MONDIALE -->
-        <h2 class="war-title lang-ro">⚔️ Marile Războaie Mondiale</h2>
-        <h2 class="war-title lang-en">⚔️ The Great World Wars</h2>
 
-        <!-- Lectia 3: WWI -->
-        <article class="lesson-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cheshire_Regiment_trench_Somme_1916.jpg/800px-Cheshire_Regiment_trench_Somme_1916.jpg" alt="Tranșee din WWI" class="lesson-image">
-            
-            <h3 class="lang-ro">Primul Război Mondial (1914 – 1918)</h3>
-            <h3 class="lang-en">World War I (1914 – 1918)</h3>
-            
-            <p class="lang-ro">Cunoscut și ca "Marele Război", a durat din 1914 până în 1918 și a fost un conflict global devastator. S-a caracterizat prin războiul de tranșee, folosirea pentru prima dată a tancurilor, avioanelor de luptă și a gazelor toxice.</p>
-            <p class="lang-en">Also known as the "Great War," it lasted from 1914 to 1918 and was a devastating global conflict. It was characterized by trench warfare, the first use of tanks, fighter planes, and toxic gases.</p>
-        </article>
+<main>
 
-        <!-- Lectia 4: WWII -->
-        <article class="lesson-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/T-34_in_Berlin.jpg/800px-T-34_in_Berlin.jpg" alt="Tanc sovietic în Berlin" class="lesson-image">
-            
-            <h3 class="lang-ro">Al Doilea Război Mondial (1939 – 1945)</h3>
-            <h3 class="lang-en">World War II (1939 – 1945)</h3>
-            
-            <p class="lang-ro">Desfășurat între 1939 și 1945, a fost cel mai mare și distructiv conflict din istoria omenirii, implicând direct peste 100 de milioane de oameni. A inclus Holocaustul și folosirea armelor nucleare, încheindu-se cu victoria Aliaților.</p>
-            <p class="lang-en">Taking place between 1939 and 1945, it was the largest and most destructive conflict in human history, directly involving over 100 million people. It included the Holocaust and the use of nuclear weapons, ending with the Allied victory.</p>
-        </article>
+<section id="lectii">
 
-        <!-- SECȚIUNEA 3: QUIZ -->
-        <section class="quiz-section">
-            <h2 class="lang-ro">🧠 Quiz Interactiv de Istorie</h2>
-            <h2 class="lang-en">🧠 Interactive History Quiz</h2>
-            
-            <form id="quizForm">
-                <div class="question">
-                    <p class="lang-ro"><b>1. Ce fluviu a fost vital pentru Egiptul Antic?</b></p>
-                    <p class="lang-en"><b>1. Which river was vital for Ancient Egypt?</b></p>
-                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> <span class="lang-ro">Tibrul</span><span class="lang-en">Tiber</span></label>
-                    <label class="quiz-option"><input type="radio" name="q1" value="correct"> <span class="lang-ro">Nilul</span><span class="lang-en">Nile</span></label>
-                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> <span class="lang-ro">Dunărea</span><span class="lang-en">Danube</span></label>
-                </div>
+<div class="section-title">
+    <h2>LECȚII DE ISTORIE</h2>
+    <p>History Lessons</p>
+</div>
 
-                <div class="question">
-                    <p class="lang-ro"><b>2. În ce an s-a încheiat Al Doilea Război Mondial?</b></p>
-                    <p class="lang-en"><b>2. In which year did World War II end?</b></p>
-                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> 1918</label>
-                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> 1939</label>
-                    <label class="quiz-option"><input type="radio" name="q2" value="correct"> 1945</label>
-                </div>
 
-                <button type="button" class="submit-btn lang-ro" onclick="checkQuiz()">Verifică Răspunsurile</button>
-                <button type="button" class="submit-btn lang-en" onclick="checkQuiz()">Check Answers</button>
-            </form>
+<!-- GRECIA -->
 
-            <div id="quiz-result"></div>
-        </section>
+<article class="lesson">
 
-    </main>
+<div class="lesson-number">01 • ANTIQUITATE</div>
 
-    <script>
-        function setLanguage(lang) {
-            document.body.setAttribute('lang', lang);
-            document.getElementById('btn-ro').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
-            
-            if (lang === 'ro') {
-                document.getElementById('btn-ro').classList.add('active');
-            } else {
-                document.getElementById('btn-en').classList.add('active');
-            }
-            document.getElementById('quiz-result').style.display = 'none';
+<h3>Grecia Antică / Ancient Greece</h3>
+
+<div class="year">c. 800–500 î.Hr. — Formarea polisurilor</div>
+
+<p>
+Grecia antică nu a fost un singur stat, ci o lume formată din
+numeroase polisuri. Atena și Sparta au devenit două dintre cele
+mai importante centre politice și militare.
+</p>
+
+<div class="year">594 î.Hr. — Reformele lui Solon</div>
+
+<p>
+Solon a inițiat reforme importante la Atena, contribuind la
+transformarea vieții politice ateniene.
+</p>
+
+<div class="year">490 î.Hr. — Maraton</div>
+
+<p>
+Atenienii au învins armata persană la Maraton, unul dintre
+momentele importante ale războaielor medice.
+</p>
+
+<div class="year">480 î.Hr. — Termopile și Salamina</div>
+
+<p>
+Conflictul dintre lumea greacă și Imperiul Persan a continuat.
+Bătălia navală de la Salamina a fost o victorie importantă
+pentru greci.
+</p>
+
+<div class="year">431–404 î.Hr. — Războiul peloponesiac</div>
+
+<p>
+Atena și Sparta au intrat într-un conflict îndelungat care a
+schimbat echilibrul politic al lumii grecești.
+</p>
+
+<div class="year">336–323 î.Hr. — Alexandru cel Mare</div>
+
+<p>
+Alexandru al Macedoniei a creat unul dintre cele mai vaste
+imperii ale Antichității, răspândind cultura elenistică
+într-un teritoriu uriaș.
+</p>
+
+<div class="fact">
+<strong>Idee istorică:</strong>
+Grecia antică a influențat profund politica, filosofia,
+știința, arta și cultura europeană.
+</div>
+
+</article>
+
+
+<!-- ROMA -->
+
+<article class="lesson">
+
+<div class="lesson-number">02 • ROMA</div>
+
+<h3>Republica și Imperiul Roman / Roman Republic & Empire</h3>
+
+<div class="year">509 î.Hr. — Republica Romană</div>
+
+<p>
+Tradițional, anul 509 î.Hr. este asociat cu înlăturarea
+monarhiei și începutul Republicii Romane.
+</p>
+
+<div class="year">264–146 î.Hr. — Războaiele punice</div>
+
+<p>
+Roma și Cartagina s-au confruntat în trei mari războaie.
+Victoria Romei a transformat-o în principala putere a
+Mediteranei occidentale.
+</p>
+
+<div class="year">44 î.Hr. — Asasinarea lui Caesar</div>
+
+<p>
+Moartea lui Iulius Caesar a accelerat criza Republicii Romane
+și lupta pentru putere.
+</p>
+
+<div class="year">27 î.Hr. — Începutul Imperiului</div>
+
+<p>
+Octavian Augustus a devenit primul împărat roman.
+Această perioadă marchează începutul Principatului.
+</p>
+
+<div class="year">117 d.Hr. — Apogeul teritorial</div>
+
+<p>
+În timpul lui Traian, Imperiul Roman a atins una dintre cele
+mai mari întinderi teritoriale ale sale.
+</p>
+
+<div class="year">284–305 — Dioclețian</div>
+
+<p>
+Dioclețian a reorganizat profund administrația și conducerea
+Imperiului.
+</p>
+
+<div class="year">395 — Divizarea administrativă definitivă</div>
+
+<p>
+Imperiul a fost administrat în două mari zone:
+Imperiul Roman de Apus și Imperiul Roman de Răsărit.
+</p>
+
+<div class="year">476 — Căderea Imperiului Roman de Apus</div>
+
+<p>
+Depunerea lui Romulus Augustulus este considerată în mod
+tradițional sfârșitul Imperiului Roman de Apus.
+</p>
+
+</article>
+
+
+<!-- DACII -->
+
+<article class="lesson">
+
+<div class="lesson-number">03 • DACIA ȘI ROMA</div>
+
+<h3>Războaiele Daco-Romane / Dacian Wars</h3>
+
+<div class="year">85–89 d.Hr. — Conflictele cu Domitian</div>
+
+<p>
+Dacia și Roma au intrat într-o serie de confruntări la
+Dunărea de Jos. Conflictul s-a încheiat printr-o pace
+în timpul lui Domitian.
+</p>
+
+<div class="year">101–102 d.Hr. — Primul Război Dacic al lui Traian</div>
+
+<p>
+Împăratul Traian a început ofensiva împotriva regatului
+dac condus de Decebal. Luptele au fost dificile, iar
+Decebal a acceptat condițiile de pace.
+</p>
+
+<div class="year">105–106 d.Hr. — Al Doilea Război Dacic</div>
+
+<p>
+Conflictul a fost reluat. Armata romană a înaintat spre
+centrul regatului dac și a cucerit Sarmizegetusa.
+</p>
+
+<div class="year">106 d.Hr. — Dacia devine provincie romană</div>
+
+<p>
+O parte importantă a regatului dac a fost transformată
+în provincie romană.
+</p>
+
+<div class="fact">
+<strong>Surse istorice:</strong>
+Războaiele lui Traian sunt reprezentate în special pe
+Columna lui Traian, iar informațiile literare păstrate
+sunt fragmentare. 1
+</div>
+
+</article>
+
+
+<!-- PRIMUL RAZBOI MONDIAL -->
+
+<article class="lesson">
+
+<div class="lesson-number">04 • EPOCA MODERNĂ</div>
+
+<h3>Primul Război Mondial / First World War</h3>
+
+<div class="year">1914 — Începutul războiului</div>
+
+<p>
+Asasinarea arhiducelui Franz Ferdinand la Sarajevo a
+declanșat criza diplomatică ce a dus la izbucnirea
+Primului Război Mondial.
+</p>
+
+<div class="year">1914–1918 — Marele Război</div>
+
+<p>
+Conflictul a implicat marile puteri europene și aliații lor,
+transformându-se într-un război de proporții mondiale.
+</p>
+
+<div class="year">1916 — România intră în război</div>
+
+<p>
+România a intrat în conflict de partea Antantei.
+Campania din 1916 a dus la retragerea armatei române
+în Moldova.
+</p>
+
+<div class="year">1917 — Mărăști, Mărășești și Oituz</div>
+
+<p>
+Armata română a rezistat în marile bătălii din vara anului
+1917.
+</p>
+
+<div class="year">1918 — Sfârșitul războiului</div>
+
+<p>
+Primul Război Mondial s-a încheiat în noiembrie 1918,
+iar Europa a intrat într-o perioadă de transformări
+politice majore.
+</p>
+
+</article>
+
+
+<!-- CRONOLOGIE -->
+
+<section id="cronologie">
+
+<div class="section-title">
+    <h2>MAREA CRONOLOGIE</h2>
+    <p>The Historical Timeline</p>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<strong>594 î.Hr.</strong> — Reformele lui Solon
+</div>
+
+<div class="timeline-item">
+<strong>490 î.Hr.</strong> — Bătălia de la Maraton
+</div>
+
+<div class="timeline-item">
+<strong>480 î.Hr.</strong> — Termopile și Salamina
+</div>
+
+<div class="timeline-item">
+<strong>431–404 î.Hr.</strong> — Războiul peloponesiac
+</div>
+
+<div class="timeline-item">
+<strong>509 î.Hr.</strong> — Republica Romană
+</div>
+
+<div class="timeline-item">
+<strong>27 î.Hr.</strong> — Augustus și începutul Imperiului
+</div>
+
+<div class="timeline-item">
+<strong>101–102 d.Hr.</strong> — Primul război dacic
+</div>
+
+<div class="timeline-item">
+<strong>105–106 d.Hr.</strong> — Al Doilea război dacic
+</div>
+
+<div class="timeline-item">
+<strong>106 d.Hr.</strong> — Dacia devine provincie romană
+</div>
+
+<div class="timeline-item">
+<strong>476</strong> — Căderea Imperiului Roman de Apus
+</div>
+
+<div class="timeline-item">
+<strong>1914</strong> — Începutul Primului Război Mondial
+</div>
+
+<div class="timeline-item">
+<strong>1916</strong> — România intră în Primul Război Mondial
+</div>
+
+<div class="timeline-item">
+<strong>1918</strong> — Sfârșitul Primului Război Mondial
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quiz">
+
+<div class="section-title">
+    <h2>QUIZ FINAL</h2>
+    <p>19 Questions • 19 Întrebări</p>
+</div>
+
+<div id="quizContainer"></div>
+
+<button id="submitQuiz" onclick="checkQuiz()">
+    VERIFICĂ TESTUL
+</button>
+
+<div id="result"></div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>
+CIORA MARIA SOFIA
+</p>
+
+<p>
+<strong>HISTORY • ISTORIE</strong>
+</p>
+
+<p style="margin-top:15px;">
+Study the past. Understand the present.
+</p>
+
+</footer>
+
+
+<script>
+
+const questions = [
+
+{
+q:"1. În ce an este asociat începutul Republicii Romane?",
+a:["753 î.Hr.","509 î.Hr.","27 î.Hr.","476"],
+correct:1
+},
+
+{
+q:"2. În ce an a avut loc bătălia de la Maraton?",
+a:["490 î.Hr.","480 î.Hr.","404 î.Hr.","336 î.Hr."],
+correct:0
+},
+
+{
+q:"3. Care polis era cunoscut pentru sistemul său militar?",
+a:["Atena","Corint","Sparta","Milet"],
+correct:2
+},
+
+{
+q:"4. Cine a devenit primul împărat roman?",
+a:["Iulius Caesar","Nero","Augustus","Traian"],
+correct:2
+},
+
+{
+q:"5. În ce an este plasat începutul Imperiului Roman sub Augustus?",
+a:["44 î.Hr.","31 î.Hr.","27 î.Hr.","14 d.Hr."],
+correct:2
+},
+
+{
+q:"6. Câte războaie punice au existat?",
+a:["Două","Trei","Patru","Cinci"],
+correct:1
+},
+
+{
+q:"7. Cine a fost adversarul principal al Romei în războaiele punice?",
+a:["Egiptul","Persia","Cartagina","Dacia"],
+correct:2
+},
+
+{
+q:"8. Cine conducea Dacia în timpul războaielor lui Traian?",
+a:["Burebista","Decebal","Dromihete","Cotiso"],
+correct:1
+},
+
+{
+q:"9. Când a avut loc primul război dacic al lui Traian?",
+a:["85–89","101–102","105–106","117–120"],
+correct:1
+},
+
+{
+q:"10. Când a avut loc al doilea război dacic al lui Traian?",
+a:["98–99","101–102","105–106","106–109"],
+correct:2
+},
+
+{
+q:"11. Ce s-a întâmplat în 106 d.Hr.?",
+a:["Roma a fost fondată","Dacia a fost cucerită de Traian","A murit Augustus","A început Republica"],
+correct:1
+},
+
+{
+q:"12. Ce oraș era centrul politic al regatului dac?",
+a:["Sarmizegetusa Regia","Tomis","Apulum","Napoca"],
+correct:0
+},
+
+{
+q:"13. În ce an este considerată tradițional căderea Imperiului Roman de Apus?",
+a:["395","410","476","527"],
+correct:2
+},
+
+{
+q:"14. Care împărat a reorganizat profund Imperiul în timpul Tetrarhiei?",
+a:["Traian","Dioclețian","Constantin","Hadrian"],
+correct:1
+},
+
+{
+q:"15. În ce an a început Primul Război Mondial?",
+a:["1905","1912","1914","1916"],
+correct:2
+},
+
+{
+q:"16. Care eveniment a declanșat criza din 1914?",
+a:["Invazia Poloniei","Asasinarea lui Franz Ferdinand","Revoluția Rusă","Tratatul de la Versailles"],
+correct:1
+},
+
+{
+q:"17. În ce an a intrat România în Primul Război Mondial?",
+a:["1914","1915","1916","1918"],
+correct:2
+},
+
+{
+q:"18. Care sunt cele trei mari bătălii defensive românești din vara lui 1917?",
+a:["Mărăști, Mărășești și Oituz",
+"Posada, Călugăreni și Rovine",
+"Maraton, Salamina și Termopile",
+"Tapae, Adamclisi și Sarmizegetusa"],
+correct:0
+},
+
+{
+q:"19. În ce an s-a încheiat Primul Război Mondial?",
+a:["1916","1917","1918","1919"],
+correct:2
+}
+
+];
+
+
+const quizContainer =
+document.getElementById("quizContainer");
+
+
+questions.forEach((item,index)=>{
+
+    let html = `
+    <div class="question">
+        <h3>${item.q}</h3>
+    `;
+
+    item.a.forEach((answer,i)=>{
+
+        html += `
+        <label class="option">
+            <input type="radio"
+                   name="q${index}"
+                   value="${i}">
+            ${answer}
+        </label>
+        `;
+
+    });
+
+    html += `</div>`;
+
+    quizContainer.innerHTML += html;
+
+});
+
+
+function checkQuiz(){
+
+    let score=0;
+
+    questions.forEach((question,index)=>{
+
+        const selected =
+        document.querySelector(
+            `input[name="q${index}"]:checked`
+        );
+
+        if(selected &&
+           Number(selected.value) === question.correct){
+
+            score++;
         }
 
-        function checkQuiz() {
-            const currentLang = document.body.getAttribute('lang');
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            const resultDiv = document.getElementById('quiz-result');
+    });
 
-            const msgEmpty = currentLang === 'ro' ? '⚠️ Te rog răspunde la toate întrebările!' : '⚠️ Please answer all questions!';
-            const msgPerfect = currentLang === 'ro' ? '🎉 Felicitări! Ai răspuns corect la ambele întrebări!' : '🎉 Congratulations! You answered both questions correctly!';
-            const msgTryAgain = currentLang === 'ro' ? '❌ Ai greșit una sau mai multe întrebări. Mai încearcă o dată!' : '❌ You missed one or more questions. Try again!';
 
-            resultDiv.style.display = 'block';
-            resultDiv.style.backgroundColor = '#f8d7da';
-            resultDiv.style.color = '#721c24';
+    let result =
+    document.getElementById("result");
 
-            if (!q1 || !q2) {
-                resultDiv.innerText = msgEmpty;
-                resultDiv.style.color = '#856404';
-                resultDiv.style.backgroundColor = '#fff3cd';
-                return;
-            }
 
-            let score = 0;
-            if (q1.value === 'correct') score++;
-            if (q2.value === 'correct') score++;
+    let message="";
 
-            if (score === 2) {
-                resultDiv.innerText = msgPerfect;
-                resultDiv.style.backgroundColor = '#d4edda';
-                resultDiv.style.color = '#155724';
-            } else {
-                resultDiv.innerText = msgTryAgain;
-            }
-        }
-    </script>
+
+    if(score===19){
+        message="EXCEPȚIONAL — 19/19. Nivel de cercetător.";
+    }
+    else if(score>=16){
+        message="FOARTE BINE — cunoștințe istorice excelente.";
+    }
+    else if(score>=13){
+        message="BINE — baza istorică este solidă.";
+    }
+    else if(score>=10){
+        message="CORECT — mai este loc pentru aprofundare.";
+    }
+    else{
+        message="Continuă studiul. Istoria se construiește pas cu pas.";
+    }
+
+
+    result.innerHTML =
+    `SCOR: ${score}/19<br>
+     <span style="font-family:Inter;font-size:16px;color:#aaa;">
+     ${message}
+     </span>`;
+
+}
+
+</script>
+
 </body>
-</html>
+    </html>
 
