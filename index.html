@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia Antiqua - Lecții de Istorie</title>
+    <title>Istorie Universală - Ciora Maria Sofia</title>
     <style>
         :root {
-            --primary: #8b0000;
+            --primary: #2c3e50;
             --secondary: #d4af37;
-            --bg: #fdfbf7;
+            --bg: #f4f7f6;
             --card-bg: #ffffff;
-            --text: #2c2c2c;
+            --text: #333333;
+            --accent: #c0392b;
         }
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Times New Roman', Times, serif;
             line-height: 1.6;
             margin: 0;
             background-color: var(--bg);
@@ -24,142 +25,271 @@
             color: var(--secondary);
             text-align: center;
             padding: 2rem 1rem;
-            border-bottom: 4px solid var(--secondary);
+            border-bottom: 5px solid var(--secondary);
         }
-        .latin-banner {
-            font-style: italic;
-            background-color: #5a0000;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            font-size: 1.1rem;
+        .site-logo {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid var(--secondary);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
+        h1 { margin: 0; font-size: 2.5rem; }
+        #subtitle { margin: 5px 0 0; font-size: 1.2rem; font-style: italic; }
+
         .lang-btn-container {
             text-align: center;
-            margin: 15px 0;
+            padding: 15px;
+            background-color: #eaeaea;
         }
         .lang-btn {
+            background: var(--card-bg);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 25px;
+            margin: 0 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            padding-bottom: 40px;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .war-title { color: var(--accent); border-bottom-color: var(--accent); }
+
+        .lesson-card {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .lesson-card:hover { transform: translateY(-5px); }
+
+        .lesson-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .quiz-section {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            border: 3px solid var(--secondary);
+        }
+        .quiz-section h2 { color: var(--secondary); border-bottom-color: var(--secondary); }
+        .quiz-option {
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .quiz-option:hover { background: rgba(255,255,255,0.2); }
+        input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
+
+        .submit-btn {
             background: var(--secondary);
             color: #000;
             border: none;
-            padding: 8px 16px;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1.1rem;
             font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            margin: 0 5px;
+            width: 100%;
+            margin-top: 20px;
         }
-        main {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        .lesson-card {
-            background: var(--card-bg);
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            border-left: 6px solid var(--secondary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        .quiz-section {
-            background: #f4efe6;
-            padding: 25px;
-            border-radius: 8px;
-            border: 2px solid var(--secondary);
-            margin-top: 30px;
-        }
-        .quiz-option {
-            display: block;
-            margin: 10px 0;
-            cursor: pointer;
-        }
-        .submit-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
+        .submit-btn:hover { background-color: #f1c40f; }
+
         #quiz-result {
-            margin-top: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
             font-weight: bold;
+            text-align: center;
+            display: none;
         }
+
+        [lang="en"] .lang-ro { display: none; }
+        [lang="ro"] .lang-en { display: none; }
     </style>
 </head>
-<body>
-
-    <div class="latin-banner">
-        📜 <i>"Historia est magistra vitae"</i> &nbsp;|&nbsp; <i>"Alea iacta est"</i>
-    </div>
+<body lang="ro">
 
     <header>
-        <h1>🏛️ Historia Antiqua</h1>
-        <p id="subtitle">Explorează marile civilizații ale Antichității</p>
+        <img src="watermarked_img_4572207863756392785.png" alt="Logo CMS Ciora Maria Sofia" class="site-logo">
+        
+        <h1 class="lang-ro">Călătorie prin Istorie</h1>
+        <h1 class="lang-en">Journey Through History</h1>
+        
+        <p id="subtitle" class="lang-ro">De la Antichitate la Marile Războaie</p>
+        <p id="subtitle" class="lang-en">From Antiquity to the Great Wars</p>
     </header>
 
     <div class="lang-btn-container">
-        <button class="lang-btn" onclick="setLanguage('ro')">🇷🇴 Română</button>
-        <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 English</button>
+        <button id="btn-ro" class="lang-btn active" onclick="setLanguage('ro')">Română</button>
+        <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">English</button>
     </div>
 
     <main>
+        
+        <!-- SECȚIUNEA 1: ANTICHITATE -->
+        <h2 class="lang-ro">🏛️ Epoca Antică (cca. 3000 î.Hr. – 476 d.Hr.)</h2>
+        <h2 class="lang-en">🏛️ The Ancient Era (c. 3000 BC – 476 AD)</h2>
+
+        <!-- Lectia 1: Egipt -->
         <article class="lesson-card">
-            <h2 class="lang-ro">1. Egiptul Antic: Tărâmul Faraonilor</h2>
-            <h2 class="lang-en" style="display:none;">1. Ancient Egypt: Land of the Pharaohs</h2>
+            <img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=800&auto=format&fit=crop" alt="Piramidele din Egipt" class="lesson-image">
             
-            <p class="lang-ro">Civilizația egipteană s-a dezvoltat de-a lungul fluviului Nil. Egiptenii au construit piramide gigantice ca morminte pentru faraoni, au folosit scrierea hieroglifică și au dezvoltat cunoștințe avansate de matematică și astronomie.</p>
-            <p class="lang-en" style="display:none;">Egyptian civilization developed along the Nile River. The Egyptians built gigantic pyramids as tombs for pharaohs, used hieroglyphic writing, and developed advanced knowledge of mathematics and astronomy.</p>
+            <h3 class="lang-ro">Egiptul Antic (cca. 3100 î.Hr. – 30 î.Hr.)</h3>
+            <h3 class="lang-en">Ancient Egypt (c. 3100 BC – 30 BC)</h3>
+            
+            <p class="lang-ro">Civilizația egipteană a înflorit datorită fluviului Nil, care oferea pământ fertil. Au construit piramide impunătoare ca morminte pentru faraoni, au creat scrierea hieroglifică și au avut cunoștințe avansate de medicină și astronomie.</p>
+            <p class="lang-en">Egyptian civilization flourished thanks to the Nile River, which provided fertile land. They built imposing pyramids as tombs for pharaohs, created hieroglyphic writing, and had advanced knowledge of medicine and astronomy.</p>
         </article>
 
+        <!-- Lectia 2: Roma -->
         <article class="lesson-card">
-            <h2 class="lang-ro">2. Grecia Antică: Leagănul Democrației</h2>
-            <h2 class="lang-en" style="display:none;">2. Ancient Greece: Cradle of Democracy</h2>
+            <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=800&auto=format&fit=crop" alt="Colosseumul din Roma" class="lesson-image">
             
-            <p class="lang-ro">Grecii au creat orașe-state (polisuri) precum Atena și Sparta. În Atena a apărut prima democrație din lume. Grecii au pus bazele filozofiei, teatrului și au organizat primele Jocuri Olimpice.</p>
-            <p class="lang-en" style="display:none;">The Greeks created city-states (poleis) such as Athens and Sparta. The world's first democracy emerged in Athens. The Greeks laid the foundations of philosophy, theater, and organized the first Olympic Games.</p>
+            <h3 class="lang-ro">Imperiul Roman (753 î.Hr. – 476 d.Hr.)</h3>
+            <h3 class="lang-en">The Roman Empire (753 BC – 476 AD)</h3>
+            
+            <p class="lang-ro">Fondată în 753 î.Hr., Roma a pornit ca un mic oraș și a ajuns un imperiu vast ce înconjura Marea Mediterană. Romanii au fost maeștri în inginerie (drumuri, apeducte), organizare militară și au pus bazele sistemului de drept modern.</p>
+            <p class="lang-en">Founded in 753 BC, Rome started as a small city and became a vast empire surrounding the Mediterranean Sea. The Romans were masters of engineering (roads, aqueducts), military organization, and laid the foundations of the modern legal system.</p>
         </article>
 
+        <!-- SECȚIUNEA 2: RĂZBOAIELE MONDIALE -->
+        <h2 class="war-title lang-ro">⚔️ Marile Războaie Mondiale</h2>
+        <h2 class="war-title lang-en">⚔️ The Great World Wars</h2>
+
+        <!-- Lectia 3: WWI -->
         <article class="lesson-card">
-            <h2 class="lang-ro">3. Imperiul Roman: Puterea Legiunilor</h2>
-            <h2 class="lang-en" style="display:none;">3. The Roman Empire: Power of the Legions</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cheshire_Regiment_trench_Somme_1916.jpg/800px-Cheshire_Regiment_trench_Somme_1916.jpg" alt="Tranșee din WWI" class="lesson-image">
             
-            <p class="lang-ro">Pornind de la un mic sat de pe râul Tibru, Roma a devenit un imperiu vast ce cuprindea întreaga Mare Mediterană. Romanii au fost maeștri în construcții (drumuri, apeducte, Colosseumul) și în drept.</p>
-            <p class="lang-en" style="display:none;">Starting from a small village on the Tiber River, Rome became a vast empire spanning the entire Mediterranean Sea. The Romans were masters of engineering (roads, aqueducts, the Colosseum) and law.</p>
+            <h3 class="lang-ro">Primul Război Mondial (1914 – 1918)</h3>
+            <h3 class="lang-en">World War I (1914 – 1918)</h3>
+            
+            <p class="lang-ro">Cunoscut și ca "Marele Război", a durat din 1914 până în 1918 și a fost un conflict global devastator. S-a caracterizat prin războiul de tranșee, folosirea pentru prima dată a tancurilor, avioanelor de luptă și a gazelor toxice.</p>
+            <p class="lang-en">Also known as the "Great War," it lasted from 1914 to 1918 and was a devastating global conflict. It was characterized by trench warfare, the first use of tanks, fighter planes, and toxic gases.</p>
         </article>
 
+        <!-- Lectia 4: WWII -->
+        <article class="lesson-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/T-34_in_Berlin.jpg/800px-T-34_in_Berlin.jpg" alt="Tanc sovietic în Berlin" class="lesson-image">
+            
+            <h3 class="lang-ro">Al Doilea Război Mondial (1939 – 1945)</h3>
+            <h3 class="lang-en">World War II (1939 – 1945)</h3>
+            
+            <p class="lang-ro">Desfășurat între 1939 și 1945, a fost cel mai mare și distructiv conflict din istoria omenirii, implicând direct peste 100 de milioane de oameni. A inclus Holocaustul și folosirea armelor nucleare, încheindu-se cu victoria Aliaților.</p>
+            <p class="lang-en">Taking place between 1939 and 1945, it was the largest and most destructive conflict in human history, directly involving over 100 million people. It included the Holocaust and the use of nuclear weapons, ending with the Allied victory.</p>
+        </article>
+
+        <!-- SECȚIUNEA 3: QUIZ -->
         <section class="quiz-section">
-            <h2 class="lang-ro">🧠 Quiz de verificare</h2>
-            <h2 class="lang-en" style="display:none;">🧠 Knowledge Check Quiz</h2>
-
+            <h2 class="lang-ro">🧠 Quiz Interactiv de Istorie</h2>
+            <h2 class="lang-en">🧠 Interactive History Quiz</h2>
+            
             <form id="quizForm">
-                <p class="lang-ro"><b>1. Unde a apărut prima democrație?</b></p>
-                <p class="lang-en" style="display:none;"><b>1. Where did the first democracy appear?</b></p>
-                <label class="quiz-option"><input type="radio" name="q1" value="wrong"> Roma / Rome</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="correct"> Atena / Athens</label>
-                <label class="quiz-option"><input type="radio" name="q1" value="wrong"> Memphis</label>
+                <div class="question">
+                    <p class="lang-ro"><b>1. Ce fluviu a fost vital pentru Egiptul Antic?</b></p>
+                    <p class="lang-en"><b>1. Which river was vital for Ancient Egypt?</b></p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> <span class="lang-ro">Tibrul</span><span class="lang-en">Tiber</span></label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="correct"> <span class="lang-ro">Nilul</span><span class="lang-en">Nile</span></label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="wrong"> <span class="lang-ro">Dunărea</span><span class="lang-en">Danube</span></label>
+                </div>
 
-                <p class="lang-ro"><b>2. Ce fluviu a susținut dezvoltarea Egiptului Antic?</b></p>
-                <p class="lang-en" style="display:none;"><b>2. Which river sustained Ancient Egypt?</b></p>
-                <label class="quiz-option"><input type="radio" name="q2" value="wrong"> Dunărea / Danube</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="correct"> Nilul / Nile</label>
-                <label class="quiz-option"><input type="radio" name="q2" value="wrong"> Tibrul / Tiber</label>
+                <div class="question">
+                    <p class="lang-ro"><b>2. În ce an s-a încheiat Al Doilea Război Mondial?</b></p>
+                    <p class="lang-en"><b>2. In which year did World War II end?</b></p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> 1918</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="wrong"> 1939</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="correct"> 1945</label>
+                </div>
 
-                <br>
-                <button type="button" class="submit-btn" onclick="checkQuiz()">Verifică răspunsurile / Check Answers</button>
+                <button type="button" class="submit-btn lang-ro" onclick="checkQuiz()">Verifică Răspunsurile</button>
+                <button type="button" class="submit-btn lang-en" onclick="checkQuiz()">Check Answers</button>
             </form>
 
             <div id="quiz-result"></div>
         </section>
+
     </main>
 
     <script>
         function setLanguage(lang) {
-            const roElements = document.querySelectorAll('.lang-ro');
-            const enElements = document.querySelectorAll('.lang-en');
-            const subtitle = document.getElementById('subtitle');
+            document.body.setAttribute('lang', lang);
+            document.getElementById('btn-ro').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            
+            if (lang === 'ro') {
+                document.getElementById('btn-ro').classList.add('active');
+            } else {
+                document.getElementById('btn-en').classList.add('active');
+            }
+            document.getElementById('quiz-result').style.display = 'none';
+        }
 
-            if (lang === 'en') {
-                roElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display
+        function checkQuiz() {
+            const currentLang = document.body.getAttribute('lang');
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const resultDiv = document.getElementById('quiz-result');
+
+            const msgEmpty = currentLang === 'ro' ? '⚠️ Te rog răspunde la toate întrebările!' : '⚠️ Please answer all questions!';
+            const msgPerfect = currentLang === 'ro' ? '🎉 Felicitări! Ai răspuns corect la ambele întrebări!' : '🎉 Congratulations! You answered both questions correctly!';
+            const msgTryAgain = currentLang === 'ro' ? '❌ Ai greșit una sau mai multe întrebări. Mai încearcă o dată!' : '❌ You missed one or more questions. Try again!';
+
+            resultDiv.style.display = 'block';
+            resultDiv.style.backgroundColor = '#f8d7da';
+            resultDiv.style.color = '#721c24';
+
+            if (!q1 || !q2) {
+                resultDiv.innerText = msgEmpty;
+                resultDiv.style.color = '#856404';
+                resultDiv.style.backgroundColor = '#fff3cd';
+                return;
+            }
+
+            let score = 0;
+            if (q1.value === 'correct') score++;
+            if (q2.value === 'correct') score++;
+
+            if (score === 2) {
+                resultDiv.innerText = msgPerfect;
+                resultDiv.style.backgroundColor = '#d4edda';
+                resultDiv.style.color = '#155724';
+            } else {
+                resultDiv.innerText = msgTryAgain;
+            }
+        }
+    </script>
+</body>
+</html>
+
