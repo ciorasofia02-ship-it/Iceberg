@@ -1,2345 +1,307 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Focul istoriei</title>
-
-<meta name="description"
-content="Focul istoriei — academie digitală de istorie. Lecții, cronologii, izvoare, explicații și teste.">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#080b10;
-    color:#eeeeee;
-    font-family:Georgia,"Times New Roman",serif;
-    line-height:1.7;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(7,9,13,.96);
-    border-bottom:1px solid #39301d;
-    backdrop-filter:blur(12px);
-}
-
-.navbar{
-    max-width:1200px;
-    margin:auto;
-    min-height:75px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:10px 25px;
-}
-
-.brand{
-    color:#d5b56b;
-    text-decoration:none;
-    font-size:22px;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
-.navbar nav{
-    display:flex;
-    gap:8px;
-}
-
-.navbar nav a{
-    color:#aaa;
-    text-decoration:none;
-    padding:9px 12px;
-    font-family:Arial,sans-serif;
-    font-size:14px;
-}
-
-.navbar nav a:hover{
-    color:#e1c57e;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:90vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:70px 20px;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(164,128,55,.12),
-    transparent 45%);
-}
-
-.hero-content{
-    max-width:950px;
-}
-
-.logo{
-    width:min(380px,85vw);
-    border-radius:12px;
-
-    box-shadow:
-    0 25px 70px rgba(0,0,0,.7);
-
-    margin-bottom:30px;
-}
-
-.kicker{
-    color:#d8b96b;
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-    font-weight:bold;
-
-    letter-spacing:5px;
-    text-transform:uppercase;
-}
-
-.hero h1{
-    font-size:clamp(48px,9vw,100px);
-
-    line-height:1;
-
-    margin:12px 0 25px;
-
-    letter-spacing:4px;
-
-    color:#eee;
-}
-
-.hero h1 span{
-    color:#d2ae60;
-}
-
-.hero p{
-    max-width:800px;
-
-    margin:auto;
-
-    color:#aeb4bd;
-
-    font-size:18px;
-}
-
-.hero-button{
-    display:inline-block;
-
-    margin-top:32px;
-
-    padding:13px 27px;
-
-    border:1px solid #c8a55d;
-
-    color:#ddc27d;
-
-    text-decoration:none;
-
-    font-family:Arial,sans-serif;
-
-    transition:.3s;
-}
-
-.hero-button:hover{
-    background:#17130b;
-    transform:translateY(-2px);
-}
-
-/* =========================
-   GENERAL
-========================= */
-
-section{
-    padding:75px 20px;
-}
-
-.container{
-    max-width:1150px;
-    margin:auto;
-}
-
-.section-header{
-    margin-bottom:35px;
-}
-
-.section-header .kicker{
-    margin-bottom:5px;
-}
-
-.section-header h2{
-    font-size:38px;
-    color:#eeeeee;
-}
-
-.section-header p{
-    color:#9fa7b2;
-    max-width:750px;
-}
-
-/* =========================
-   EPOCI
-========================= */
-
-.epochs{
-    display:grid;
-
-    grid-template-columns:
-    repeat(5,1fr);
-
-    gap:15px;
-}
-
-.epoch{
-    position:relative;
-
-    min-height:190px;
-
-    padding:25px;
-
-    background:
-    linear-gradient(
-    145deg,
-    #111720,
-    #0c1017
-    );
-
-    border:1px solid #29313c;
-
-    text-decoration:none;
-
-    transition:.3s;
-}
-
-.epoch:hover{
-    transform:translateY(-5px);
-
-    border-color:#a8874e;
-}
-
-.epoch::before{
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:2px;
-
-    background:#c5a25c;
-}
-
-.epoch-number{
-    color:#806c45;
-
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-}
-
-.epoch h3{
-    margin-top:12px;
-
-    color:#dfc27b;
-
-    font-size:21px;
-}
-
-.epoch p{
-    color:#969faa;
-
-    font-size:14px;
-
-    margin-top:8px;
-}
-
-/* =========================
-   LECTII
-========================= */
-
-.lesson{
-    background:#10161f;
-
-    border:1px solid #29323e;
-
-    margin-bottom:35px;
-
-    overflow:hidden;
-}
-
-.lesson-header{
-    padding:30px;
-
-    background:
-    linear-gradient(
-    110deg,
-    #151d27,
-    #0e131a
-    );
-
-    border-bottom:1px solid #303947;
-}
-
-.lesson-header small{
-    color:#c9a961;
-
-    font-family:Arial,sans-serif;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-}
-
-.lesson-header h3{
-    font-size:30px;
-
-    margin-top:7px;
-}
-
-.lesson-content{
-    padding:30px;
-}
-
-.lesson-content h4{
-    color:#d9bb70;
-
-    font-size:21px;
-
-    margin-top:25px;
-    margin-bottom:8px;
-}
-
-.lesson-content p{
-    color:#d1d6dd;
-
-    margin:9px 0;
-}
-
-.lesson-content ul{
-    color:#d1d6dd;
-
-    padding-left:25px;
-}
-
-/* =========================
-   PROFESOR
-========================= */
-
-.teacher-box{
-    margin:28px 0;
-
-    padding:22px;
-
-    background:#15130f;
-
-    border-left:3px solid #c8a55d;
-
-    border-top:1px solid #383225;
-    border-right:1px solid #383225;
-    border-bottom:1px solid #383225;
-}
-
-.teacher-box strong{
-    color:#e0c17b;
-
-    display:block;
-
-    margin-bottom:7px;
-
-    font-size:17px;
-}
-
-/* =========================
-   INFO SUPLIMENTARA
-========================= */
-
-.info-grid{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:15px;
-
-    margin-top:25px;
-}
-
-.info-card{
-    background:#151c25;
-
-    border:1px solid #29333f;
-
-    padding:20px;
-}
-
-.info-card h4{
-    color:#d6b56c;
-
-    margin-bottom:8px;
-}
-
-.info-card p{
-    color:#aab2bd;
-
-    font-size:14px;
-}
-
-/* =========================
-   TESTE
-========================= */
-
-.quiz{
-    margin-top:30px;
-
-    padding:28px;
-
-    background:#0b1017;
-
-    border:1px solid #303946;
-}
-
-.quiz h4{
-    color:#dfbf74;
-
-    margin-top:0;
-
-    font-size:23px;
-}
-
-.question{
-    padding:20px 0;
-
-    border-bottom:1px solid #252e38;
-}
-
-.question:last-child{
-    border-bottom:none;
-}
-
-.question b{
-    display:block;
-
-    margin-bottom:10px;
-}
-
-.option{
-    display:block;
-
-    color:#bfc6ce;
-
-    font-family:Arial,sans-serif;
-
-    font-size:14px;
-
-    margin:8px 0;
-
-    cursor:pointer;
-}
-
-.option input{
-    margin-right:8px;
-}
-
-.quiz button{
-    margin-top:15px;
-
-    padding:12px 20px;
-
-    border:1px solid #c6a35d;
-
-    background:#15120d;
-
-    color:#dfc17b;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-.quiz button:hover{
-    background:#211b10;
-}
-
-.result{
-    display:none;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    border-left:3px solid #c6a35d;
-
-    background:#17140f;
-
-    color:#ddd;
-}
-
-/* =========================
-   CRONOLOGIE
-========================= */
-
-.timeline{
-    border-left:2px solid #9d814b;
-
-    padding-left:30px;
-}
-
-.timeline-item{
-    position:relative;
-
-    margin-bottom:35px;
-}
-
-.timeline-item::before{
-    content:"";
-
-    position:absolute;
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#c9a75f;
-
-    left:-36px;
-    top:10px;
-}
-
-.timeline-year{
-    color:#d9b96f;
-
-    font-size:22px;
-
-    font-weight:bold;
-}
-
-.timeline-item h3{
-    font-size:21px;
-}
-
-.timeline-item p{
-    color:#aeb5bf;
-}
-
-/* =========================
-   GALERIE
-========================= */
-
-.gallery{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:18px;
-}
-
-.gallery figure{
-    margin:0;
-
-    background:#111720;
-
-    border:1px solid #29323d;
-}
-
-.gallery img{
-    width:100%;
-
-    height:220px;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-.gallery figcaption{
-    padding:14px;
-
-    color:#aeb5bd;
-
-    font-size:14px;
-}
-
-/* =========================
-   METODA ISTORICULUI
-========================= */
-
-.method{
-    background:
-    linear-gradient(
-    135deg,
-    #111720,
-    #0b1017
-    );
-
-    border-top:1px solid #3c3425;
-    border-bottom:1px solid #3c3425;
-}
-
-.method-box{
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:20px;
-}
-
-.method-card{
-    padding:25px;
-
-    border:1px solid #2c3540;
-
-    background:#10161e;
-}
-
-.method-card h3{
-    color:#d9b970;
-
-    margin-bottom:8px;
-}
-
-.method-card p{
-    color:#adb4be;
-}
-
-/* =========================
-   SURSE
-========================= */
-
-.sources{
-    display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:18px;
-}
-
-.source{
-    padding:22px;
-
-    border:1px solid #29333f;
-
-    background:#10161f;
-}
-
-.source h3{
-    color:#d8b76c;
-}
-
-.source p{
-    color:#aeb5be;
-
-    margin-top:8px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:45px 20px;
-
-    text-align:center;
-
-    border-top:1px solid #292f37;
-
-    color:#777f89;
-
-    font-family:Arial,sans-serif;
-
-    font-size:13px;
-}
-
-footer strong{
-    color:#c5a45e;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-    .epochs{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .info-grid{
-        grid-template-columns:
-        1fr;
-    }
-
-    .gallery{
-        grid-template-columns:
-        1fr 1fr;
-    }
-
-    .navbar nav{
-        display:none;
-    }
-
-}
-
-@media(max-width:600px){
-
-    .epochs,
-    .gallery,
-    .sources,
-    .method-box{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        min-height:auto;
-        padding:55px 15px;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    .lesson-content,
-    .lesson-header{
-        padding:20px;
-    }
-
-    section{
-        padding:55px 15px;
-    }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- =========================
-     NAVIGARE
-========================= -->
-
-<header>
-
-<div class="navbar">
-
-<a href="#acasa" class="brand">
-FOCUL ISTORIEI
-</a>
-
-<nav>
-<a href="#epoci">Epoci</a>
-<a href="#lectii">Lecții</a>
-<a href="#cronologie">Cronologie</a>
-<a href="#galerie">Galerie</a>
-<a href="#metoda">Istoricul</a>
-<a href="#teste">Teste</a>
-</nav>
-
-</div>
-
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero" id="acasa">
-
-<div class="hero-content">
-
-<img
-src="logo.jpg"
-alt="Logo Focul istoriei"
-class="logo"
->
-
-<div class="kicker">
-Academie digitală de istorie
-</div>
-
-<h1>
-Focul <span>istoriei</span>
-</h1>
-
-<p>
-Istoria nu înseamnă doar ani și nume.
-Înseamnă oameni, cauze, decizii,
-conflicte, idei și consecințe.
-Aici începe studiul adevărat al trecutului.
-</p>
-
-<a href="#lectii" class="hero-button">
-ÎNCEPE STUDIUL
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     EPOCI
-========================= -->
-
-<section id="epoci">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Structura cursului
-</div>
-
-<h2>Cele cinci mari epoci</h2>
-
-<p>
-O călătorie cronologică de la primele comunități
-umane până la lumea contemporană.
-</p>
-
-</div>
-
-
-<div class="epochs">
-
-<a href="#preistorie" class="epoch">
-
-<div class="epoch-number">I</div>
-
-<h3>Preistoria</h3>
-
-<p>
-Primele comunități umane,
-agricultura, sedentarizarea,
-metalurgia și apariția primelor civilizații.
-</p>
-
-</a>
-
-
-<a href="#antichitate" class="epoch">
-
-<div class="epoch-number">II</div>
-
-<h3>Antichitatea</h3>
-
-<p>
-Egipt, Grecia, Roma, Dacia,
-marile imperii și civilizațiile lumii vechi.
-</p>
-
-</a>
-
-
-<a href="#evulmediu" class="epoch">
-
-<div class="epoch-number">III</div>
-
-<h3>Evul Mediu</h3>
-
-<p>
-Bizanț, feudalism, cruciade,
-state medievale și transformarea Europei.
-</p>
-
-</a>
-
-
-<a href="#moderna" class="epoch">
-
-<div class="epoch-number">IV</div>
-
-<h3>Epoca Modernă</h3>
-
-<p>
-Renaștere, Reformă, Iluminism,
-revoluții și formarea statelor moderne.
-</p>
-
-</a>
-
-
-<a href="#contemporana" class="epoch">
-
-<div class="epoch-number">V</div>
-
-<h3>Epoca Contemporană</h3>
-
-<p>
-Războaie mondiale, comunism,
-democrație și lumea secolelor XX–XXI.
-</p>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     LECTII
-========================= -->
-
-<section id="lectii">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Cursuri
-</div>
-
-<h2>Lecții de istorie</h2>
-
-<p>
-Fiecare lecție este construită ca o oră de istorie:
-context, explicație, cronologie, întrebări și interpretare.
-</p>
-
-</div>
-
-
-<!-- PREISTORIE -->
-
-<article class="lesson" id="preistorie">
-
-<div class="lesson-header">
-
-<small>Lecția I · Preistorie</small>
-
-<h3>
-Nașterea societății umane
-</h3>
-
-</div>
-
-<div class="lesson-content">
-
-<h4>Ce este Preistoria?</h4>
-
-<p>
-Preistoria este perioada din trecutul omenirii pentru care
-nu dispunem de izvoare scrise păstrate. Pentru această perioadă,
-istoricul lucrează împreună cu arheologul și cercetătorii altor
-domenii pentru a reconstrui viața oamenilor.
-</p>
-
-<h4>Paleoliticul</h4>
-
-<p>
-În Paleolitic, oamenii trăiau în comunități mici și se ocupau
-în principal cu vânătoarea, pescuitul și culesul.
-Uneltele erau realizate în special din piatră.
-Mobilitatea era importantă deoarece oamenii urmăreau resursele
-de care depindea supraviețuirea lor.
-</p>
-
-<h4>Revoluția neolitică</h4>
-
-<p>
-Neoliticul a adus transformări profunde.
-Agricultura și creșterea animalelor au permis unor comunități
-să devină sedentare. Au apărut așezări stabile, ceramica,
-noi tipuri de unelte și forme mai complexe de organizare.
-</p>
-
-<div class="teacher-box">
-
-<strong>
-Ce ar spune profesorul la oră?
-</strong>
-
-<p>
-„Nu vreau să memorați doar definiția Neoliticului.
-Întrebați-vă de ce agricultura a schimbat societatea.
-Dacă omul începe să producă hrană, nu mai depinde în aceeași
-măsură de deplasarea după resurse. De aici apar așezările,
-specializarea muncii și schimbări sociale.”
-</p>
-
-</div>
-
-
-<div class="info-grid">
-
-<div class="info-card">
-
-<h4>Termeni</h4>
-
-<p>
-Paleolitic · Neolitic · sedentarizare · agricultură ·
-metalurgie · arheologie
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Izvoare</h4>
-
-<p>
-Unelte, ceramică, locuințe, morminte, podoabe,
-resturi animale și vegetale.
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>România</h4>
-
-<p>
-Cultura Cucuteni este una dintre cele mai importante
-culturi neolitice din Europa de Est.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- ANTICHITATE -->
-
-<article class="lesson" id="antichitate">
-
-<div class="lesson-header">
-
-<small>Lecția II · Antichitate</small>
-
-<h3>
-Grecia, Roma și Dacia
-</h3>
-
-</div>
-
-<div class="lesson-content">
-
-<h4>Lumea greacă</h4>
-
-<p>
-Grecia antică era alcătuită din numeroase polisuri,
-adică cetăți-stat independente. Atena și Sparta
-au devenit două dintre cele mai cunoscute exemple,
-dar lumea greacă era mult mai diversă.
-</p>
-
-<p>
-Atena este cunoscută pentru dezvoltarea democrației,
-în timp ce Sparta a dezvoltat o societate puternic
-orientată spre disciplina militară.
-</p>
-
-<h4>Roma</h4>
-
-<p>
-Roma a trecut prin trei mari etape politice:
-Regalitatea, Republica și Imperiul.
-Republica romană s-a bazat pe instituții precum Senatul
-și magistraturile.
-</p>
-
-<p>
-În secolul I î.Hr., conflictele politice și războaiele civile
-au contribuit la transformarea sistemului republican.
-Octavian Augustus a devenit primul împărat al Romei,
-iar în anul 27 î.Hr. începe principatul.
-</p>
-
-<h4>Dacia și Roma</h4>
-
-<p>
-În spațiul carpato-danubian s-a afirmat regatul dac.
-Burebista a reunit numeroase triburi dacice în secolul I î.Hr.,
-iar Decebal a condus Dacia în perioada confruntărilor
-cu Imperiul Roman.
-</p>
-
-<p>
-Traian a purtat două războaie împotriva dacilor:
-101–102 și 105–106. În anul 106, o parte importantă
-a regatului dac a fost transformată în provincie romană.
-</p>
-
-<div class="teacher-box">
-
-<strong>
-Ce ar spune profesorul la oră?
-</strong>
-
-<p>
-„Nu spuneți doar că Roma a cucerit Dacia.
-Un istoric întreabă de ce. Trebuie analizate poziția strategică,
-resursele, politica împăratului Traian și situația politică
-din regiune. Apoi trebuie să vedem și consecințele cuceririi.”
-</p>
-
-</div>
-
-
-<div class="info-grid">
-
-<div class="info-card">
-
-<h4>Repere cronologice</h4>
-
-<p>
-753 î.Hr. — tradițional, întemeierea Romei<br>
-44 î.Hr. — asasinarea lui Caesar<br>
-27 î.Hr. — începutul principatului<br>
-106 — cucerirea Daciei
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Personaje</h4>
-
-<p>
-Burebista · Decebal · Traian · Augustus ·
-Iulius Caesar · Pericle
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Izvoare</h4>
-
-<p>
-Inscripții, monede, monumente, cronici,
-texte antice și descoperiri arheologice.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- EV MEDIU -->
-
-<article class="lesson" id="evulmediu">
-
-<div class="lesson-header">
-
-<small>Lecția III · Evul Mediu</small>
-
-<h3>
-Europa medievală și lumea bizantină
-</h3>
-
-</div>
-
-<div class="lesson-content">
-
-<h4>Anul 476</h4>
-
-<p>
-În anul 476, împăratul roman din Occident, Romulus Augustulus,
-a fost înlăturat de Odoacru. Evenimentul este folosit
-în mod tradițional pentru marcarea sfârșitului Imperiului Roman
-de Apus.
-</p>
-
-<p>
-Important: anul 476 nu înseamnă că întreaga civilizație romană
-a dispărut într-o singură zi. Numeroase instituții, tradiții,
-limbi și forme culturale au continuat.
-</p>
-
-<h4>Imperiul Bizantin</h4>
-
-<p>
-Imperiul Roman de Răsărit a continuat să existe,
-având Constantinopolul drept centru.
-Împăratul Iustinian I a încercat să refacă unitatea
-politică a lumii romane și a realizat importante reforme juridice.
-</p>
-
-<h4>Evul Mediu românesc</h4>
-
-<p>
-În spațiul românesc s-au format și consolidat state medievale.
-Țara Românească și Moldova au avut propriile instituții,
-domnii și relații diplomatice și militare cu vecinii.
-</p>
-
-<p>
-Domnitori precum Mircea cel Bătrân, Iancu de Hunedoara
-și Ștefan cel Mare au avut un rol important în politica
-Europei de Sud-Est.
-</p>
-
-<div class="teacher-box">
-
-<strong>
-Ce ar spune profesorul la oră?
-</strong>
-
-<p>
-„Când vedeți anul 476, nu spuneți doar «a căzut Roma».
-Întrebați ce s-a schimbat și ce a continuat.
-Istoria serioasă studiază atât rupturile,
-cât și continuitățile.”
-</p>
-
-</div>
-
-<div class="info-grid">
-
-<div class="info-card">
-
-<h4>Repere</h4>
-
-<p>
-476 — sfârșitul Imperiului Roman de Apus<br>
-1054 — Marea Schismă<br>
-1453 — căderea Constantinopolului
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Personaje</h4>
-
-<p>
-Iustinian I · Mircea cel Bătrân ·
-Iancu de Hunedoara · Ștefan cel Mare
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Termeni</h4>
-
-<p>
-Feudalism · Bizanț · senior · vasal ·
-cruciadă · cetate medievală
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- MODERNA -->
-
-<article class="lesson" id="moderna">
-
-<div class="lesson-header">
-
-<small>Lecția IV · Epoca Modernă</small>
-
-<h3>
-Revoluții și formarea României moderne
-</h3>
-
-</div>
-
-<div class="lesson-content">
-
-<h4>Transformarea Europei</h4>
-
-<p>
-Epoca modernă a fost caracterizată de schimbări economice,
-politice și intelectuale majore. Renașterea, Reforma,
-Revoluția Științifică și Iluminismul au modificat modul
-în care europenii priveau lumea și societatea.
-</p>
-
-<h4>Revoluția Franceză</h4>
-
-<p>
-În 1789 a început Revoluția Franceză.
-Ideile despre libertate, egalitate, cetățenie
-și suveranitate populară au avut o influență enormă
-asupra Europei.
-</p>
-
-<h4>România modernă</h4>
-
-<p>
-În 1859, Moldova și Țara Românească l-au ales
-pe Alexandru Ioan Cuza ca domnitor, realizând astfel
-Unirea Principatelor.
-</p>
-
-<p>
-În 1877 România și-a proclamat independența,
-iar în 1881 a devenit regat.
-</p>
-
-<div class="teacher-box">
-
-<strong>
-Ce ar spune profesorul la oră?
-</strong>
-
-<p>
-„Nu memorați 1859 ca pe un număr.
-Construiți un lanț: ideile de unitate națională,
-contextul internațional, dubla alegere a lui Cuza,
-reformele și consolidarea statului.”
-</p>
-
-</div>
-
-<div class="info-grid">
-
-<div class="info-card">
-
-<h4>Repere</h4>
-
-<p>
-1789 — Revoluția Franceză<br>
-1848 — revoluțiile europene<br>
-1859 — Unirea Principatelor<br>
-1877 — independența României<br>
-1881 — Regatul României
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Personaje</h4>
-
-<p>
-Alexandru Ioan Cuza · Napoleon Bonaparte ·
-Nicolae Bălcescu
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Idei</h4>
-
-<p>
-Iluminism · națiune · constituție ·
-cetățenie · independență
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- CONTEMPORANA -->
-
-<article class="lesson" id="contemporana">
-
-<div class="lesson-header">
-
-<small>Lecția V · Epoca Contemporană</small>
-
-<h3>
-Războaiele mondiale și România
-</h3>
-
-</div>
-
-<div class="lesson-content">
-
-<h4>Primul Război Mondial</h4>
-
-<p>
-Primul Război Mondial a avut loc între 1914 și 1918.
-Rivalitățile dintre marile puteri, sistemele de alianțe,
-naționalismul și crizele internaționale au contribuit
-la izbucnirea conflictului.
-</p>
-
-<h4>România în 1916</h4>
-
-<p>
-România a intrat în război în 1916 de partea Antantei.
-După lupte grele și schimbări politice și militare,
-anul 1918 a adus transformări fundamentale pentru
-statul român.
-</p>
-
-<h4>Marea Unire</h4>
-
-<p>
-În 1918 s-au produs unirile Basarabiei, Bucovinei
-și Transilvaniei cu România, în contexte politice diferite.
-1 Decembrie 1918 este legat de hotărârea Marii Adunări
-Naționale de la Alba Iulia privind unirea Transilvaniei
-cu România.
-</p>
-
-<h4>Al Doilea Război Mondial</h4>
-
-<p>
-Al Doilea Război Mondial s-a desfășurat între 1939 și 1945
-și a transformat radical Europa și ordinea internațională.
-</p>
-
-<h4>România după 1945</h4>
-
-<p>
-După război, România a intrat în sfera de influență sovietică.
-Regimul comunist s-a consolidat, iar societatea a fost
-profund transformată.
-În 1989 regimul comunist s-a prăbușit.
-</p>
-
-<div class="teacher-box">
-
-<strong>
-Ce ar spune profesorul la oră?
-</strong>
-
-<p>
-„Pentru istoria contemporană trebuie să fiți foarte atenți
-la surse. Întrebați cine a scris documentul, când,
-în ce context și cu ce scop. Două surse pot descrie
-același eveniment diferit.”
-</p>
-
-</div>
-
-<div class="info-grid">
-
-<div class="info-card">
-
-<h4>Repere</h4>
-
-<p>
-1914–1918 — Primul Război Mondial<br>
-1918 — Marea Unire<br>
-1939–1945 — Al Doilea Război Mondial<br>
-1989 — schimbarea regimului în România
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Termeni</h4>
-
-<p>
-Antantă · alianță · totalitarism ·
-comunism · democrație · propagandă
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h4>Metoda istoricului</h4>
-
-<p>
-Compară documentele, verifică autorul,
-data, contextul și scopul sursei.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</article>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     CRONOLOGIE
-========================= -->
-
-<section id="cronologie">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Repere
-</div>
-
-<h2>Cronologia Focului istoriei</h2>
-
-<p>
-Anii sunt repere. Important este să înțelegi
-legătura dintre evenimente.
-</p>
-
-</div>
-
-
-<div class="timeline">
-
-<div class="timeline-item">
-<div class="timeline-year">753 î.Hr.</div>
-<h3>Întemeierea tradițională a Romei</h3>
-<p>
-Data tradițională atribuită întemeierii Romei.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">44 î.Hr.</div>
-<h3>Asasinarea lui Iulius Caesar</h3>
-<p>
-Un moment important al crizei Republicii romane.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">27 î.Hr.</div>
-<h3>Începutul principatului lui Augustus</h3>
-<p>
-Octavian primește titlul Augustus și inaugurează
-o nouă etapă politică a Romei.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">106</div>
-<h3>Cucerirea Daciei</h3>
-<p>
-Traian transformă o mare parte a regatului dac
-în provincie romană.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">476</div>
-<h3>Sfârșitul Imperiului Roman de Apus</h3>
-<p>
-Data tradițională a începutului Evului Mediu occidental.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1453</div>
-<h3>Căderea Constantinopolului</h3>
-<p>
-Constantinopolul este cucerit de otomani.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1789</div>
-<h3>Revoluția Franceză</h3>
-<p>
-Începe una dintre cele mai importante transformări
-politice ale epocii moderne.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1859</div>
-<h3>Unirea Principatelor</h3>
-<p>
-Alexandru Ioan Cuza este ales domnitor în ambele principate.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1877</div>
-<h3>Independența României</h3>
-<p>
-România își proclamă independența.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1914–1918</div>
-<h3>Primul Război Mondial</h3>
-<p>
-Un conflict mondial care schimbă profund Europa.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1918</div>
-<h3>Marea Unire</h3>
-<p>
-Anul fundamental al formării României Mari.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1939–1945</div>
-<h3>Al Doilea Război Mondial</h3>
-<p>
-Cel mai mare conflict militar al secolului XX.
-</p>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-year">1989</div>
-<h3>Schimbarea regimului în România</h3>
-<p>
-Sfârșitul regimului comunist și începutul tranziției
-către democrație.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     GALERIE
-========================= -->
-
-<section id="galerie">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Istoria în imagini
-</div>
-
-<h2>Galerie</h2>
-
-<p>
-Imaginile nu sunt doar decor.
-Învață să observi o imagine asemenea unui izvor istoric.
-</p>
-
-</div>
-
-
-<div class="gallery">
-
-<figure>
-
-<img
-src="https://images.unsplash.com/photo-1609132718484-cc4e5e7d8d1e?auto=format&fit=crop&w=1000&q=80"
-alt="Peisaj arheologic"
->
-
-<figcaption>
-Preistoria — arheologia reconstruiește trecutul
-prin urmele materiale.
-</figcaption>
-
-</figure>
-
-
-<figure>
-
-<img
-src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1000&q=80"
-alt="Roma"
->
-
-<figcaption>
-Antichitatea — Roma și moștenirea lumii clasice.
-</figcaption>
-
-</figure>
-
-
-<figure>
-
-<img
-src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1000&q=80"
-alt="Castel medieval"
->
-
-<figcaption>
-Evul Mediu — cetăți și societăți medievale.
-</figcaption>
-
-</figure>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     METODA ISTORICULUI
-========================= -->
-
-<section class="method" id="metoda">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Gândirea istoricului
-</div>
-
-<h2>Cum gândește un istoric?</h2>
-
-<p>
-Memorarea este începutul. Analiza este ceea ce transformă
-un elev într-un adevărat cercetător al trecutului.
-</p>
-
-</div>
-
-
-<div class="method-box">
-
-<div class="method-card">
-
-<h3>1. Cine?</h3>
-
-<p>
-Cine a creat sursa?
-Este autorul un martor, un conducător,
-un cronicar sau un cercetător?
-</p>
-
-</div>
-
-
-<div class="method-card">
-
-<h3>2. Când?</h3>
-
-<p>
-Când a fost creată sursa?
-Este contemporană cu evenimentul
-sau a fost scrisă mult mai târziu?
-</p>
-
-</div>
-
-
-<div class="method-card">
-
-<h3>3. De ce?</h3>
-
-<p>
-Care a fost scopul autorului?
-Informare, propagandă, justificare,
-memorie sau alt motiv?
-</p>
-
-</div>
-
-
-<div class="method-card">
-
-<h3>4. Ce dovezi avem?</h3>
-
-<p>
-Există alte documente, monede,
-inscripții, hărți sau descoperiri
-care confirmă informația?
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     TESTE
-========================= -->
-
-<section id="teste">
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Evaluare
-</div>
-
-<h2>Testul final</h2>
-
-<p>
-15 întrebări din toate cele cinci epoci.
-</p>
-
-</div>
-
-
-<div class="quiz">
-
-
-<div class="question">
-
-<b>1. Ce schimbare este asociată cu Neoliticul?</b>
-
-<label class="option">
-<input type="radio" name="q1" value="1">
-Agricultura și sedentarizarea
-</label>
-
-<label class="option">
-<input type="radio" name="q1">
-Apariția tiparului
-</label>
-
-<label class="option">
-<input type="radio" name="q1">
-Revoluția industrială
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>2. Ce era polisul?</b>
-
-<label class="option">
-<input type="radio" name="q2" value="1">
-O cetate-stat grecească
-</label>
-
-<label class="option">
-<input type="radio" name="q2">
-O provincie romană
-</label>
-
-<label class="option">
-<input type="radio" name="q2">
-Un castel medieval
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>3. În ce an a fost cucerită Dacia de Traian?</b>
-
-<label class="option">
-<input type="radio" name="q3" value="1">
-106
-</label>
-
-<label class="option">
-<input type="radio" name="q3">
-476
-</label>
-
-<label class="option">
-<input type="radio" name="q3">
-1453
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>4. Ce an marchează tradițional sfârșitul Imperiului Roman de Apus?</b>
-
-<label class="option">
-<input type="radio" name="q4" value="1">
-476
-</label>
-
-<label class="option">
-<input type="radio" name="q4">
-106
-</label>
-
-<label class="option">
-<input type="radio" name="q4">
-1789
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>5. Care era capitala Imperiului Bizantin?</b>
-
-<label class="option">
-<input type="radio" name="q5" value="1">
-Constantinopol
-</label>
-
-<label class="option">
-<input type="radio" name="q5">
-Atena
-</label>
-
-<label class="option">
-<input type="radio" name="q5">
-Paris
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>6. În ce an a căzut Constantinopolul?</b>
-
-<label class="option">
-<input type="radio" name="q6" value="1">
-1453
-</label>
-
-<label class="option">
-<input type="radio" name="q6">
-1492
-</label>
-
-<label class="option">
-<input type="radio" name="q6">
-1600
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>7. În ce an a început Revoluția Franceză?</b>
-
-<label class="option">
-<input type="radio" name="q7" value="1">
-1789
-</label>
-
-<label class="option">
-<input type="radio" name="q7">
-1815
-</label>
-
-<label class="option">
-<input type="radio" name="q7">
-1918
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>8. Ce s-a realizat în 1859?</b>
-
-<label class="option">
-<input type="radio" name="q8" value="1">
-Unirea Moldovei cu Țara Românească
-</label>
-
-<label class="option">
-<input type="radio" name="q8">
-Marea Unire
-</label>
-
-<label class="option">
-<input type="radio" name="q8">
-Independența României
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>9. În ce an este proclamată independența României?</b>
-
-<label class="option">
-<input type="radio" name="q9" value="1">
-1877
-</label>
-
-<label class="option">
-<input type="radio" name="q9">
-1859
-</label>
-
-<label class="option">
-<input type="radio" name="q9">
-1881
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>10. Când a avut loc Primul Război Mondial?</b>
-
-<label class="option">
-<input type="radio" name="q10" value="1">
-1914–1918
-</label>
-
-<label class="option">
-<input type="radio" name="q10">
-1939–1945
-</label>
-
-<label class="option">
-<input type="radio" name="q10">
-1877–1878
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>11. Ce eveniment este legat de 1 Decembrie 1918?</b>
-
-<label class="option">
-<input type="radio" name="q11" value="1">
-Unirea Transilvaniei cu România
-</label>
-
-<label class="option">
-<input type="radio" name="q11">
-Unirea Principatelor
-</label>
-
-<label class="option">
-<input type="radio" name="q11">
-Proclamarea Regatului
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>12. Când a avut loc Al Doilea Război Mondial?</b>
-
-<label class="option">
-<input type="radio" name="q12" value="1">
-1939–1945
-</label>
-
-<label class="option">
-<input type="radio" name="q12">
-1914–1918
-</label>
-
-<label class="option">
-<input type="radio" name="q12">
-1947–1950
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>13. Ce an marchează sfârșitul regimului comunist în România?</b>
-
-<label class="option">
-<input type="radio" name="q13" value="1">
-1989
-</label>
-
-<label class="option">
-<input type="radio" name="q13">
-1991
-</label>
-
-<label class="option">
-<input type="radio" name="q13">
-1945
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>14. Ce este o sursă istorică?</b>
-
-<label class="option">
-<input type="radio" name="q14" value="1">
-O mărturie sau urmă care poate oferi informații despre trecut
-</label>
-
-<label class="option">
-<input type="radio" name="q14">
-Doar un manual
-</label>
-
-<label class="option">
-<input type="radio" name="q14">
-Doar o fotografie modernă
-</label>
-
-</div>
-
-
-<div class="question">
-
-<b>15. Ce trebuie să facă istoricul când găsește două surse contradictorii?</b>
-
-<label class="option">
-<input type="radio" name="q15" value="1">
-Să le compare și să le verifice
-</label>
-
-<label class="option">
-<input type="radio" name="q15">
-Să aleagă automat prima sursă
-</label>
-
-<label class="option">
-<input type="radio" name="q15">
-Să ignore ambele surse
-</label>
-
-</div>
-
-
-<button onclick="calculateScore()">
-VERIFICĂ REZULTATUL
-</button>
-
-<div id="result" class="result"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     INFORMATII
-========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="section-header">
-
-<div class="kicker">
-Pentru cercetător
-</div>
-
-<h2>Informații suplimentare</h2>
-
-</div>
-
-
-<div class="sources">
-
-<div class="source">
-
-<h3>Izvoare scrise</h3>
-
-<p>
-Cronici, tratate, scrisori, acte diplomatice,
-inscripții și alte documente.
-</p>
-
-</div>
-
-
-<div class="source">
-
-<h3>Izvoare arheologice</h3>
-
-<p>
-Unelte, monede, clădiri, arme, ceramică,
-morminte și alte obiecte descoperite.
-</p>
-
-</div>
-
-
-<div class="source">
-
-<h3>Cronologia</h3>
-
-<p>
-Cronologia ajută istoricul să stabilească ordinea
-evenimentelor și relațiile dintre ele.
-</p>
-
-</div>
-
-
-<div class="source">
-
-<h3>Cauză și consecință</h3>
-
-<p>
-Un eveniment istoric nu apare fără context.
-Analizează cauzele, desfășurarea și consecințele.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-<p>
-<strong>FOCUL ISTORIEI</strong>
-</p>
-
-<p>
-Academie digitală de istorie
-</p>
-
-<p>
-© 2026 · Lecții · Cronologii · Izvoare · Teste
-</p>
-
-</footer>
-
-
-<script>
-
-/* =========================
-   TEST FINAL
-========================= */
-
-function calculateScore(){
-
-    let score = 0;
-
-    for(let i=1;i<=15;i++){
-
-        let answer =
-        document.querySelector(
-        'input[name="q'+i+'"]:checked'
-        );
-
-        if(answer && answer.value==="1"){
-            score++;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focul Istoriei</title>
+    <style>
+        /* Stiluri Generale */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-    }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #0b0e14;
+            color: #d8d9da;
+            line-height: 1.8;
+        }
 
-    let result =
-    document.getElementById("result");
+        /* Container Principal */
+        .site-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    result.style.display="block";
+        /* Antet & Logo */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #121722 0%, #0b0e14 100%);
+            border-bottom: 2px solid #272d3b;
+        }
 
-    let message="";
+        .logo-box {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
 
-    if(score===15){
+        /* Reproducere stil vizual Logo CMS */
+        .logo-svg {
+            width: 130px;
+            height: 130px;
+        }
 
-        message=
-        "Rezultat perfect. 15/15 — ai stăpânit toate întrebările.";
+        header h1 {
+            font-size: 3em;
+            color: #d4af37; /* Culoare aurie mată */
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-top: 10px;
+        }
 
-    }else if(score>=13){
+        /* Layout Main: Sidebar + Conținut Lecții */
+        .content-wrapper {
+            display: flex;
+            margin-top: 40px;
+            gap: 40px;
+        }
 
-        message=
-        "Foarte bine. Ai o bază istorică solidă.";
+        /* Meniu Lateral Structurat */
+        aside.sidebar {
+            flex: 1;
+            min-width: 240px;
+            background-color: #121722;
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #272d3b;
+            align-self: flex-start;
+        }
 
-    }else if(score>=10){
+        .sidebar h3 {
+            color: #d4af37;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #272d3b;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        message=
-        "Bine. Mai trebuie consolidate câteva capitole.";
+        .sidebar ul {
+            list-style: none;
+        }
 
-    }else if(score>=7){
+        .sidebar li {
+            margin-bottom: 12px;
+        }
 
-        message=
-        "Ai început bine, dar recitește lecțiile și încearcă din nou.";
+        .sidebar a {
+            display: block;
+            color: #a0a5b1;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+        }
 
-    }else{
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #1d2433;
+            color: #d4af37;
+            padding-left: 18px;
+        }
 
-        message=
-        "Este un început. Recitește lecțiile și construiește cronologia.";
+        /* Zona Principală de Conținut */
+        main.main-content {
+            flex: 3;
+        }
 
-    }
+        .lectie-card {
+            background-color: #121722;
+            padding: 40px;
+            border-radius: 6px;
+            border: 1px solid #272d3b;
+            margin-bottom: 40px;
+        }
 
-    result.innerHTML=
-    "<strong>Scor: "+
-    score+
-    "/15</strong><br><br>"+
-    message;
+        .lectie-card h2 {
+            color: #d4af37;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
 
-}
+        .epocă-tag {
+            display: inline-block;
+            background-color: #1d2433;
+            color: #8c93a4;
+            padding: 4px 12px;
+            font-size: 0.85em;
+            border-radius: 3px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-</script>
+        .lectie-card h3 {
+            color: #ffffff;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .lectie-card p {
+            margin-bottom: 18px;
+            color: #c5c9d3;
+            text-align: justify;
+        }
+
+        .lectie-card ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: #c5c9d3;
+        }
+
+        .lectie-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Subsol */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid #272d3b;
+            color: #6c727f;
+            font-size: 0.9em;
+        }
+
+        /* Responsivitate pentru dispozitive mobile */
+        @media (max-width: 850px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            aside.sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="site-container">
+
+    <header>
+        <div class="logo-box">
+            <!-- Logo Vectorial Auriu/Argintiu (CMS - Ciora Maria Sofia) -->
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+                <path d="M 50 100 A 50 50 0 1 1 150 100" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
+                <text x="100" y="115" font-family="Georgia, serif" font-size="65" font-weight="bold" fill="url(#silverGrad)" text-anchor="middle">S</text>
+                <text x="75" y="105" font-family="Georgia, serif" font-size="70" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">C</text>
+                <text x="125" y="105" font-family="Georgia, serif" font-size="70" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">M</text>
+                <path d="M 80 145 Q 100 135 120 145" stroke="url(#goldGrad)" stroke-width="2" fill="none"/>
+                <text x="100" y="165" font-family="Georgia, serif" font-size="11" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">CIORA MARIA SOFIA</text>
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f3e5ab" />
+                        <stop offset="50%" stop-color="#d4af37" />
+                        <stop offset="100%" stop-color="#aa7c11" />
+                    </linearGradient>
+                    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="100%" stop-color="#a6afb8" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <h1>Focul Istoriei</h1>
+    </header>
+
+    <div class="content-wrapper">
+        
+        <!-- Meniu de Navigare Separata pe Epoci -->
+        <aside class="sidebar">
+            <h3>Perioade Istorice</h3>
+            <ul>
+                <li><a href="#preistorie" class="active">Preistorie</a></li>
+                <li><a href="#antichitate">Antichitate</a></li>
+                <li><a href="#evul-mediu">Evul Mediu</a></li>
+                <li><a href="#epoca-moderna">Epoca Modernă</a></li>
+                <li><a href="#epoca-contemporana">Epoca Contemporană</a></li>
+            </ul>
+        </aside>
+
+        <!-- Conținutul Lecțiilor formulate academic -->
+        <main class="main-content">
+
+            <!-- PREISTORIE -->
+            <article class="lectie-card" id="preistorie">
+                <h2>1. Preistoria: Originea Civilizației Umane</h2>
+                <span class="epocă-tag">Epoca Preistorică</span>
+                
+                <p>Preistoria reprezintă cea mai lungă etapă din istoria umanității, extinzându-se de la apariția primilor hominizi până la inventarea scrisului (cca. 3200 î.Hr.). Această perioadă este subdivizată din punct de vedere tehnologic în Epoca Pietrei și Epoca Metalelor.</p>
+                
+                <h3>Paleolitic (Vârsta Cioplirii Pietrei)</h3>
+                <p>În această fază, comunitățile umane erau nomade, depinzând exclusiv de vânătoare, pescuit și culegerea fructelor sălbatice. Controlul focului a reprezentat primul mare salt tehnologic, oferind protecție, căldură și posibilitatea preparării hranei.</p>
+                
+                <h3>Revoluția Neolitică</h3>
+                <p>Trecerea la neolitic marchează o transformare fundamentală: trecerea de la o economie consumatoare la una producătoare. Oamenii au sedentarizat comunitățile, au dezvoltat agricultura, au domesticit animalele și au inventat ceramica și țesutul.</p>
+            </article>
+
+            <!-- ANTICHITATE -->
+            <article class="lectie-card" id="antichitate">
+                <h2>2. Antichitatea: Apogeul Marilor Imperii</h2>
+                <span class="epocă-tag">Epoca Antică</span>
+                
+                <p>Antichitatea debutează odată cu apariția primelor izvoare scrise în Orientul Apropiat (Sumer, Egiptul Antic) și se încheie convențional în anul 476 d.Hr., odată cu prăbușirea Imperiului Roman de Apus.</p>
+                
+                <h3>Democrația Ateniană și Filosofia Greacă</h3>
+                <p>Grecia Antică a pus bazele gândirii occidentale, dezvoltând concepte fundamentale privind cetățenia, filosofia (prin Socrate, Platon și Aristotel) și organizarea politică democratică în polis-ul atenian.</p>
+
+                <h3>Statul și Dreptul Roman</h3>
+                <p>Roma a evoluat de la o regalitate modestă la o republică complexă și ulterior la un imperiu vast. Contribuția majoră a Romei rămâne Codul de Drept Roman, infrastructura militară și urbanistică, precum și procesul de romanizare a provinciilor cucerite.</p>
+            </article>
+
+            <!-- EVUL MEDIU -->
+            <article class="lectie-card" id="evul-mediu">
+                <h2>3. Evul Mediu: Formarea Statelor Europene</h2>
+                <span class="epocă-tag">Epoca Medievală</span>
+                
+                <p>Evul Mediu cuprinde perioada dintre secolele V și XV, caracterizată prin structura socială feudală, rolul central al Bisericii în viața culturală și politică, și constituirea primelor regate europene.</p>
+
+                <h3>Sistemul Feudal și Charta Magna</h3>
+                <p>Societatea medievală era ierarhizată strict în stări: cei ce se roagă (clerul), cei ce se luptă (nobilitatea) și cei ce muncesc (țărănimea). În această perioadă apar primele documente fundamentale privind limitarea puterii regale, precum Magna Charta Libertatum (1215).</p>
+            </article>
+
+            <!-- EPOCA MODERNĂ -->
+            <article class="lectie-card" id="epoca-moderna">
+                <h2>4. Epoca Modernă: Revoluții și Iluminism</h2>
+                <span class="epocă-tag">Epoca Modernă</span>
+                
+                <p>De la Căderea Constantinopolului (1453) și Descoperirea Americii (1492) până la sfârșitul Primului Război Mondial (1918), Epoca Modernă a redefinit harta lumii prin expansiune globală și revoluții științifice.</p>
+
+                <h3>Renașterea, Reformarea și Iluminismul</h3>
+                <p>Umanismul renașterii a plasat omul în centrul cunoașterii. Ulterior, Iluminismul secolului al XVIII-lea a promovat rațiunea, libertatea individuală și separarea puterilor în stat, pregătind terenul pentru Revoluția Americană (1776) și Revoluția Franceză (1789).</p>
+            </article>
+
+            <!-- EPOCA CONTEMPORANĂ -->
+            <article class="lectie-card" id="epoca-contemporana">
+                <h2>5. Epoca Contemporană: Lumea Globalizată</h2>
+                <span class="epocă-tag">Secolul XX - Prezent</span>
+                
+                <p>Epoca Contemporană debutează după încheierea conflagrațiilor mondiale din secolul XX și este marcată de confruntarea ideologică din timpul Războiului Rece, urmată de accelerarea tehnologică și globalizare.</p>
+
+                <h3>Conflictele Mondiale și Ordinea Postbelică</h3>
+                <p>Analiza celor două războaie mondiale evidențiază impactul prăbușirii marilor imperii continentale, urmate de constituirea Organizației Națiunilor Unite (ONU) pentru menținerea păcii și stabilității internaționale.</p>
+            </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; Focul Istoriei. Proiect educațional redactat și structurat independent.</p>
+    </footer>
+
+</div>
 
 </body>
-    </html>
+</html>
+
 
