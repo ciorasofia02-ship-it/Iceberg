@@ -5,231 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focul Istoriei</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Georgia', serif; background-color: #0c0e12; color: #d1d5db; line-height: 1.8; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background-color: #0c0e12;
-            color: #d1d5db;
-            line-height: 1.8;
-        }
+        header { text-align: center; padding: 40px 0; background: #11141a; border-bottom: 2px solid #2a303c; }
+        .logo-svg { width: 120px; height: 120px; margin-bottom: 10px; }
+        header h1 { color: #c4a77d; font-size: 3em; text-transform: uppercase; letter-spacing: 2px; }
 
-        .container {
-            width: 90%;
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .main-wrapper { display: flex; margin-top: 30px; gap: 30px; }
+        
+        .sidebar { flex: 1; min-width: 250px; background-color: #151922; padding: 20px; border-radius: 8px; border: 1px solid #2a303c; height: fit-content; position: sticky; top: 20px; }
+        .sidebar h3 { color: #c4a77d; margin-bottom: 15px; border-bottom: 1px solid #2a303c; padding-bottom: 8px; text-transform: uppercase; }
+        .sidebar ul { list-style: none; }
+        .sidebar li { margin-bottom: 10px; }
+        .sidebar a { text-decoration: none; color: #a0a5b1; display: block; padding: 8px 12px; border-radius: 4px; transition: 0.3s; }
+        .sidebar a:hover { color: #c4a77d; background-color: #1e2430; }
 
-        /* Header & Logo */
-        header {
-            text-align: center;
-            padding: 50px 0 30px 0;
-            background: linear-gradient(180deg, #11141a 0%, #0c0e12 100%);
-            border-bottom: 2px solid #2a303c;
-        }
+        .content { flex: 3; }
+        .lectie-box { background-color: #151922; padding: 35px; border-radius: 8px; border: 1px solid #2a303c; margin-bottom: 40px; }
+        .lectie-box h2 { font-size: 2.2em; color: #c4a77d; margin-bottom: 15px; }
+        .lectie-box h3 { color: #ffffff; font-size: 1.3em; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px solid #2a303c; padding-bottom: 5px; }
+        
+        /* Imagini */
+        .img-lectie { width: 100%; max-height: 400px; object-fit: cover; border-radius: 6px; margin: 20px 0; border: 1px solid #3e4451; }
 
-        .logo-svg {
-            width: 140px;
-            height: 140px;
-            margin-bottom: 10px;
-        }
+        /* Caseta Explicația Profesorului */
+        .explicatia-profesorului { background-color: #1a202c; border-left: 4px solid #c4a77d; padding: 20px; margin: 25px 0; border-radius: 0 6px 6px 0; }
+        .explicatia-profesorului h4 { color: #c4a77d; font-size: 1.1em; margin-bottom: 8px; }
 
-        header h1 {
-            font-family: 'Georgia', serif;
-            color: #c4a77d;
-            font-size: 3.2em;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: normal;
-        }
+        /* Quiz */
+        .quiz-container { background-color: #0c0e12; padding: 20px; border-radius: 6px; border: 1px solid #2a303c; margin-top: 30px; }
+        .quiz-container h4 { color: #c4a77d; margin-bottom: 15px; }
+        .quiz-option { display: block; margin-bottom: 10px; cursor: pointer; background: #151922; padding: 10px; border-radius: 4px; border: 1px solid #2a303c; }
+        .quiz-option:hover { background: #1e2430; }
+        .quiz-btn { background-color: #c4a77d; color: #0c0e12; border: none; padding: 10px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 10px; }
 
-        /* Layout */
-        .main-wrapper {
-            display: flex;
-            margin-top: 40px;
-            gap: 35px;
-        }
+        footer { text-align: center; padding: 30px 0; color: #6b7280; font-size: 0.9em; border-top: 1px solid #2a303c; margin-top: 40px; }
 
-        /* Sidebar Navigatie */
-        .sidebar {
-            flex: 1;
-            min-width: 260px;
-            background-color: #151922;
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #2a303c;
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-        }
-
-        .sidebar h3 {
-            color: #c4a77d;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #2a303c;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-        }
-
-        .sidebar li {
-            margin-bottom: 12px;
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: #a0a5b1;
-            font-size: 1.05em;
-            display: block;
-            padding: 10px 14px;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-
-        .sidebar a:hover, .sidebar a.active {
-            color: #c4a77d;
-            background-color: #1e2430;
-            padding-left: 20px;
-        }
-
-        /* Conținut Lecții */
-        .content {
-            flex: 3;
-        }
-
-        .lectie-box {
-            background-color: #151922;
-            padding: 45px;
-            border-radius: 8px;
-            border: 1px solid #2a303c;
-            margin-bottom: 40px;
-        }
-
-        .lectie-box h2 {
-            font-size: 2.3em;
-            color: #c4a77d;
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
-
-        .tag-epoca {
-            display: inline-block;
-            background-color: #1e2430;
-            color: #9ba1b0;
-            padding: 4px 12px;
-            font-size: 0.85em;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .lectie-box h3 {
-            color: #e5e7eb;
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #2a303c;
-            padding-bottom: 8px;
-            font-weight: normal;
-        }
-
-        .lectie-box p {
-            margin-bottom: 20px;
-            text-align: justify;
-            color: #cbd5e1;
-        }
-
-        .lectie-box strong {
-            color: #f3f4f6;
-        }
-
-        /* Casete pentru Izvoare Istorice și Citate */
-        blockquote.izvor-istoric {
-            background-color: #0f1218;
-            border-left: 4px solid #c4a77d;
-            padding: 20px;
-            margin: 25px 0;
-            font-style: italic;
-            color: #e2e8f0;
-            border-radius: 0 6px 6px 0;
-        }
-
-        blockquote.izvor-istoric span {
-            display: block;
-            margin-top: 10px;
-            font-style: normal;
-            font-weight: bold;
-            color: #c4a77d;
-            font-size: 0.9em;
-        }
-
-        /* Lista Cronologică cu Ani */
-        .cronologie {
-            background-color: #0f1218;
-            padding: 20px 25px;
-            border-radius: 6px;
-            margin: 20px 0;
-            border: 1px solid #2a303c;
-        }
-
-        .cronologie li {
-            margin-bottom: 10px;
-            list-style-type: none;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .cronologie li::before {
-            content: "•";
-            color: #c4a77d;
-            font-size: 1.5em;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        .an-cheie {
-            color: #c4a77d;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #6b7280;
-            font-size: 0.9em;
-            border-top: 1px solid #2a303c;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 850px) {
-            .main-wrapper {
-                flex-direction: column;
-            }
-            .sidebar {
-                position: static;
-                width: 100%;
-            }
-        }
+        @media (max-width: 850px) { .main-wrapper { flex-direction: column; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <!-- Logo SVG CMS (Ciora Maria Sofia) -->
         <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
             <path d="M 50 100 A 50 50 0 1 1 150 100" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
@@ -240,13 +60,10 @@
             <text x="100" y="165" font-family="Georgia, serif" font-size="11" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">CIORA MARIA SOFIA</text>
             <defs>
                 <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#f3e5ab" />
-                    <stop offset="50%" stop-color="#d4af37" />
-                    <stop offset="100%" stop-color="#aa7c11" />
+                    <stop offset="0%" stop-color="#f3e5ab" /><stop offset="50%" stop-color="#d4af37" /><stop offset="100%" stop-color="#aa7c11" />
                 </linearGradient>
                 <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff" />
-                    <stop offset="100%" stop-color="#a6afb8" />
+                    <stop offset="0%" stop-color="#ffffff" /><stop offset="100%" stop-color="#a6afb8" />
                 </linearGradient>
             </defs>
         </svg>
@@ -254,11 +71,10 @@
     </header>
 
     <div class="main-wrapper">
-        <!-- Meniu Lateral de Epoci -->
         <aside class="sidebar">
-            <h3>Perioade Istorice</h3>
+            <h3>Meniu Epoci</h3>
             <ul>
-                <li><a href="#introducere" class="active">Despre Proiect</a></li>
+                <li><a href="#de-ce-am-facut-siteul">De ce am făcut acest site</a></li>
                 <li><a href="#preistorie">Preistorie</a></li>
                 <li><a href="#antichitate">Antichitate</a></li>
                 <li><a href="#evul-mediu">Evul Mediu</a></li>
@@ -267,537 +83,167 @@
             </ul>
         </aside>
 
-        <!-- Conținut Lecții -->
         <main class="content">
 
-            <!-- INTRODUCERE -->
-            <article class="lectie-box" id="introducere">
-                <h2>Cuvânt Înainte: Pasiunea pentru Trecut</h2>
-                <span class="tag-epoca">Manifestul Proiectului</span>
-                <p>Salutare! Numele meu este Sofia și sunt o elevă absolut pasionată de tot ce înseamnă istorie. Am creat site-ul <strong>Focul Istoriei</strong> din dorința de a demonstra că istoria nu este doar o înșiruire plictisitoare de date pentru memorat, ci o aventură fascinantă plină de secrete, decizii dramatice, mari lideri și invenții care au schimbat lumea.</p>
-                <p>Aici veți găsi lecții scrise pe înțelesul tuturor, dar cercetate riguros: cu ani preciși, repere cronologice clare și fragmente din adevăratele izvoare istorice scrise de martorii epocilor respective.</p>
+            <!-- SECTIUNEA 1: DE CE AM FACUT SITE-UL -->
+            <article class="lectie-box" id="de-ce-am-facut-siteul">
+                <h2>De ce am făcut acest site?</h2>
+                <p>Numele meu este Sofia și sunt o elevă pasionată de istorie. Am creat site-ul <strong>Focul Istoriei</strong> pentru că am vrut să strâng într-un singur loc cele mai importante informații, lecții clare și date istorice fără ca acestea să devină plictisitoare.</p>
+                <p>Istoria este ca o poveste uriașă în care fiecare epocă aduce noi descoperiri, bătălii și schimbări. Am inclus lecții pas cu pas ca la școală, explicațiile profesorului și teste (quizz-uri) ca să verifici ce ai învățat!</p>
             </article>
 
-            <!-- PREISTORIE -->
+            <!-- SECTIUNEA 2: PREISTORIE -->
             <article class="lectie-box" id="preistorie">
-                <h2>1. Preistoria: Zori de zi ai Umanității</h2>
-                <span class="tag-epoca">cca. 2.500.000 î.Hr. – 3.200 î.Hr.</span>
+                <h2>Lecția 1: Preistoria</h2>
+                <p><strong>Perioada:</strong> cca. 2.500.000 î.Hr. – 3.200 î.Hr.</p>
                 
-                <p>Preistoria este cel mai lung capitol al omului pe Pământ. Este povestea supraviețuirii pure: cum am trecut de la pietre cioplite la primul oraș și la prima literă scrisă pe o tăbliță de lut.</p>
+                <img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?auto=format&fit=crop&w=800&q=80" alt="Preistorie" class="img-lectie">
 
-                <h3>Cronologie & Repere Statistice</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">cca. 2.500.000 î.Hr.</span> – Debutul Paleoliticului. Primii hominizi (Homo habilis) meșteșugesc primele unelte simple din piatră.</li>
-                    <li><span class="an-cheie">cca. 1.800.000 î.Hr.</span> – Descoperirea și stăpânirea focului de către Homo erectus — prima mare revoluție energetică.</li>
-                    <li><span class="an-cheie">cca. 10.000 î.Hr.</span> – <strong>Revoluția Neolitică:</strong> Oamenii renunță la viața nomadă, inventează agricultura în „Semiluna Roditoare” (Mesopotamia) și domesticesc primele animale.</li>
-                    <li><span class="an-cheie">cca. 3.500 î.Hr.</span> – Epoca Bronzului: Apare roata olarului, prelucrarea metalelor și primele protocetăți (Uruk, Ierihon).</li>
-                    <li><span class="an-cheie">cca. 3.200 î.Hr.</span> – Sumerienii inventează scrierea cuneiformă. Preistoria se încheie și începe Istoria.</li>
-                </ul>
+                <h3>1. Paleoliticul (Epoca Pietrei Cioplite)</h3>
+                <p>Oamenii erau nomazi, trăiau în peșteri și se ocupau cu vânătoarea și culesul. În anul <strong>1.800.000 î.Hr.</strong> omul a învățat să folosească focul.</p>
 
-                <blockquote class="izvor-istoric">
-                    „Dacă vrei să înțelegi omul de azi, trebuie să cauți scânteia din peștera de ieri.”
-                    <span>— Notă din Jurnalul de Cercetare</span>
-                </blockquote>
+                <h3>2. Neoliticul (Epoca Pietrei Șlefuite)</h3>
+                <p>În jurul anului <strong>10.000 î.Hr.</strong> are loc Revoluția Neolitică: oamenii devin sedentari, construiesc primele sate, cultivă pământul și domesticesc animalele.</p>
+
+                <h3>3. Epoca Metalelor</h3>
+                <p>În jurul anului <strong>3.500 î.Hr.</strong> se descoperă arama, bronzul și ulterior fierul. Apar primele unelte metalice și armele.</p>
+
+                <div class="explicatia-profesorului">
+                    <h4>🎓 Explicația Profesorului</h4>
+                    <p>„Ceea ce trebuie să rețineți din Preistorie este trecerea de la omul consumator (care doar culegea) la omul producător (care își cultivă hrana). Această schimbare din Neolitic a făcut posibilă apariția primelor orașe și a scrierii!”</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h4>❓ Quizz: Verifică-ți cunoștințele!</h4>
+                    <p>În ce perioadă a învățat omul să cultive pământul?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="a"> A) Paleolitic</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="b"> B) Neolitic</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="c"> C) Epoca Fierului</label>
+                    <button class="quiz-btn" onclick="checkQuiz('q1', 'b')">Verifică Răspunsul</button>
+                </div>
             </article>
 
-            <!-- ANTICHITATE -->
+            <!-- SECTIUNEA 3: ANTICHITATE -->
             <article class="lectie-box" id="antichitate">
-                <h2>2. Antichitatea: Vârsta de Aur a Imperiilor</h2>
-                <span class="tag-epoca">cca. 3.200 î.Hr. – 476 d.Hr.</span>
-                
-                <p>Antichitatea este perioada marilor construcții și idei: de la piramidele Egiptului și democrația din Atena, până la legiunile invincibile ale Romei care au creat o lume conectată.</p>
+                <h2>Lecția 2: Antichitatea</h2>
+                <p><strong>Perioada:</strong> cca. 3.200 î.Hr. – 476 d.Hr.</p>
 
-                <h3>Firul Cronologic al Marilor Evenimente</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">cca. 2.560 î.Hr.</span> – Finalizarea Marii Piramide din Gizeh (Marea Piramidă a lui Keops).</li>
-                    <li><span class="an-cheie">1750 î.Hr.</span> – Codul lui Hammurabi (Babilonia): Unul dintre cele mai vechi coduri de legi din lume („Ochi pentru ochi”).</li>
-                    <li><span class="an-cheie">508 î.Hr.</span> – Clistene reformează politica Atenei, punând bazele primei democrații din lume.</li>
-                    <li><span class="an-cheie">490 î.Hr. – 479 î.Hr.</span> – Războaiele Medice: Grecii își apără libertatea împotriva vastului Imperiu Persan (Bătăliile de la Maraton, Termopile, Salamina).</li>
-                    <li><span class="an-cheie">44 î.Hr. (15 Martie)</span> – Asasinarea lui Iulius Caesar la Roma, eveniment ce grăbește sfârșitul Republicii.</li>
-                    <li><span class="an-cheie">101 – 106 d.Hr.</span> – Războaiele Daco-Romane purtate de împăratul Traian și regele Decebal, în urma cărora Dacia devine provincie romană.</li>
-                    <li><span class="an-cheie">476 d.Hr.</span> – Prăbușirea Imperiului Roman de Apus sub invaziile barbare. Ultimul împărat, Romulus Augustulus, este detronat.</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Antichitate" class="img-lectie">
 
-                <blockquote class="izvor-istoric">
-                    „Geții sunt cei mai viteji și mai drepți dintre traci.”
-                    <span>— Herodot, Istorii (Cartea IV)</span>
-                </blockquote>
+                <h3>1. Primele Civilizații</h3>
+                <p>În <strong>3.200 î.Hr.</strong> apare scrierea cuneiformă în Sumer (Mesopotamia). În Egipt se construiesc Piramidele în jurul anului <strong>2.560 î.Hr.</strong></p>
+
+                <h3>2. Grecia Antică</h3>
+                <p>În <strong>508 î.Hr.</strong> la Atena apare prima democrație din lume. Grecii au organizat primele Jocurile Olimpice (<strong>776 î.Hr.</strong>) și au creat filosofia.</p>
+
+                <h3>3. Roma Antică și Dacia</h3>
+                <p>În <strong>44 î.Hr.</strong> moare Iulius Caesar. Între <strong>101 - 106 d.Hr.</strong> au loc războaiele daco-romane între Traian și Decebal. Imperiul Roman de Apus se prăbușește în anul <strong>476 d.Hr.</strong></p>
+
+                <div class="explicatia-profesorului">
+                    <h4>🎓 Explicația Profesorului</h4>
+                    <p>„Antichitatea este temelia lumii noastre. Legile de azi își au originea în Dreptul Roman, iar sistemul politic de vot vine din Atena antică!”</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h4>❓ Quizz: Verifică-ți cunoștințele!</h4>
+                    <p>În ce an s-a prăbușit Imperiul Roman de Apus?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="a"> A) 476 d.Hr.</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="b"> B) 106 d.Hr.</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="c"> C) 1453 d.Hr.</label>
+                    <button class="quiz-btn" onclick="checkQuiz('q2', 'a')">Verifică Răspunsul</button>
+                </div>
             </article>
 
-            <!-- EVUL MEDIU -->
+            <!-- SECTIUNEA 4: EVUL MEDIU -->
             <article class="lectie-box" id="evul-mediu">
-                <h2>3. Evul Mediu: Cavalerie, Cetăți și Credință</h2>
-                <span class="tag-epoca">476 d.Hr. – 1453 d.Hr.</span>
-                
-                <p>Frecvent numit pe nedrept „epoca întunecată”, Evul Mediu a fost de fapt o perioadă plină de dinamism: de la construcția catedralei gotice până la fondarea primelor mari universități europene (Bologna, Oxford, Sorbona).</p>
+                <h2>Lecția 3: Evul Mediu</h2>
+                <p><strong>Perioada:</strong> 476 d.Hr. – 1453 d.Hr.</p>
 
-                <h3>Repere Cronologice</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">800 d.Hr.</span> – Carol cel Mare este încoronat Imperator Romanus la Roma, unificând o mare parte din Europa Occidentală.</li>
-                    <li><span class="an-cheie">1054 d.Hr.</span> – Marea Schismă: Biserica Creștină se divide în Biserica Ortodoxă (Răsărit) și Biserica Catolică (Apus).</li>
-                    <li><span class="an-cheie">1095 d.Hr.</span> – Papa Urban al II-lea lansează Prima Cruciadă pentru eliberarea Ierusalimului.</li>
-                    <li><span class="an-cheie">1215 d.Hr.</span> – În Anglia se semnează <em>Magna Charta Libertatum</em>, stabilind pentru prima dată că nici măcar regele nu este mai presus de lege.</li>
-                    <li><span class="an-cheie">1347 – 1351 d.Hr.</span> – Pandemia de „Ciumă Neagră” devastează populația Europei, schimbând radical economia și structura socială.</li>
-                    <li><span class="an-cheie">1453 d.Hr.</span> – Căderea Constantinopolului în mâinile otomanilor condus de Sultanul Mehmed al II-lea. Sfârșitul Imperiului Bizantin.</li>
-                </ul>
+                <img src="https://images.unsplash.com/photo-1599739291060-4578e77dac5d?auto=format&fit=crop&w=800&q=80" alt="Evul Mediu" class="img-lectie">
 
-                <blockquote class="izvor-istoric">
-                    „Niciun om liber nu va fi prins sau închis [...] fără o judecată dreaptă a egalilor săi conform legilor țării.”
-                    <span>— Fragment din Magna Charta Libertatum (1215)</span>
-                </blockquote>
+                <h3>1. Feudalismul și Cavalerii</h3>
+                <p>Societatea era împărțită în nobili, cler și țărani. În <strong>800 d.Hr.</strong> Carol cel Mare devine împărat al Occidentului.</p>
+
+                <h3>2. Evenimente Majore</h3>
+                <p>În <strong>1054</strong> are loc Marea Schismă a Bisericii. În <strong>1215</strong> este semnată <em>Magna Charta Libertatum</em> în Anglia. În <strong>1453</strong> Constantinopolul este cucerit de otomani.</p>
+
+                <div class="explicatia-profesorului">
+                    <h4>🎓 Explicația Profesorului</h4>
+                    <p>„Nu uitați că Evul Mediu nu a fost doar o perioadă de războaie, ci și epoca în care au apărut primele universități mari din Europa!”</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h4>❓ Quizz: Verifică-ți cunoștințele!</h4>
+                    <p>Ce eveniment a avut loc în anul 1453?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="a"> A) Descoperirea Americii</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="b"> B) Căderea Constantinopolului</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="c"> C) Semnarea Magna Charta</label>
+                    <button class="quiz-btn" onclick="checkQuiz('q3', 'b')">Verifică Răspunsul</button>
+                </div>
             </article>
 
-            <!-- EPOCA MODERNĂ -->
+            <!-- SECTIUNEA 5: EPOCA MODERNĂ -->
             <article class="lectie-box" id="epoca-moderna">
-                <h2>4. Epoca Modernă: Marile Descoperiri și Revoluții</h2>
-                <span class="tag-epoca">1453 d.Hr. – 1918 d.Hr.</span>
-                
-                <p>Epoca Modernă a conectat globul. Este era ideilor iluministe, a inventării tiparului, a motoarelor cu abur și a marilor luptători pentru libertățile cetățenești.</p>
+                <h2>Lecția 4: Epoca Modernă</h2>
+                <p><strong>Perioada:</strong> 1453 d.Hr. – 1918 d.Hr.</p>
 
-                <h3>Marile Momente ale Modernității</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">1492 d.Hr.</span> – Cristofor Columb ajunge în America, deschizând era marilor descoperiri geografice.</li>
-                    <li><span class="an-cheie">1517 d.Hr.</span> – Martin Luther afișează cele 95 de teze la Wittenberg, declanșând Reforma Protestantă.</li>
-                    <li><span class="an-cheie">1776 (4 Iulie)</span> – Declarația de Independență a Statelor Unite ale Americii.</li>
-                    <li><span class="an-cheie">1789 (14 Iulie)</span> – Căderea Bastiliei și izbucnirea Revoluției Franceze (Deviza: „Libertate, Egalitate, Fraternitate”).</li>
-                    <li><span class="an-cheie">1859 (24 Ianuarie)</span> – Mica Unire: Dubla alegere a lui Alexandru Ioan Cuza ca domnitor în Moldova și Țara Românească.</li>
-                    <li><span class="an-cheie">1877 – 1878</span> – Războiul de Independență al României.</li>
-                    <li><span class="an-cheie">1914 – 1918</span> – Primul Război Mondial: Confruntarea globală care a dus la prăbușirea a 4 mari imperii (German, Austro-Ungar, Rus, Otoman).</li>
-                </ul>
+                <h3>1. Marile Descoperiri și Revoluții</h3>
+                <p>În <strong>1492</strong> Cristofor Columb descoperă America. În <strong>1789</strong> izbucnește Revoluția Franceză, iar în <strong>1859</strong> are loc Mica Unire în România sub Alexandru Ioan Cuza.</p>
 
-                <blockquote class="izvor-istoric">
-                    „Toți oamenii sunt creați egali și sunt dotați de Creator cu anumite drepturi inalienabile, printre care Viața, Libertatea și căutarea Fericirii.”
-                    <span>— Declarația de Independență a SUA (1776)</span>
-                </blockquote>
+                <h3>2. Primul Război Mondial</h3>
+                <p>Între <strong>1914 - 1918</strong> are loc Primul Război Mondial, cel mai mare conflict de până atunci.</p>
+
+                <div class="explicatia-profesorului">
+                    <h4>🎓 Explicația Profesorului</h4>
+                    <p>„Epoca Modernă schimba totul prin tehnologie, industrii și ideea de egalitate între cetățeni!”</p>
+                </div>
             </article>
 
-            <!-- EPOCA CONTEMPORANĂ -->
+            <!-- SECTIUNEA 6: EPOCA CONTEMPORANĂ -->
             <article class="lectie-box" id="epoca-contemporana">
-                <h2>5. Epoca Contemporană: Lumea de Azi</h2>
-                <span class="tag-epoca">1918 d.Hr. – Prezent</span>
-                
-                <p>Cea mai recentă și mai intensă epocă din istorie. Este secolul vitezei, al cursei spațiale, al marilor confruntări de ideologii, dar și al solidarității internaționale.</p>
+                <h2>Lecția 5: Epoca Contemporană</h2>
+                <p><strong>Perioada:</strong> 1918 d.Hr. – Prezent</p>
 
-                <h3>Istoria Recentă pas cu pas</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">1 Decembrie 1918</span> – Marea Unire de la Alba Iulia: Desăvârșirea statului național unitar român.</li>
-                    <li><span class="an-cheie">1939 – 1945</span> – Al Doilea Război Mondial: Cel mai devastator conflict din istoria omenirii.</li>
-                    <li><span class="an-cheie">1947 – 1989</span> – Războiul Rece: Tensiunea geopolitică dintre blocul capitalist (condus de SUA) și cel comunist (condus de URSS).</li>
-                    <li><span class="an-cheie">1969 (20 Iulie)</span> – Misiunea Apollo 11: Neil Armstrong devine primul om care pășește pe Lună.</li>
-                    <li><span class="an-cheie">1989</span> – Căderea Zidului Berlinului și Revoluția Română: Prăbușirea regimurilor comuniste din Europa de Est.</li>
-                </ul>
+                <h3>1. Evenimente Cheie</h3>
+                <p>La <strong>1 Decembrie 1918</strong> are loc Marea Unire. Între <strong>1939 - 1945</strong> se desfășoară Al Doilea Război Mondial. În <strong>1989</strong> cade regimul comunist în România.</p>
+
+                <div class="explicatia-profesorului">
+                    <h4>🎓 Explicația Profesorului</h4>
+                    <p>„Epoca Contemporană este lumea în care trăim azi. Înțelegând secolul XX, înțelegem de ce lumea arată așa cum o vedem acum!”</p>
+                </div>
             </article>
 
         </main>
     </div>
 
     <footer>
-        <p>&copy; 2026 Focul Istoriei. Proiect creat cu pasiune de Sofia pentru toți cei curioși de trecut.</p>
+        <p>&copy; Focul Istoriei. Proiect realizat de Sofia.</p>
     </footer>
 </div>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focul Istoriei</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background-color: #0c0e12;
-            color: #d1d5db;
-            line-height: 1.8;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1250px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header & Logo */
-        header {
-            text-align: center;
-            padding: 50px 0 30px 0;
-            background: linear-gradient(180deg, #11141a 0%, #0c0e12 100%);
-            border-bottom: 2px solid #2a303c;
-        }
-
-        .logo-svg {
-            width: 140px;
-            height: 140px;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            font-family: 'Georgia', serif;
-            color: #c4a77d;
-            font-size: 3.2em;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: normal;
-        }
-
-        /* Layout */
-        .main-wrapper {
-            display: flex;
-            margin-top: 40px;
-            gap: 35px;
-        }
-
-        /* Sidebar Navigatie */
-        .sidebar {
-            flex: 1;
-            min-width: 260px;
-            background-color: #151922;
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #2a303c;
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-        }
-
-        .sidebar h3 {
-            color: #c4a77d;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #2a303c;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-        }
-
-        .sidebar li {
-            margin-bottom: 12px;
-        }
-
-        .sidebar a {
-            text-decoration: none;
-            color: #a0a5b1;
-            font-size: 1.05em;
-            display: block;
-            padding: 10px 14px;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-
-        .sidebar a:hover, .sidebar a.active {
-            color: #c4a77d;
-            background-color: #1e2430;
-            padding-left: 20px;
-        }
-
-        /* Conținut Lecții */
-        .content {
-            flex: 3;
-        }
-
-        .lectie-box {
-            background-color: #151922;
-            padding: 45px;
-            border-radius: 8px;
-            border: 1px solid #2a303c;
-            margin-bottom: 40px;
-        }
-
-        .lectie-box h2 {
-            font-size: 2.3em;
-            color: #c4a77d;
-            margin-bottom: 15px;
-            font-weight: normal;
-        }
-
-        .tag-epoca {
-            display: inline-block;
-            background-color: #1e2430;
-            color: #9ba1b0;
-            padding: 4px 12px;
-            font-size: 0.85em;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .lectie-box h3 {
-            color: #e5e7eb;
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #2a303c;
-            padding-bottom: 8px;
-            font-weight: normal;
-        }
-
-        .lectie-box p {
-            margin-bottom: 20px;
-            text-align: justify;
-            color: #cbd5e1;
-        }
-
-        .lectie-box strong {
-            color: #f3f4f6;
-        }
-
-        /* Casete pentru Izvoare Istorice și Citate */
-        blockquote.izvor-istoric {
-            background-color: #0f1218;
-            border-left: 4px solid #c4a77d;
-            padding: 20px;
-            margin: 25px 0;
-            font-style: italic;
-            color: #e2e8f0;
-            border-radius: 0 6px 6px 0;
-        }
-
-        blockquote.izvor-istoric span {
-            display: block;
-            margin-top: 10px;
-            font-style: normal;
-            font-weight: bold;
-            color: #c4a77d;
-            font-size: 0.9em;
-        }
-
-        /* Lista Cronologică cu Ani */
-        .cronologie {
-            background-color: #0f1218;
-            padding: 20px 25px;
-            border-radius: 6px;
-            margin: 20px 0;
-            border: 1px solid #2a303c;
-        }
-
-        .cronologie li {
-            margin-bottom: 10px;
-            list-style-type: none;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .cronologie li::before {
-            content: "•";
-            color: #c4a77d;
-            font-size: 1.5em;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        .an-cheie {
-            color: #c4a77d;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #6b7280;
-            font-size: 0.9em;
-            border-top: 1px solid #2a303c;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 850px) {
-            .main-wrapper {
-                flex-direction: column;
-            }
-            .sidebar {
-                position: static;
-                width: 100%;
+<script>
+    function checkQuiz(questionName, correctAnswer) {
+        let options = document.getElementsByName(questionName);
+        let selected = false;
+        for (let option of options) {
+            if (option.checked) {
+                selected = true;
+                if (option.value === correctAnswer) {
+                    alert("Corect! Bravo! 🎉");
+                } else {
+                    alert("Incorect! Mai citește o dată lecția și încearcă din nou. ❌");
+                }
             }
         }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <!-- Logo SVG CMS (Ciora Maria Sofia) -->
-        <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
-            <path d="M 50 100 A 50 50 0 1 1 150 100" fill="none" stroke="url(#goldGrad)" stroke-width="2" />
-            <text x="100" y="115" font-family="Georgia, serif" font-size="65" font-weight="bold" fill="url(#silverGrad)" text-anchor="middle">S</text>
-            <text x="75" y="105" font-family="Georgia, serif" font-size="70" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">C</text>
-            <text x="125" y="105" font-family="Georgia, serif" font-size="70" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">M</text>
-            <path d="M 80 145 Q 100 135 120 145" stroke="url(#goldGrad)" stroke-width="2" fill="none"/>
-            <text x="100" y="165" font-family="Georgia, serif" font-size="11" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="2">CIORA MARIA SOFIA</text>
-            <defs>
-                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#f3e5ab" />
-                    <stop offset="50%" stop-color="#d4af37" />
-                    <stop offset="100%" stop-color="#aa7c11" />
-                </linearGradient>
-                <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#ffffff" />
-                    <stop offset="100%" stop-color="#a6afb8" />
-                </linearGradient>
-            </defs>
-        </svg>
-        <h1>Focul Istoriei</h1>
-    </header>
-
-    <div class="main-wrapper">
-        <!-- Meniu Lateral de Epoci -->
-        <aside class="sidebar">
-            <h3>Perioade Istorice</h3>
-            <ul>
-                <li><a href="#introducere" class="active">Despre Proiect</a></li>
-                <li><a href="#preistorie">Preistorie</a></li>
-                <li><a href="#antichitate">Antichitate</a></li>
-                <li><a href="#evul-mediu">Evul Mediu</a></li>
-                <li><a href="#epoca-moderna">Epoca Modernă</a></li>
-                <li><a href="#epoca-contemporana">Epoca Contemporană</a></li>
-            </ul>
-        </aside>
-
-        <!-- Conținut Lecții -->
-        <main class="content">
-
-            <!-- INTRODUCERE -->
-            <article class="lectie-box" id="introducere">
-                <h2>Cuvânt Înainte: Pasiunea pentru Trecut</h2>
-                <span class="tag-epoca">Manifestul Proiectului</span>
-                <p>Salutare! Numele meu este Sofia și sunt o elevă absolut pasionată de tot ce înseamnă istorie. Am creat site-ul <strong>Focul Istoriei</strong> din dorința de a demonstra că istoria nu este doar o înșiruire plictisitoare de date pentru memorat, ci o aventură fascinantă plină de secrete, decizii dramatice, mari lideri și invenții care au schimbat lumea.</p>
-                <p>Aici veți găsi lecții scrise pe înțelesul tuturor, dar cercetate riguros: cu ani preciși, repere cronologice clare și fragmente din adevăratele izvoare istorice scrise de martorii epocilor respective.</p>
-            </article>
-
-            <!-- PREISTORIE -->
-            <article class="lectie-box" id="preistorie">
-                <h2>1. Preistoria: Zori de zi ai Umanității</h2>
-                <span class="tag-epoca">cca. 2.500.000 î.Hr. – 3.200 î.Hr.</span>
-                
-                <p>Preistoria este cel mai lung capitol al omului pe Pământ. Este povestea supraviețuirii pure: cum am trecut de la pietre cioplite la primul oraș și la prima literă scrisă pe o tăbliță de lut.</p>
-
-                <h3>Cronologie & Repere Statistice</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">cca. 2.500.000 î.Hr.</span> – Debutul Paleoliticului. Primii hominizi (Homo habilis) meșteșugesc primele unelte simple din piatră.</li>
-                    <li><span class="an-cheie">cca. 1.800.000 î.Hr.</span> – Descoperirea și stăpânirea focului de către Homo erectus — prima mare revoluție energetică.</li>
-                    <li><span class="an-cheie">cca. 10.000 î.Hr.</span> – <strong>Revoluția Neolitică:</strong> Oamenii renunță la viața nomadă, inventează agricultura în „Semiluna Roditoare” (Mesopotamia) și domesticesc primele animale.</li>
-                    <li><span class="an-cheie">cca. 3.500 î.Hr.</span> – Epoca Bronzului: Apare roata olarului, prelucrarea metalelor și primele protocetăți (Uruk, Ierihon).</li>
-                    <li><span class="an-cheie">cca. 3.200 î.Hr.</span> – Sumerienii inventează scrierea cuneiformă. Preistoria se încheie și începe Istoria.</li>
-                </ul>
-
-                <blockquote class="izvor-istoric">
-                    „Dacă vrei să înțelegi omul de azi, trebuie să cauți scânteia din peștera de ieri.”
-                    <span>— Notă din Jurnalul de Cercetare</span>
-                </blockquote>
-            </article>
-
-            <!-- ANTICHITATE -->
-            <article class="lectie-box" id="antichitate">
-                <h2>2. Antichitatea: Vârsta de Aur a Imperiilor</h2>
-                <span class="tag-epoca">cca. 3.200 î.Hr. – 476 d.Hr.</span>
-                
-                <p>Antichitatea este perioada marilor construcții și idei: de la piramidele Egiptului și democrația din Atena, până la legiunile invincibile ale Romei care au creat o lume conectată.</p>
-
-                <h3>Firul Cronologic al Marilor Evenimente</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">cca. 2.560 î.Hr.</span> – Finalizarea Marii Piramide din Gizeh (Marea Piramidă a lui Keops).</li>
-                    <li><span class="an-cheie">1750 î.Hr.</span> – Codul lui Hammurabi (Babilonia): Unul dintre cele mai vechi coduri de legi din lume („Ochi pentru ochi”).</li>
-                    <li><span class="an-cheie">508 î.Hr.</span> – Clistene reformează politica Atenei, punând bazele primei democrații din lume.</li>
-                    <li><span class="an-cheie">490 î.Hr. – 479 î.Hr.</span> – Războaiele Medice: Grecii își apără libertatea împotriva vastului Imperiu Persan (Bătăliile de la Maraton, Termopile, Salamina).</li>
-                    <li><span class="an-cheie">44 î.Hr. (15 Martie)</span> – Asasinarea lui Iulius Caesar la Roma, eveniment ce grăbește sfârșitul Republicii.</li>
-                    <li><span class="an-cheie">101 – 106 d.Hr.</span> – Războaiele Daco-Romane purtate de împăratul Traian și regele Decebal, în urma cărora Dacia devine provincie romană.</li>
-                    <li><span class="an-cheie">476 d.Hr.</span> – Prăbușirea Imperiului Roman de Apus sub invaziile barbare. Ultimul împărat, Romulus Augustulus, este detronat.</li>
-                </ul>
-
-                <blockquote class="izvor-istoric">
-                    „Geții sunt cei mai viteji și mai drepți dintre traci.”
-                    <span>— Herodot, Istorii (Cartea IV)</span>
-                </blockquote>
-            </article>
-
-            <!-- EVUL MEDIU -->
-            <article class="lectie-box" id="evul-mediu">
-                <h2>3. Evul Mediu: Cavalerie, Cetăți și Credință</h2>
-                <span class="tag-epoca">476 d.Hr. – 1453 d.Hr.</span>
-                
-                <p>Frecvent numit pe nedrept „epoca întunecată”, Evul Mediu a fost de fapt o perioadă plină de dinamism: de la construcția catedralei gotice până la fondarea primelor mari universități europene (Bologna, Oxford, Sorbona).</p>
-
-                <h3>Repere Cronologice</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">800 d.Hr.</span> – Carol cel Mare este încoronat Imperator Romanus la Roma, unificând o mare parte din Europa Occidentală.</li>
-                    <li><span class="an-cheie">1054 d.Hr.</span> – Marea Schismă: Biserica Creștină se divide în Biserica Ortodoxă (Răsărit) și Biserica Catolică (Apus).</li>
-                    <li><span class="an-cheie">1095 d.Hr.</span> – Papa Urban al II-lea lansează Prima Cruciadă pentru eliberarea Ierusalimului.</li>
-                    <li><span class="an-cheie">1215 d.Hr.</span> – În Anglia se semnează <em>Magna Charta Libertatum</em>, stabilind pentru prima dată că nici măcar regele nu este mai presus de lege.</li>
-                    <li><span class="an-cheie">1347 – 1351 d.Hr.</span> – Pandemia de „Ciumă Neagră” devastează populația Europei, schimbând radical economia și structura socială.</li>
-                    <li><span class="an-cheie">1453 d.Hr.</span> – Căderea Constantinopolului în mâinile otomanilor condus de Sultanul Mehmed al II-lea. Sfârșitul Imperiului Bizantin.</li>
-                </ul>
-
-                <blockquote class="izvor-istoric">
-                    „Niciun om liber nu va fi prins sau închis [...] fără o judecată dreaptă a egalilor săi conform legilor țării.”
-                    <span>— Fragment din Magna Charta Libertatum (1215)</span>
-                </blockquote>
-            </article>
-
-            <!-- EPOCA MODERNĂ -->
-            <article class="lectie-box" id="epoca-moderna">
-                <h2>4. Epoca Modernă: Marile Descoperiri și Revoluții</h2>
-                <span class="tag-epoca">1453 d.Hr. – 1918 d.Hr.</span>
-                
-                <p>Epoca Modernă a conectat globul. Este era ideilor iluministe, a inventării tiparului, a motoarelor cu abur și a marilor luptători pentru libertățile cetățenești.</p>
-
-                <h3>Marile Momente ale Modernității</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">1492 d.Hr.</span> – Cristofor Columb ajunge în America, deschizând era marilor descoperiri geografice.</li>
-                    <li><span class="an-cheie">1517 d.Hr.</span> – Martin Luther afișează cele 95 de teze la Wittenberg, declanșând Reforma Protestantă.</li>
-                    <li><span class="an-cheie">1776 (4 Iulie)</span> – Declarația de Independență a Statelor Unite ale Americii.</li>
-                    <li><span class="an-cheie">1789 (14 Iulie)</span> – Căderea Bastiliei și izbucnirea Revoluției Franceze (Deviza: „Libertate, Egalitate, Fraternitate”).</li>
-                    <li><span class="an-cheie">1859 (24 Ianuarie)</span> – Mica Unire: Dubla alegere a lui Alexandru Ioan Cuza ca domnitor în Moldova și Țara Românească.</li>
-                    <li><span class="an-cheie">1877 – 1878</span> – Războiul de Independență al României.</li>
-                    <li><span class="an-cheie">1914 – 1918</span> – Primul Război Mondial: Confruntarea globală care a dus la prăbușirea a 4 mari imperii (German, Austro-Ungar, Rus, Otoman).</li>
-                </ul>
-
-                <blockquote class="izvor-istoric">
-                    „Toți oamenii sunt creați egali și sunt dotați de Creator cu anumite drepturi inalienabile, printre care Viața, Libertatea și căutarea Fericirii.”
-                    <span>— Declarația de Independență a SUA (1776)</span>
-                </blockquote>
-            </article>
-
-            <!-- EPOCA CONTEMPORANĂ -->
-            <article class="lectie-box" id="epoca-contemporana">
-                <h2>5. Epoca Contemporană: Lumea de Azi</h2>
-                <span class="tag-epoca">1918 d.Hr. – Prezent</span>
-                
-                <p>Cea mai recentă și mai intensă epocă din istorie. Este secolul vitezei, al cursei spațiale, al marilor confruntări de ideologii, dar și al solidarității internaționale.</p>
-
-                <h3>Istoria Recentă pas cu pas</h3>
-                <ul class="cronologie">
-                    <li><span class="an-cheie">1 Decembrie 1918</span> – Marea Unire de la Alba Iulia: Desăvârșirea statului național unitar român.</li>
-                    <li><span class="an-cheie">1939 – 1945</span> – Al Doilea Război Mondial: Cel mai devastator conflict din istoria omenirii.</li>
-                    <li><span class="an-cheie">1947 – 1989</span> – Războiul Rece: Tensiunea geopolitică dintre blocul capitalist (condus de SUA) și cel comunist (condus de URSS).</li>
-                    <li><span class="an-cheie">1969 (20 Iulie)</span> – Misiunea Apollo 11: Neil Armstrong devine primul om care pășește pe Lună.</li>
-                    <li><span class="an-cheie">1989</span> – Căderea Zidului Berlinului și Revoluția Română: Prăbușirea regimurilor comuniste din Europa de Est.</li>
-                </ul>
-            </article>
-
-        </main>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Focul Istoriei. Proiect creat cu pasiune de Sofia pentru toți cei curioși de trecut.</p>
-    </footer>
-</div>
+        if (!selected) {
+            alert("Te rog să selectezi o opțiune mai întâi!");
+        }
+    }
+</script>
 
 </body>
 </html>
+
 
 
 
