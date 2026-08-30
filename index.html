@@ -4,27 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CMS — Academia de Istorie</title>
+<title>Focul istoriei</title>
+
+<meta name="description"
+content="Focul istoriei — academie digitală de istorie. Lecții, cronologii, izvoare, explicații și teste.">
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
-
-:root{
-    --bg:#07090d;
-    --panel:#10141b;
-    --panel2:#151a22;
-    --gold:#c9a45c;
-    --gold2:#e0c27a;
-    --text:#e7e3da;
-    --muted:#9da1a8;
-    --line:#292f38;
-}
-
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -32,1403 +22,1511 @@ html{
 }
 
 body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:Inter,Arial,sans-serif;
-    line-height:1.85;
+    background:#080b10;
+    color:#eeeeee;
+    font-family:Georgia,"Times New Roman",serif;
+    line-height:1.7;
 }
 
-
-/* ================= HEADER ================= */
+/* =========================
+   HEADER
+========================= */
 
 header{
-    min-height:100vh;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,9,13,.96);
+    border-bottom:1px solid #39301d;
+    backdrop-filter:blur(12px);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    min-height:75px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:10px 25px;
+}
+
+.brand{
+    color:#d5b56b;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.navbar nav{
+    display:flex;
+    gap:8px;
+}
+
+.navbar nav a{
+    color:#aaa;
+    text-decoration:none;
+    padding:9px 12px;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+}
+
+.navbar nav a:hover{
+    color:#e1c57e;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:90vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
-    padding:50px 20px;
+
+    padding:70px 20px;
 
     background:
-    radial-gradient(circle at center,#252c38 0%,#0c1118 42%,#05070a 80%);
+    radial-gradient(circle at center,
+    rgba(164,128,55,.12),
+    transparent 45%);
 }
 
-.hero{
-    max-width:1000px;
+.hero-content{
+    max-width:950px;
 }
 
-.monogram{
-    font-family:Cinzel,serif;
-    font-size:105px;
-    letter-spacing:-18px;
-    color:var(--gold);
-    margin-right:18px;
+.logo{
+    width:min(380px,85vw);
+    border-radius:12px;
+
+    box-shadow:
+    0 25px 70px rgba(0,0,0,.7);
+
+    margin-bottom:30px;
 }
 
-.small-line{
-    width:180px;
-    height:1px;
-    background:var(--gold);
-    margin:25px auto;
-}
+.kicker{
+    color:#d8b96b;
 
-h1{
-    font-family:Cinzel,serif;
-    font-size:clamp(40px,7vw,82px);
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+    font-weight:bold;
+
     letter-spacing:5px;
-    color:var(--gold2);
-}
-
-.hero-sub{
-    margin-top:18px;
-    font-size:18px;
-    letter-spacing:4px;
     text-transform:uppercase;
-    color:#b9b6ae;
 }
 
-.hero-description{
-    max-width:700px;
-    margin:35px auto 0;
-    color:#92969e;
-    font-size:17px;
+.hero h1{
+    font-size:clamp(48px,9vw,100px);
+
+    line-height:1;
+
+    margin:12px 0 25px;
+
+    letter-spacing:4px;
+
+    color:#eee;
 }
 
-.start{
+.hero h1 span{
+    color:#d2ae60;
+}
+
+.hero p{
+    max-width:800px;
+
+    margin:auto;
+
+    color:#aeb4bd;
+
+    font-size:18px;
+}
+
+.hero-button{
     display:inline-block;
-    margin-top:40px;
-    padding:15px 38px;
 
-    border:1px solid var(--gold);
-    color:var(--gold2);
+    margin-top:32px;
+
+    padding:13px 27px;
+
+    border:1px solid #c8a55d;
+
+    color:#ddc27d;
+
     text-decoration:none;
 
-    letter-spacing:2px;
+    font-family:Arial,sans-serif;
+
     transition:.3s;
 }
 
-.start:hover{
-    background:var(--gold);
-    color:#090b0f;
+.hero-button:hover{
+    background:#17130b;
+    transform:translateY(-2px);
 }
 
+/* =========================
+   GENERAL
+========================= */
 
-/* ================= NAV ================= */
-
-nav{
-    position:sticky;
-    top:0;
-    z-index:100;
-
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-
-    padding:15px;
-
-    background:rgba(7,9,13,.96);
-    border-bottom:1px solid var(--line);
-    backdrop-filter:blur(15px);
+section{
+    padding:75px 20px;
 }
 
-nav a{
-    color:#aeb1b7;
-    text-decoration:none;
-    font-size:13px;
-    letter-spacing:1.5px;
-}
-
-nav a:hover{
-    color:var(--gold2);
-}
-
-
-/* ================= MAIN ================= */
-
-main{
+.container{
     max-width:1150px;
     margin:auto;
-    padding:90px 20px;
 }
 
-.section-title{
-    text-align:center;
-    margin-bottom:65px;
+.section-header{
+    margin-bottom:35px;
 }
 
-.section-title h2{
-    font-family:Cinzel,serif;
-    font-size:42px;
-    color:var(--gold2);
+.section-header .kicker{
+    margin-bottom:5px;
 }
 
-.section-title p{
-    margin-top:10px;
-    color:#777d86;
-    letter-spacing:2px;
+.section-header h2{
+    font-size:38px;
+    color:#eeeeee;
 }
 
-
-/* ================= LESSON ================= */
-
-.lesson{
-    margin-bottom:80px;
-    background:
-    linear-gradient(145deg,#11161e,#0c1016);
-
-    border:1px solid var(--line);
-    padding:55px;
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
+.section-header p{
+    color:#9fa7b2;
+    max-width:750px;
 }
 
-.lesson-number{
-    color:var(--gold);
-    font-size:13px;
-    letter-spacing:4px;
-    text-transform:uppercase;
+/* =========================
+   EPOCI
+========================= */
+
+.epochs{
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:15px;
 }
 
-.lesson h3{
-    font-family:Cinzel,serif;
-    color:#f0ece4;
-    font-size:36px;
-    margin:10px 0 35px;
-}
+.epoch{
+    position:relative;
 
-.lesson h4{
-    font-family:Cinzel,serif;
-    color:var(--gold2);
-    font-size:24px;
-    margin-top:42px;
-    margin-bottom:18px;
-}
-
-.lesson p{
-    color:#b7bbc2;
-    margin-bottom:20px;
-}
-
-.lesson strong{
-    color:#ddd5c5;
-}
-
-
-/* ================= YEAR ================= */
-
-.year{
-    display:block;
-
-    margin:30px 0 18px;
-    padding:13px 18px;
-
-    border-left:3px solid var(--gold);
-
-    background:#0a0d12;
-
-    color:var(--gold2);
-    font-weight:600;
-}
-
-
-/* ================= PROFESSOR BOX ================= */
-
-.professor{
-    margin:30px 0;
+    min-height:190px;
 
     padding:25px;
 
     background:
-    linear-gradient(135deg,#171d25,#0c1016);
+    linear-gradient(
+    145deg,
+    #111720,
+    #0c1017
+    );
 
-    border:1px solid #333944;
+    border:1px solid #29313c;
+
+    text-decoration:none;
+
+    transition:.3s;
 }
 
-.professor-title{
-    color:var(--gold2);
-    font-family:Cinzel,serif;
-    font-size:19px;
-    margin-bottom:10px;
+.epoch:hover{
+    transform:translateY(-5px);
+
+    border-color:#a8874e;
 }
 
+.epoch::before{
+    content:"";
 
-/* ================= MEMORY BOX ================= */
+    position:absolute;
 
-.remember{
-    margin:30px 0;
+    top:0;
+    left:0;
 
-    padding:24px;
+    width:100%;
+    height:2px;
 
-    border:1px solid #4a4030;
-    background:#15120d;
+    background:#c5a25c;
 }
 
-.remember-title{
-    color:var(--gold2);
-    font-weight:700;
+.epoch-number{
+    color:#806c45;
+
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+}
+
+.epoch h3{
+    margin-top:12px;
+
+    color:#dfc27b;
+
+    font-size:21px;
+}
+
+.epoch p{
+    color:#969faa;
+
+    font-size:14px;
+
+    margin-top:8px;
+}
+
+/* =========================
+   LECTII
+========================= */
+
+.lesson{
+    background:#10161f;
+
+    border:1px solid #29323e;
+
+    margin-bottom:35px;
+
+    overflow:hidden;
+}
+
+.lesson-header{
+    padding:30px;
+
+    background:
+    linear-gradient(
+    110deg,
+    #151d27,
+    #0e131a
+    );
+
+    border-bottom:1px solid #303947;
+}
+
+.lesson-header small{
+    color:#c9a961;
+
+    font-family:Arial,sans-serif;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+.lesson-header h3{
+    font-size:30px;
+
+    margin-top:7px;
+}
+
+.lesson-content{
+    padding:30px;
+}
+
+.lesson-content h4{
+    color:#d9bb70;
+
+    font-size:21px;
+
+    margin-top:25px;
     margin-bottom:8px;
 }
 
+.lesson-content p{
+    color:#d1d6dd;
 
-/* ================= TERMS ================= */
-
-.term{
-    margin:15px 0;
-    padding:18px;
-
-    background:#0b0f14;
-    border:1px solid var(--line);
+    margin:9px 0;
 }
 
-.term b{
-    color:var(--gold2);
+.lesson-content ul{
+    color:#d1d6dd;
+
+    padding-left:25px;
 }
 
+/* =========================
+   PROFESOR
+========================= */
 
-/* ================= TIMELINE ================= */
+.teacher-box{
+    margin:28px 0;
 
-.timeline{
-    border-left:1px solid var(--gold);
-    margin:30px 0;
-    padding-left:30px;
+    padding:22px;
+
+    background:#15130f;
+
+    border-left:3px solid #c8a55d;
+
+    border-top:1px solid #383225;
+    border-right:1px solid #383225;
+    border-bottom:1px solid #383225;
 }
 
-.timeline-item{
-    margin-bottom:30px;
+.teacher-box strong{
+    color:#e0c17b;
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:17px;
 }
 
-.timeline-item strong{
-    color:var(--gold2);
+/* =========================
+   INFO SUPLIMENTARA
+========================= */
+
+.info-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
 }
 
+.info-card{
+    background:#151c25;
 
-/* ================= QUIZ ================= */
+    border:1px solid #29333f;
 
-#quiz{
-    margin-top:120px;
+    padding:20px;
+}
+
+.info-card h4{
+    color:#d6b56c;
+
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#aab2bd;
+
+    font-size:14px;
+}
+
+/* =========================
+   TESTE
+========================= */
+
+.quiz{
+    margin-top:30px;
+
+    padding:28px;
+
+    background:#0b1017;
+
+    border:1px solid #303946;
+}
+
+.quiz h4{
+    color:#dfbf74;
+
+    margin-top:0;
+
+    font-size:23px;
 }
 
 .question{
-    background:var(--panel);
-    border:1px solid var(--line);
-    padding:28px;
-    margin-bottom:22px;
+    padding:20px 0;
+
+    border-bottom:1px solid #252e38;
 }
 
-.question-title{
-    font-weight:600;
-    font-size:17px;
-    margin-bottom:18px;
+.question:last-child{
+    border-bottom:none;
+}
+
+.question b{
+    display:block;
+
+    margin-bottom:10px;
 }
 
 .option{
     display:block;
-    padding:12px 15px;
+
+    color:#bfc6ce;
+
+    font-family:Arial,sans-serif;
+
+    font-size:14px;
+
     margin:8px 0;
 
-    border:1px solid #292f38;
-
     cursor:pointer;
-    color:#aeb2b8;
-
-    transition:.2s;
-}
-
-.option:hover{
-    border-color:var(--gold);
-    color:white;
 }
 
 .option input{
-    margin-right:10px;
+    margin-right:8px;
 }
 
-#submit{
-    display:block;
-    margin:45px auto 20px;
+.quiz button{
+    margin-top:15px;
 
-    padding:16px 45px;
+    padding:12px 20px;
 
-    border:1px solid var(--gold);
-    background:var(--gold);
-    color:#080a0d;
+    border:1px solid #c6a35d;
 
-    font-weight:700;
-    letter-spacing:2px;
+    background:#15120d;
+
+    color:#dfc17b;
 
     cursor:pointer;
+
+    font-weight:bold;
 }
 
-#result{
-    text-align:center;
-    font-family:Cinzel,serif;
-    color:var(--gold2);
-    font-size:28px;
-    margin-top:30px;
+.quiz button:hover{
+    background:#211b10;
 }
 
+.result{
+    display:none;
 
-/* ================= FOOTER ================= */
+    margin-top:20px;
+
+    padding:15px;
+
+    border-left:3px solid #c6a35d;
+
+    background:#17140f;
+
+    color:#ddd;
+}
+
+/* =========================
+   CRONOLOGIE
+========================= */
+
+.timeline{
+    border-left:2px solid #9d814b;
+
+    padding-left:30px;
+}
+
+.timeline-item{
+    position:relative;
+
+    margin-bottom:35px;
+}
+
+.timeline-item::before{
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#c9a75f;
+
+    left:-36px;
+    top:10px;
+}
+
+.timeline-year{
+    color:#d9b96f;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+.timeline-item h3{
+    font-size:21px;
+}
+
+.timeline-item p{
+    color:#aeb5bf;
+}
+
+/* =========================
+   GALERIE
+========================= */
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.gallery figure{
+    margin:0;
+
+    background:#111720;
+
+    border:1px solid #29323d;
+}
+
+.gallery img{
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.gallery figcaption{
+    padding:14px;
+
+    color:#aeb5bd;
+
+    font-size:14px;
+}
+
+/* =========================
+   METODA ISTORICULUI
+========================= */
+
+.method{
+    background:
+    linear-gradient(
+    135deg,
+    #111720,
+    #0b1017
+    );
+
+    border-top:1px solid #3c3425;
+    border-bottom:1px solid #3c3425;
+}
+
+.method-box{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:20px;
+}
+
+.method-card{
+    padding:25px;
+
+    border:1px solid #2c3540;
+
+    background:#10161e;
+}
+
+.method-card h3{
+    color:#d9b970;
+
+    margin-bottom:8px;
+}
+
+.method-card p{
+    color:#adb4be;
+}
+
+/* =========================
+   SURSE
+========================= */
+
+.sources{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
+}
+
+.source{
+    padding:22px;
+
+    border:1px solid #29333f;
+
+    background:#10161f;
+}
+
+.source h3{
+    color:#d8b76c;
+}
+
+.source p{
+    color:#aeb5be;
+
+    margin-top:8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    border-top:1px solid var(--line);
+    padding:45px 20px;
+
     text-align:center;
-    padding:70px 20px;
-    color:#666;
+
+    border-top:1px solid #292f37;
+
+    color:#777f89;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
 }
 
 footer strong{
-    color:var(--gold);
+    color:#c5a45e;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 
-/* ================= MOBILE ================= */
+@media(max-width:900px){
 
-@media(max-width:700px){
-
-    .lesson{
-        padding:30px 20px;
+    .epochs{
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
-    .lesson h3{
-        font-size:28px;
+    .info-grid{
+        grid-template-columns:
+        1fr;
     }
 
-    .lesson h4{
-        font-size:21px;
+    .gallery{
+        grid-template-columns:
+        1fr 1fr;
     }
 
-    .monogram{
-        font-size:70px;
+    .navbar nav{
+        display:none;
     }
 
-    nav{
-        gap:12px;
+}
+
+@media(max-width:600px){
+
+    .epochs,
+    .gallery,
+    .sources,
+    .method-box{
+        grid-template-columns:1fr;
     }
+
+    .hero{
+        min-height:auto;
+        padding:55px 15px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .lesson-content,
+    .lesson-header{
+        padding:20px;
+    }
+
+    section{
+        padding:55px 15px;
+    }
+
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     COPERTA
-===================================================== -->
+<!-- =========================
+     NAVIGARE
+========================= -->
 
 <header>
 
-<div class="hero">
+<div class="navbar">
 
-<div class="monogram">CMS</div>
-
-<div class="small-line"></div>
-
-<h1>CIORA MARIA SOFIA</h1>
-
-<p class="hero-sub">
-ACADEMIA DE ISTORIE
-</p>
-
-<div class="small-line"></div>
-
-<p class="hero-description">
-
-Un spațiu dedicat studiului serios al istoriei.
-De la polisurile Greciei antice și Republica Romană
-până la Dacia lui Decebal și Primul Război Mondial.
-
-</p>
-
-<a href="#lectii" class="start">
-ÎNCEPE LECȚIILE
+<a href="#acasa" class="brand">
+FOCUL ISTORIEI
 </a>
+
+<nav>
+<a href="#epoci">Epoci</a>
+<a href="#lectii">Lecții</a>
+<a href="#cronologie">Cronologie</a>
+<a href="#galerie">Galerie</a>
+<a href="#metoda">Istoricul</a>
+<a href="#teste">Teste</a>
+</nav>
 
 </div>
 
 </header>
 
 
-<!-- =====================================================
-     NAVIGARE
-===================================================== -->
+<!-- =========================
+     HERO
+========================= -->
 
-<nav>
+<section class="hero" id="acasa">
 
-<a href="#lectii">LECȚII</a>
-<a href="#grecia">GRECIA</a>
-<a href="#roma">ROMA</a>
-<a href="#dacia">DACIA</a>
-<a href="#ww1">1914–1918</a>
-<a href="#cronologie">CRONOLOGIE</a>
-<a href="#quiz">QUIZ FINAL</a>
+<div class="hero-content">
 
-</nav>
+<img
+src="logo.jpg"
+alt="Logo Focul istoriei"
+class="logo"
+>
+
+<div class="kicker">
+Academie digitală de istorie
+</div>
+
+<h1>
+Focul <span>istoriei</span>
+</h1>
+
+<p>
+Istoria nu înseamnă doar ani și nume.
+Înseamnă oameni, cauze, decizii,
+conflicte, idei și consecințe.
+Aici începe studiul adevărat al trecutului.
+</p>
+
+<a href="#lectii" class="hero-button">
+ÎNCEPE STUDIUL
+</a>
+
+</div>
+
+</section>
 
 
-<main>
+<!-- =========================
+     EPOCI
+========================= -->
+
+<section id="epoci">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="kicker">
+Structura cursului
+</div>
+
+<h2>Cele cinci mari epoci</h2>
+
+<p>
+O călătorie cronologică de la primele comunități
+umane până la lumea contemporană.
+</p>
+
+</div>
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+<div class="epochs">
+
+<a href="#preistorie" class="epoch">
+
+<div class="epoch-number">I</div>
+
+<h3>Preistoria</h3>
+
+<p>
+Primele comunități umane,
+agricultura, sedentarizarea,
+metalurgia și apariția primelor civilizații.
+</p>
+
+</a>
+
+
+<a href="#antichitate" class="epoch">
+
+<div class="epoch-number">II</div>
+
+<h3>Antichitatea</h3>
+
+<p>
+Egipt, Grecia, Roma, Dacia,
+marile imperii și civilizațiile lumii vechi.
+</p>
+
+</a>
+
+
+<a href="#evulmediu" class="epoch">
+
+<div class="epoch-number">III</div>
+
+<h3>Evul Mediu</h3>
+
+<p>
+Bizanț, feudalism, cruciade,
+state medievale și transformarea Europei.
+</p>
+
+</a>
+
+
+<a href="#moderna" class="epoch">
+
+<div class="epoch-number">IV</div>
+
+<h3>Epoca Modernă</h3>
+
+<p>
+Renaștere, Reformă, Iluminism,
+revoluții și formarea statelor moderne.
+</p>
+
+</a>
+
+
+<a href="#contemporana" class="epoch">
+
+<div class="epoch-number">V</div>
+
+<h3>Epoca Contemporană</h3>
+
+<p>
+Războaie mondiale, comunism,
+democrație și lumea secolelor XX–XXI.
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     LECTII
+========================= -->
 
 <section id="lectii">
 
-<div class="section-title">
+<div class="container">
 
-<h2>CURSURI DE ISTORIE</h2>
+<div class="section-header">
+
+<div class="kicker">
+Cursuri
+</div>
+
+<h2>Lecții de istorie</h2>
 
 <p>
-HISTORY COURSES
+Fiecare lecție este construită ca o oră de istorie:
+context, explicație, cronologie, întrebări și interpretare.
 </p>
 
 </div>
 
 
-<!-- =====================================================
-     LECȚIA 1 — GRECIA
-===================================================== -->
+<!-- PREISTORIE -->
 
-<article class="lesson" id="grecia">
+<article class="lesson" id="preistorie">
 
-<div class="lesson-number">
-LECȚIA I • ANTICHITATE
-</div>
+<div class="lesson-header">
+
+<small>Lecția I · Preistorie</small>
 
 <h3>
-Grecia Antică
+Nașterea societății umane
 </h3>
 
-
-<h4>
-1. Lumea greacă înaintea polisurilor
-</h4>
-
-<p>
-
-Atunci când studiem Grecia antică trebuie să evităm o
-greșeală foarte frecventă: să ne imaginăm că Grecia era
-un singur stat, asemenea unui stat modern.
-
-Nu exista un „Regat al Greciei” care să conducă toate
-teritoriile grecești. Lumea greacă era alcătuită din
-numeroase comunități independente, așezate atât în
-Grecia continentală, cât și în insulele Mării Egee și
-pe coastele Asiei Mici.
-
-Această fragmentare geografică a avut consecințe politice.
-Munții și mările separau comunitățile, iar fiecare dintre
-ele și-a dezvoltat propriile instituții și tradiții.
-
-</p>
-
-
-<div class="professor">
-
-<div class="professor-title">
-EXPLICAȚIA PROFESORULUI
 </div>
 
-<p>
+<div class="lesson-content">
 
-Când înveți Grecia antică, ține minte această idee:
+<h4>Ce este Preistoria?</h4>
+
+<p>
+Preistoria este perioada din trecutul omenirii pentru care
+nu dispunem de izvoare scrise păstrate. Pentru această perioadă,
+istoricul lucrează împreună cu arheologul și cercetătorii altor
+domenii pentru a reconstrui viața oamenilor.
+</p>
+
+<h4>Paleoliticul</h4>
+
+<p>
+În Paleolitic, oamenii trăiau în comunități mici și se ocupau
+în principal cu vânătoarea, pescuitul și culesul.
+Uneltele erau realizate în special din piatră.
+Mobilitatea era importantă deoarece oamenii urmăreau resursele
+de care depindea supraviețuirea lor.
+</p>
+
+<h4>Revoluția neolitică</h4>
+
+<p>
+Neoliticul a adus transformări profunde.
+Agricultura și creșterea animalelor au permis unor comunități
+să devină sedentare. Au apărut așezări stabile, ceramica,
+noi tipuri de unelte și forme mai complexe de organizare.
+</p>
+
+<div class="teacher-box">
 
 <strong>
-unitatea grecilor era mai ales culturală, nu politică.
+Ce ar spune profesorul la oră?
 </strong>
 
-Grecii aveau limba, religia și multe tradiții comune,
-dar puteau fi adversari politici și militari.
-
+<p>
+„Nu vreau să memorați doar definiția Neoliticului.
+Întrebați-vă de ce agricultura a schimbat societatea.
+Dacă omul începe să producă hrană, nu mai depinde în aceeași
+măsură de deplasarea după resurse. De aici apar așezările,
+specializarea muncii și schimbări sociale.”
 </p>
 
 </div>
 
 
-<div class="year">
-c. secolele VIII–VI î.Hr. — dezvoltarea polisului
-</div>
+<div class="info-grid">
 
+<div class="info-card">
 
-<h4>
-2. Polisul — orașul-stat
-</h4>
+<h4>Termeni</h4>
 
 <p>
-
-Polisul era o comunitate politică independentă.
-El cuprindea de regulă un centru urban și teritoriile
-din jurul său.
-
-Polisul avea instituții proprii, legi proprii și, în multe
-cazuri, propria armată.
-
-Două dintre cele mai cunoscute polisuri au fost
-<strong>Atena</strong> și <strong>Sparta</strong>.
-
-Atena s-a remarcat prin dezvoltarea vieții politice,
-a comerțului, a culturii și a filosofiei.
-
-Sparta a construit o societate puternic orientată spre
-disciplină militară.
-
+Paleolitic · Neolitic · sedentarizare · agricultură ·
+metalurgie · arheologie
 </p>
 
-
-<h4>
-3. Atena și apariția democrației
-</h4>
-
-<div class="year">
-594 î.Hr. — reformele lui Solon
 </div>
+
+<div class="info-card">
+
+<h4>Izvoare</h4>
 
 <p>
-
-Solon a fost unul dintre oamenii politici importanți ai
-Atenei. Reformele sale au încercat să reducă tensiunile
-sociale și să reorganizeze viața politică.
-
-Mai târziu, în secolul al VI-lea î.Hr., reformele lui
-Cleisthenes au contribuit decisiv la dezvoltarea
-democrației ateniene.
-
+Unelte, ceramică, locuințe, morminte, podoabe,
+resturi animale și vegetale.
 </p>
 
-<div class="professor">
-
-<div class="professor-title">
-DE CE ESTE IMPORTANT?
 </div>
+
+<div class="info-card">
+
+<h4>România</h4>
 
 <p>
-
-Democrația ateniană nu era identică cu democrația modernă.
-Participarea politică era limitată. Femeile, sclavii și
-străinii nu aveau aceleași drepturi politice ca cetățenii
-atenieni.
-
-De aceea, istoricul trebuie să compare instituțiile
-politice în contextul epocii lor, nu să le judece pur și
-simplu după standardele prezentului.
-
+Cultura Cucuteni este una dintre cele mai importante
+culturi neolitice din Europa de Est.
 </p>
 
 </div>
 
-
-<h4>
-4. Războaiele medice
-</h4>
-
-<div class="year">
-490 î.Hr. — Bătălia de la Maraton
 </div>
-
-<p>
-
-Conflictul dintre lumea greacă și Imperiul Persan a
-reprezentat una dintre marile confruntări ale Antichității.
-
-La Maraton, atenienii au obținut o victorie importantă
-împotriva forțelor persane.
-
-</p>
-
-<div class="year">
-480 î.Hr. — Termopile și Salamina
-</div>
-
-<p>
-
-În 480 î.Hr., armata persană a pătruns din nou în Grecia.
-La Termopile, forțele grecești conduse de spartani au
-încercat să oprească înaintarea persană.
-
-În același an, grecii au obținut o importantă victorie
-navală la Salamina.
-
-</p>
-
-
-<h4>
-5. Războiul peloponesiac
-</h4>
-
-<div class="year">
-431–404 î.Hr.
-</div>
-
-<p>
-
-Atena și Sparta au devenit principalele puteri ale
-lumii grecești.
-
-Conflictul dintre ele și aliații lor a durat aproape
-trei decenii.
-
-Victoria Spartei a slăbit lumea greacă și a creat
-condiții pentru ascensiunea Macedoniei.
-
-</p>
-
-
-<h4>
-6. Alexandru cel Mare și lumea elenistică
-</h4>
-
-<div class="year">
-336–323 î.Hr. — domnia lui Alexandru cel Mare
-</div>
-
-<p>
-
-Alexandru al III-lea al Macedoniei a urcat pe tron în
-336 î.Hr.
-
-În doar câțiva ani, a construit un imperiu care se
-întindea din lumea greacă până în Egipt și până în
-zone din Asia.
-
-Cuceririle sale au favorizat răspândirea culturii
-grecești și apariția lumii elenistice.
-
-</p>
-
-
-<div class="remember">
-
-<div class="remember-title">
-DE REȚINUT
-</div>
-
-<p>
-
-<strong>Polis → Atena și Sparta → războaiele medice →
-războiul peloponesiac → Macedonia → Alexandru cel Mare →
-elenism.</strong>
-
-</p>
 
 </div>
 
 </article>
 
 
-<!-- =====================================================
-     LECȚIA 2 — ROMA
-===================================================== -->
+<!-- ANTICHITATE -->
 
-<article class="lesson" id="roma">
+<article class="lesson" id="antichitate">
 
-<div class="lesson-number">
-LECȚIA II • ROMA ANTICĂ
-</div>
+<div class="lesson-header">
+
+<small>Lecția II · Antichitate</small>
 
 <h3>
-De la Republică la Imperiu
+Grecia, Roma și Dacia
 </h3>
 
+</div>
 
-<h4>
-1. Originile Romei
-</h4>
+<div class="lesson-content">
+
+<h4>Lumea greacă</h4>
 
 <p>
-
-Roma s-a dezvoltat în Peninsula Italică, pe râul Tibru.
-Poziția sa geografică a favorizat dezvoltarea orașului
-și legăturile comerciale.
-
-Tradiția romană plasează întemeierea Romei în anul
-<strong>753 î.Hr.</strong>, deși această dată aparține
-tradiției istorice și legendare.
-
-Roma a trecut printr-o perioadă monarhică, urmată de
-Republică.
-
+Grecia antică era alcătuită din numeroase polisuri,
+adică cetăți-stat independente. Atena și Sparta
+au devenit două dintre cele mai cunoscute exemple,
+dar lumea greacă era mult mai diversă.
 </p>
 
-
-<div class="year">
-509 î.Hr. — începutul tradițional al Republicii Romane
-</div>
-
-
-<h4>
-2. Republica Romană
-</h4>
-
 <p>
-
-Republica Romană nu era o democrație modernă.
-
-Puterea era împărțită între diferite instituții.
-Senatul avea o influență foarte mare, iar magistrații
-ocupau funcții publice pentru perioade limitate.
-
-Printre cele mai importante funcții se aflau consulii,
-pretorii și cenzorii.
-
-În situații deosebit de grave putea fi numit un dictator
-pentru o perioadă limitată.
-
+Atena este cunoscută pentru dezvoltarea democrației,
+în timp ce Sparta a dezvoltat o societate puternic
+orientată spre disciplina militară.
 </p>
 
-
-<h4>
-3. Armata romană
-</h4>
+<h4>Roma</h4>
 
 <p>
-
-Unul dintre motivele succesului roman a fost capacitatea
-de a organiza și adapta armata.
-
-Legiunea a devenit una dintre cele mai cunoscute formațiuni
-militare ale lumii antice.
-
-Soldatul roman nu era important doar prin curajul personal.
-Disciplina, organizarea, logistica și capacitatea de a
-construi fortificații au fost esențiale.
-
+Roma a trecut prin trei mari etape politice:
+Regalitatea, Republica și Imperiul.
+Republica romană s-a bazat pe instituții precum Senatul
+și magistraturile.
 </p>
 
-
-<div class="professor">
-
-<div class="professor-title">
-EXPLICAȚIA PROFESORULUI
-</div>
-
 <p>
-
-Când cineva spune „Roma a cucerit lumea pentru că soldații
-romani erau mai curajoși”, răspunsul istoricului trebuie
-să fie: <strong>nu este suficient.</strong>
-
-Trebuie să analizăm organizarea militară, resursele,
-aliații, drumurile, economia, comanda și capacitatea
-Romei de a înlocui pierderile.
-
-Istoria nu caută o singură cauză atunci când realitatea
-are mai multe cauze.
-
+În secolul I î.Hr., conflictele politice și războaiele civile
+au contribuit la transformarea sistemului republican.
+Octavian Augustus a devenit primul împărat al Romei,
+iar în anul 27 î.Hr. începe principatul.
 </p>
 
-</div>
-
-
-<h4>
-4. Războaiele punice
-</h4>
-
-<div class="year">
-264–146 î.Hr.
-</div>
+<h4>Dacia și Roma</h4>
 
 <p>
-
-Roma a intrat în conflict cu Cartagina pentru controlul
-și influența în vestul Mediteranei.
-
-Au existat trei războaie punice.
-
-Al Doilea Război Punic este celebru datorită lui Hannibal,
-care a traversat Alpii și a obținut victorii importante
-împotriva romanilor.
-
-În cele din urmă, Roma a câștigat războiul.
-
+În spațiul carpato-danubian s-a afirmat regatul dac.
+Burebista a reunit numeroase triburi dacice în secolul I î.Hr.,
+iar Decebal a condus Dacia în perioada confruntărilor
+cu Imperiul Roman.
 </p>
 
-
-<div class="year">
-146 î.Hr. — distrugerea Cartaginei
-</div>
-
-
-<h4>
-5. Criza Republicii
-</h4>
-
 <p>
-
-Expansiunea romană a adus bogății și teritorii noi,
-dar a produs și tensiuni sociale și politice.
-
-Conflictele dintre liderii politici și militari au
-devenit din ce în ce mai puternice.
-
-Iulius Caesar a devenit una dintre figurile centrale
-ale acestei perioade.
-
+Traian a purtat două războaie împotriva dacilor:
+101–102 și 105–106. În anul 106, o parte importantă
+a regatului dac a fost transformată în provincie romană.
 </p>
 
-
-<div class="year">
-44 î.Hr. — asasinarea lui Iulius Caesar
-</div>
-
-
-<h4>
-6. Augustus și nașterea Imperiului
-</h4>
-
-<div class="year">
-27 î.Hr. — Augustus
-</div>
-
-<p>
-
-Octavian a devenit Augustus și a inaugurat o nouă etapă
-în istoria Romei.
-
-Instituțiile republicane nu au dispărut imediat, însă
-puterea reală s-a concentrat tot mai mult în mâinile
-împăratului.
-
-</p>
-
-
-<h4>
-7. Apogeul Imperiului
-</h4>
-
-<div class="year">
-117 d.Hr. — domnia lui Traian
-</div>
-
-<p>
-
-În timpul împăratului Traian, Imperiul Roman a atins una
-dintre cele mai mari întinderi teritoriale ale sale.
-
-Traian este important pentru istoria României deoarece
-în timpul domniei sale au avut loc războaiele împotriva
-regelui dac Decebal.
-
-</p>
-
-
-<h4>
-8. Criza și transformarea Imperiului
-</h4>
-
-<div class="year">
-284–305 — Dioclețian
-</div>
-
-<p>
-
-Dioclețian a reorganizat administrația și conducerea
-Imperiului.
-
-A încercat să facă un teritoriu enorm mai ușor de
-administrat printr-un sistem cunoscut sub numele de
-Tetrarhie.
-
-</p>
-
-
-<div class="year">
-395 — împărțirea definitivă a administrației imperiale
-între Orient și Occident
-</div>
-
-
-<div class="year">
-476 — sfârșitul tradițional al Imperiului Roman de Apus
-</div>
-
-<p>
-
-În 476, Romulus Augustulus a fost înlăturat, iar acest
-eveniment este folosit în mod tradițional ca reper pentru
-sfârșitul Imperiului Roman de Apus.
-
-Important: Imperiul Roman de Răsărit a continuat să existe
-timp de aproape o mie de ani după acest moment.
-
-</p>
-
-
-<div class="remember">
-
-<div class="remember-title">
-SCHEMA DE MEMORAT
-</div>
-
-<p>
+<div class="teacher-box">
 
 <strong>
-753 î.Hr. → tradiția întemeierii Romei<br>
-509 î.Hr. → Republica<br>
-264–146 î.Hr. → războaiele punice<br>
-44 î.Hr. → Caesar<br>
-27 î.Hr. → Augustus<br>
-117 → apogeul teritorial sub Traian<br>
-284–305 → Dioclețian<br>
-395 → separarea administrației<br>
-476 → Imperiul Roman de Apus
+Ce ar spune profesorul la oră?
 </strong>
 
+<p>
+„Nu spuneți doar că Roma a cucerit Dacia.
+Un istoric întreabă de ce. Trebuie analizate poziția strategică,
+resursele, politica împăratului Traian și situația politică
+din regiune. Apoi trebuie să vedem și consecințele cuceririi.”
 </p>
+
+</div>
+
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<h4>Repere cronologice</h4>
+
+<p>
+753 î.Hr. — tradițional, întemeierea Romei<br>
+44 î.Hr. — asasinarea lui Caesar<br>
+27 î.Hr. — începutul principatului<br>
+106 — cucerirea Daciei
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h4>Personaje</h4>
+
+<p>
+Burebista · Decebal · Traian · Augustus ·
+Iulius Caesar · Pericle
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h4>Izvoare</h4>
+
+<p>
+Inscripții, monede, monumente, cronici,
+texte antice și descoperiri arheologice.
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </article>
 
 
-<!-- =====================================================
-     LECȚIA 3 — DACIA
-===================================================== -->
+<!-- EV MEDIU -->
 
-<article class="lesson" id="dacia">
+<article class="lesson" id="evulmediu">
 
-<div class="lesson-number">
-LECȚIA III • DACIA ȘI ROMA
-</div>
+<div class="lesson-header">
+
+<small>Lecția III · Evul Mediu</small>
 
 <h3>
-Războaiele Daco-Romane
+Europa medievală și lumea bizantină
 </h3>
 
-
-<h4>
-1. Dacia înaintea conflictului cu Traian
-</h4>
-
-<p>
-
-În spațiul carpato-dunărean s-a dezvoltat o civilizație
-dacică organizată în jurul unor centre fortificate.
-
-În timpul lui Burebista, în secolul I î.Hr., formațiunea
-politică dacică a cunoscut o mare extindere.
-
-Mai târziu, în timpul lui Decebal, regatul dac a devenit
-un adversar important al Romei la Dunărea de Jos.
-
-</p>
-
-
-<h4>
-2. Decebal și Imperiul Roman
-</h4>
-
-<p>
-
-Decebal a devenit rege în jurul anului 87 d.Hr.
-
-Relațiile dintre Dacia și Roma erau complexe.
-Au existat atât confruntări, cât și perioade de pace.
-
-În timpul împăratului Domitian au avut loc lupte importante
-între romani și daci.
-
-</p>
-
-
-<div class="year">
-85–89 d.Hr. — conflictele dintre Roma și Dacia
 </div>
 
+<div class="lesson-content">
 
-<h4>
-3. De ce a atacat Traian Dacia?
-</h4>
+<h4>Anul 476</h4>
 
 <p>
-
-Când analizăm cauzele războaielor daco-romane, nu trebuie
-să alegem o singură explicație.
-
-Au existat motive strategice, politice și economice.
-
-Regatul lui Decebal reprezenta o putere importantă la
-nordul Dunării, iar Traian urmărea consolidarea poziției
-Romei în această regiune.
-
+În anul 476, împăratul roman din Occident, Romulus Augustulus,
+a fost înlăturat de Odoacru. Evenimentul este folosit
+în mod tradițional pentru marcarea sfârșitului Imperiului Roman
+de Apus.
 </p>
 
+<p>
+Important: anul 476 nu înseamnă că întreaga civilizație romană
+a dispărut într-o singură zi. Numeroase instituții, tradiții,
+limbi și forme culturale au continuat.
+</p>
 
-<div class="professor">
-
-<div class="professor-title">
-ÎNTREBAREA ISTORICULUI
-</div>
+<h4>Imperiul Bizantin</h4>
 
 <p>
+Imperiul Roman de Răsărit a continuat să existe,
+având Constantinopolul drept centru.
+Împăratul Iustinian I a încercat să refacă unitatea
+politică a lumii romane și a realizat importante reforme juridice.
+</p>
+
+<h4>Evul Mediu românesc</h4>
+
+<p>
+În spațiul românesc s-au format și consolidat state medievale.
+Țara Românească și Moldova au avut propriile instituții,
+domnii și relații diplomatice și militare cu vecinii.
+</p>
+
+<p>
+Domnitori precum Mircea cel Bătrân, Iancu de Hunedoara
+și Ștefan cel Mare au avut un rol important în politica
+Europei de Sud-Est.
+</p>
+
+<div class="teacher-box">
 
 <strong>
-„Care a fost cauza războiului?”
+Ce ar spune profesorul la oră?
 </strong>
 
-Nu răspunde imediat cu un singur motiv.
-
-Întreabă:
-
-Cine avea de câștigat?
-Ce amenințare exista?
-Ce interese strategice erau implicate?
-Ce resurse existau?
-Ce situație politică exista în acel moment?
-
-Aceasta este o modalitate de a începe să gândești
-ca un istoric.
-
+<p>
+„Când vedeți anul 476, nu spuneți doar «a căzut Roma».
+Întrebați ce s-a schimbat și ce a continuat.
+Istoria serioasă studiază atât rupturile,
+cât și continuitățile.”
 </p>
 
 </div>
 
+<div class="info-grid">
 
-<h4>
-4. Primul război dacic
-</h4>
+<div class="info-card">
 
-<div class="year">
-101–102 d.Hr.
+<h4>Repere</h4>
+
+<p>
+476 — sfârșitul Imperiului Roman de Apus<br>
+1054 — Marea Schismă<br>
+1453 — căderea Constantinopolului
+</p>
+
 </div>
 
+<div class="info-card">
+
+<h4>Personaje</h4>
+
 <p>
-
-Traian a început ofensiva împotriva Daciei în anul 101.
-
-Armata romană a traversat Dunărea și a înaintat spre
-teritoriile dacice.
-
-Au avut loc mai multe confruntări, iar conflictul s-a
-încheiat printr-o pace în 102.
-
-Decebal a acceptat condiții care au limitat puterea
-sa militară și politică.
-
+Iustinian I · Mircea cel Bătrân ·
+Iancu de Hunedoara · Ștefan cel Mare
 </p>
 
-
-<h4>
-5. Al doilea război dacic
-</h4>
-
-<div class="year">
-105–106 d.Hr.
 </div>
 
-<p>
+<div class="info-card">
 
-Pacea nu a fost definitivă.
-
-În 105, conflictul a fost reluat.
-
-Armata romană a pătruns din nou în Dacia, iar romanii
-au construit și folosit o rețea complexă de drumuri,
-poduri, fortificații și tabere.
-
-Unul dintre cele mai importante obiective era centrul
-regatului dac.
-
-</p>
-
-
-<div class="year">
-106 d.Hr. — cucerirea Daciei</div>
+<h4>Termeni</h4>
 
 <p>
-
-Sarmizegetusa Regia a fost cucerită.
-
-Regatul lui Decebal s-a prăbușit, iar Decebal a murit.
-
-O parte importantă a teritoriului dac a fost transformată
-în provincie romană.
-
+Feudalism · Bizanț · senior · vasal ·
+cruciadă · cetate medievală
 </p>
 
-
-<h4>
-6. Columna lui Traian
-</h4>
-
-<p>
-
-Unul dintre cele mai importante monumente legate de
-războaiele dacice este Columna lui Traian, ridicată la
-Roma.
-
-Reliefurile sale prezintă numeroase scene militare și
-politice legate de campaniile lui Traian.
-
-Pentru istorici, însă, monumentele trebuie analizate
-critic: o reprezentare imperială nu este o fotografie
-neutră a trecutului.
-
-</p>
-
-
-<div class="remember">
-
-<div class="remember-title">
-ANI ESENȚIALI
 </div>
 
-<p>
-
-<strong>
-85–89 → conflictele cu Domitian<br>
-101–102 → primul război al lui Traian<br>
-105–106 → al doilea război<br>
-106 → cucerirea Daciei
-</strong>
-
-</p>
+</div>
 
 </div>
 
 </article>
 
 
-<!-- =====================================================
-     LECȚIA 4 — WW1
-===================================================== -->
+<!-- MODERNA -->
 
-<article class="lesson" id="ww1">
+<article class="lesson" id="moderna">
 
-<div class="lesson-number">
-LECȚIA IV • 1914–1918
-</div>
+<div class="lesson-header">
+
+<small>Lecția IV · Epoca Modernă</small>
 
 <h3>
-Primul Război Mondial
+Revoluții și formarea României moderne
 </h3>
 
-
-<h4>
-1. Europa înainte de 1914
-</h4>
-
-<p>
-
-Primul Război Mondial nu a apărut dintr-o singură cauză.
-
-Înainte de 1914, Europa era caracterizată de rivalități
-între marile puteri, alianțe militare, naționalism,
-competiție economică și colonială și tensiuni în
-special în Peninsula Balcanică.
-
-</p>
-
-
-<div class="professor">
-
-<div class="professor-title">
-EXPLICAȚIA PROFESORULUI
 </div>
 
+<div class="lesson-content">
+
+<h4>Transformarea Europei</h4>
+
 <p>
-
-Un istoric bun face diferența între:
-
-<strong>cauze pe termen lung</strong>
-
-și
-
-<strong>evenimentul care declanșează criza.</strong>
-
-Asasinarea de la Sarajevo a fost factorul declanșator,
-dar nu explică singură de ce Europa era atât de pregătită
-pentru un război de proporții.
-
+Epoca modernă a fost caracterizată de schimbări economice,
+politice și intelectuale majore. Renașterea, Reforma,
+Revoluția Științifică și Iluminismul au modificat modul
+în care europenii priveau lumea și societatea.
 </p>
 
-</div>
-
-
-<h4>
-2. Alianțele
-</h4>
+<h4>Revoluția Franceză</h4>
 
 <p>
-
-Europa era împărțită în blocuri de alianțe.
-
-Printre principalele puteri ale Triplei Alianțe se
-aflau Germania, Austro-Ungaria și Italia, deși Italia
-a schimbat ulterior tabăra.
-
-Antanta a reunit Franța, Regatul Unit și Rusia, iar
-ulterior în conflict au intrat și alte state.
-
+În 1789 a început Revoluția Franceză.
+Ideile despre libertate, egalitate, cetățenie
+și suveranitate populară au avut o influență enormă
+asupra Europei.
 </p>
 
-
-<h4>
-3. Sarajevo
-</h4>
-
-<div class="year">
-28 iunie 1914
-</div>
+<h4>România modernă</h4>
 
 <p>
-
-Arhiducele Franz Ferdinand al Austro-Ungariei a fost
-asasinat la Sarajevo.
-
-Evenimentul a declanșat o criză diplomatică între
-Austro-Ungaria și Serbia.
-
-Sistemul alianțelor și mobilizările militare au contribuit
-la transformarea crizei locale într-un război european,
-care avea să devină mondial.
-
+În 1859, Moldova și Țara Românească l-au ales
+pe Alexandru Ioan Cuza ca domnitor, realizând astfel
+Unirea Principatelor.
 </p>
 
-
-<div class="year">
-1914 — începutul Primului Război Mondial
-</div>
-
-
-<h4>
-4. Războiul de tranșee
-</h4>
-
 <p>
-
-Pe Frontul de Vest, războiul s-a transformat într-un
-conflict de poziții.
-
-Tranșeele ofereau protecție soldaților, iar atacurile
-frontale împotriva pozițiilor fortificate puteau produce
-pierderi uriașe.
-
-Artileria, mitralierele, aviația, tancurile și alte
-tehnologii au schimbat natura războiului.
-
+În 1877 România și-a proclamat independența,
+iar în 1881 a devenit regat.
 </p>
 
-
-<h4>
-5. România intră în război
-</h4>
-
-<div class="year">
-1916 — România intră în război
-</div>
-
-<p>
-
-România a intrat în război de partea Antantei.
-
-Armata română a trecut Carpații și a intrat în
-Transilvania, însă ofensiva a fost oprită.
-
-Forțele Puterilor Centrale au contraatacat, iar Bucureștiul
-a fost ocupat.
-
-Guvernul și armata română s-au retras în Moldova.
-
-</p>
-
-
-<h4>
-6. 1917 — rezistența română
-</h4>
-
-<div class="year">
-1917 — Mărăști, Mărășești și Oituz
-</div>
-
-<p>
-
-În vara anului 1917, armata română a participat la lupte
-majore în Moldova.
-
-Mărăști, Mărășești și Oituz au devenit simboluri importante
-ale rezistenței armatei române.
-
-</p>
-
-
-<h4>
-7. Rusia și anul 1917
-</h4>
-
-<p>
-
-Revoluțiile din Rusia au schimbat radical situația de pe
-Frontul de Est.
-
-Rusia s-a retras ulterior din război, ceea ce a permis
-Germaniei să mute forțe spre alte fronturi.
-
-</p>
-
-
-<h4>
-8. 1918 — sfârșitul războiului
-</h4>
-
-<div class="year">
-11 noiembrie 1918
-</div>
-
-<p>
-
-Armistițiul cu Germania a pus capăt luptelor de pe
-Frontul de Vest.
-
-Primul Război Mondial a schimbat profund Europa.
-
-Au dispărut sau s-au transformat mari imperii, iar harta
-politică a continentului a fost reorganizată.
-
-</p>
-
-
-<div class="remember">
-
-<div class="remember-title">
-CRONOLOGIA MINIMĂ
-</div>
-
-<p>
+<div class="teacher-box">
 
 <strong>
-1914 → Sarajevo și începutul războiului<br>
-1916 → România intră în război<br>
-1917 → Mărăști, Mărășești, Oituz<br>
-1917 → Revoluțiile din Rusia<br>
-1918 → sfârșitul războiului
+Ce ar spune profesorul la oră?
 </strong>
 
+<p>
+„Nu memorați 1859 ca pe un număr.
+Construiți un lanț: ideile de unitate națională,
+contextul internațional, dubla alegere a lui Cuza,
+reformele și consolidarea statului.”
 </p>
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<h4>Repere</h4>
+
+<p>
+1789 — Revoluția Franceză<br>
+1848 — revoluțiile europene<br>
+1859 — Unirea Principatelor<br>
+1877 — independența României<br>
+1881 — Regatul României
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h4>Personaje</h4>
+
+<p>
+Alexandru Ioan Cuza · Napoleon Bonaparte ·
+Nicolae Bălcescu
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h4>Idei</h4>
+
+<p>
+Iluminism · națiune · constituție ·
+cetățenie · independență
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </article>
 
 
-<!-- =====================================================
+<!-- CONTEMPORANA -->
+
+<article class="lesson" id="contemporana">
+
+<div class="lesson-header">
+
+<small>Lecția V · Epoca Contemporană</small>
+
+<h3>
+Războaiele mondiale și România
+</h3>
+
+</div>
+
+<div class="lesson-content">
+
+<h4>Primul Război Mondial</h4>
+
+<p>
+Primul Război Mondial a avut loc între 1914 și 1918.
+Rivalitățile dintre marile puteri, sistemele de alianțe,
+naționalismul și crizele internaționale au contribuit
+la izbucnirea conflictului.
+</p>
+
+<h4>România în 1916</h4>
+
+<p>
+România a intrat în război în 1916 de partea Antantei.
+După lupte grele și schimbări politice și militare,
+anul 1918 a adus transformări fundamentale pentru
+statul român.
+</p>
+
+<h4>Marea Unire</h4>
+
+<p>
+În 1918 s-au produs unirile Basarabiei, Bucovinei
+și Transilvaniei cu România, în contexte politice diferite.
+1 Decembrie 1918 este legat de hotărârea Marii Adunări
+Naționale de la Alba Iulia privind unirea Transilvaniei
+cu România.
+</p>
+
+<h4>Al Doilea Război Mondial</h4>
+
+<p>
+Al Doilea Război Mondial s-a desfășurat între 1939 și 1945
+și a transformat radical Europa și ordinea internațională.
+</p>
+
+<h4>România după 1945</h4>
+
+<p>
+După război, România a intrat în sfera de influență sovietică.
+Regimul comunist s-a consolidat, iar societatea a fost
+profund transformată.
+În 1989 regimul comunist s-a prăbușit.
+</p>
+
+<div class="teacher-box">
+
+<strong>
+Ce ar spune profesorul la oră?
+</strong>
+
+<p>
+„Pentru istoria contemporană trebuie să fiți foarte atenți
+la surse. Întrebați cine a scris documentul, când,
+în ce context și cu ce scop. Două surse pot descrie
+același eveniment diferit.”
+</p>
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<h4>Repere</h4>
+
+<p>
+1914–1918 — Primul Război Mondial<br>
+1918 — Marea Unire<br>
+1939–1945 — Al Doilea Război Mondial<br>
+1989 — schimbarea regimului în România
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h4>Termeni</h4>
+
+<p>
+Antantă · alianță · totalitarism ·
+comunism · democrație · propagandă
+</p>
+
+</div>
+
+<div class="info-card">
+
+<h4>Metoda istoricului</h4>
+
+<p>
+Compară documentele, verifică autorul,
+data, contextul și scopul sursei.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- =========================
      CRONOLOGIE
-===================================================== -->
+========================= -->
 
 <section id="cronologie">
 
-<div class="section-title">
+<div class="container">
 
-<h2>
-MAREA CRONOLOGIE
-</h2>
+<div class="section-header">
+
+<div class="kicker">
+Repere
+</div>
+
+<h2>Cronologia Focului istoriei</h2>
 
 <p>
-IMPORTANT YEARS
+Anii sunt repere. Important este să înțelegi
+legătura dintre evenimente.
 </p>
 
 </div>
@@ -1437,93 +1535,113 @@ IMPORTANT YEARS
 <div class="timeline">
 
 <div class="timeline-item">
-<strong>753 î.Hr.</strong><br>
-Data tradițională a întemeierii Romei.
+<div class="timeline-year">753 î.Hr.</div>
+<h3>Întemeierea tradițională a Romei</h3>
+<p>
+Data tradițională atribuită întemeierii Romei.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>509 î.Hr.</strong><br>
-Începutul tradițional al Republicii Romane.
+<div class="timeline-year">44 î.Hr.</div>
+<h3>Asasinarea lui Iulius Caesar</h3>
+<p>
+Un moment important al crizei Republicii romane.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>490 î.Hr.</strong><br>
-Bătălia de la Maraton.
+<div class="timeline-year">27 î.Hr.</div>
+<h3>Începutul principatului lui Augustus</h3>
+<p>
+Octavian primește titlul Augustus și inaugurează
+o nouă etapă politică a Romei.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>480 î.Hr.</strong><br>
-Termopile și Salamina.
+<div class="timeline-year">106</div>
+<h3>Cucerirea Daciei</h3>
+<p>
+Traian transformă o mare parte a regatului dac
+în provincie romană.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>431–404 î.Hr.</strong><br>
-Războiul peloponesiac.
+<div class="timeline-year">476</div>
+<h3>Sfârșitul Imperiului Roman de Apus</h3>
+<p>
+Data tradițională a începutului Evului Mediu occidental.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>264–146 î.Hr.</strong><br>
-Războaiele punice.
+<div class="timeline-year">1453</div>
+<h3>Căderea Constantinopolului</h3>
+<p>
+Constantinopolul este cucerit de otomani.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>44 î.Hr.</strong><br>
-Asasinarea lui Iulius Caesar.
+<div class="timeline-year">1789</div>
+<h3>Revoluția Franceză</h3>
+<p>
+Începe una dintre cele mai importante transformări
+politice ale epocii moderne.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>27 î.Hr.</strong><br>
-Augustus și începutul Principatului.
+<div class="timeline-year">1859</div>
+<h3>Unirea Principatelor</h3>
+<p>
+Alexandru Ioan Cuza este ales domnitor în ambele principate.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>101–102</strong><br>
-Primul război dacic al lui Traian.
+<div class="timeline-year">1877</div>
+<h3>Independența României</h3>
+<p>
+România își proclamă independența.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>105–106</strong><br>
-Al doilea război dacic.
+<div class="timeline-year">1914–1918</div>
+<h3>Primul Război Mondial</h3>
+<p>
+Un conflict mondial care schimbă profund Europa.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>106</strong><br>
-Cucerirea Daciei.
+<div class="timeline-year">1918</div>
+<h3>Marea Unire</h3>
+<p>
+Anul fundamental al formării României Mari.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>117</strong><br>
-Apogeul teritorial al Imperiului Roman.
+<div class="timeline-year">1939–1945</div>
+<h3>Al Doilea Război Mondial</h3>
+<p>
+Cel mai mare conflict militar al secolului XX.
+</p>
 </div>
 
 <div class="timeline-item">
-<strong>395</strong><br>
-Separarea administrației imperiale între Orient și Occident.
+<div class="timeline-year">1989</div>
+<h3>Schimbarea regimului în România</h3>
+<p>
+Sfârșitul regimului comunist și începutul tranziției
+către democrație.
+</p>
 </div>
 
-<div class="timeline-item">
-<strong>476</strong><br>
-Sfârșitul tradițional al Imperiului Roman de Apus.
-</div>
-
-<div class="timeline-item">
-<strong>1914</strong><br>
-Începutul Primului Război Mondial.
-</div>
-
-<div class="timeline-item">
-<strong>1916</strong><br>
-România intră în Primul Război Mondial.
-</div>
-
-<div class="timeline-item">
-<strong>1917</strong><br>
-Mărăști, Mărășești și Oituz.
-</div>
-
-<div class="timeline-item">
-<strong>1918</strong><br>
-Sfârșitul Primului Război Mondial.
 </div>
 
 </div>
@@ -1531,51 +1649,625 @@ Sfârșitul Primului Război Mondial.
 </section>
 
 
-<!-- =====================================================
-     QUIZ
-===================================================== -->
+<!-- =========================
+     GALERIE
+========================= -->
 
-<section id="quiz">
+<section id="galerie">
 
-<div class="section-title">
+<div class="container">
 
-<h2>
-QUIZ FINAL
-</h2>
+<div class="section-header">
+
+<div class="kicker">
+Istoria în imagini
+</div>
+
+<h2>Galerie</h2>
 
 <p>
-19 QUESTIONS • 19 ÎNTREBĂRI
+Imaginile nu sunt doar decor.
+Învață să observi o imagine asemenea unui izvor istoric.
 </p>
 
 </div>
 
 
-<div id="quizBox"></div>
+<div class="gallery">
 
-<button id="submit" onclick="gradeQuiz()">
-VERIFICĂ RĂSPUNSURILE
-</button>
+<figure>
 
-<div id="result"></div>
+<img
+src="https://images.unsplash.com/photo-1609132718484-cc4e5e7d8d1e?auto=format&fit=crop&w=1000&q=80"
+alt="Peisaj arheologic"
+>
+
+<figcaption>
+Preistoria — arheologia reconstruiește trecutul
+prin urmele materiale.
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<img
+src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1000&q=80"
+alt="Roma"
+>
+
+<figcaption>
+Antichitatea — Roma și moștenirea lumii clasice.
+</figcaption>
+
+</figure>
+
+
+<figure>
+
+<img
+src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=1000&q=80"
+alt="Castel medieval"
+>
+
+<figcaption>
+Evul Mediu — cetăți și societăți medievale.
+</figcaption>
+
+</figure>
+
+</div>
+
+</div>
 
 </section>
 
 
-</main>
+<!-- =========================
+     METODA ISTORICULUI
+========================= -->
 
+<section class="method" id="metoda">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="kicker">
+Gândirea istoricului
+</div>
+
+<h2>Cum gândește un istoric?</h2>
+
+<p>
+Memorarea este începutul. Analiza este ceea ce transformă
+un elev într-un adevărat cercetător al trecutului.
+</p>
+
+</div>
+
+
+<div class="method-box">
+
+<div class="method-card">
+
+<h3>1. Cine?</h3>
+
+<p>
+Cine a creat sursa?
+Este autorul un martor, un conducător,
+un cronicar sau un cercetător?
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<h3>2. Când?</h3>
+
+<p>
+Când a fost creată sursa?
+Este contemporană cu evenimentul
+sau a fost scrisă mult mai târziu?
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<h3>3. De ce?</h3>
+
+<p>
+Care a fost scopul autorului?
+Informare, propagandă, justificare,
+memorie sau alt motiv?
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<h3>4. Ce dovezi avem?</h3>
+
+<p>
+Există alte documente, monede,
+inscripții, hărți sau descoperiri
+care confirmă informația?
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TESTE
+========================= -->
+
+<section id="teste">
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="kicker">
+Evaluare
+</div>
+
+<h2>Testul final</h2>
+
+<p>
+15 întrebări din toate cele cinci epoci.
+</p>
+
+</div>
+
+
+<div class="quiz">
+
+
+<div class="question">
+
+<b>1. Ce schimbare este asociată cu Neoliticul?</b>
+
+<label class="option">
+<input type="radio" name="q1" value="1">
+Agricultura și sedentarizarea
+</label>
+
+<label class="option">
+<input type="radio" name="q1">
+Apariția tiparului
+</label>
+
+<label class="option">
+<input type="radio" name="q1">
+Revoluția industrială
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>2. Ce era polisul?</b>
+
+<label class="option">
+<input type="radio" name="q2" value="1">
+O cetate-stat grecească
+</label>
+
+<label class="option">
+<input type="radio" name="q2">
+O provincie romană
+</label>
+
+<label class="option">
+<input type="radio" name="q2">
+Un castel medieval
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>3. În ce an a fost cucerită Dacia de Traian?</b>
+
+<label class="option">
+<input type="radio" name="q3" value="1">
+106
+</label>
+
+<label class="option">
+<input type="radio" name="q3">
+476
+</label>
+
+<label class="option">
+<input type="radio" name="q3">
+1453
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>4. Ce an marchează tradițional sfârșitul Imperiului Roman de Apus?</b>
+
+<label class="option">
+<input type="radio" name="q4" value="1">
+476
+</label>
+
+<label class="option">
+<input type="radio" name="q4">
+106
+</label>
+
+<label class="option">
+<input type="radio" name="q4">
+1789
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>5. Care era capitala Imperiului Bizantin?</b>
+
+<label class="option">
+<input type="radio" name="q5" value="1">
+Constantinopol
+</label>
+
+<label class="option">
+<input type="radio" name="q5">
+Atena
+</label>
+
+<label class="option">
+<input type="radio" name="q5">
+Paris
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>6. În ce an a căzut Constantinopolul?</b>
+
+<label class="option">
+<input type="radio" name="q6" value="1">
+1453
+</label>
+
+<label class="option">
+<input type="radio" name="q6">
+1492
+</label>
+
+<label class="option">
+<input type="radio" name="q6">
+1600
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>7. În ce an a început Revoluția Franceză?</b>
+
+<label class="option">
+<input type="radio" name="q7" value="1">
+1789
+</label>
+
+<label class="option">
+<input type="radio" name="q7">
+1815
+</label>
+
+<label class="option">
+<input type="radio" name="q7">
+1918
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>8. Ce s-a realizat în 1859?</b>
+
+<label class="option">
+<input type="radio" name="q8" value="1">
+Unirea Moldovei cu Țara Românească
+</label>
+
+<label class="option">
+<input type="radio" name="q8">
+Marea Unire
+</label>
+
+<label class="option">
+<input type="radio" name="q8">
+Independența României
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>9. În ce an este proclamată independența României?</b>
+
+<label class="option">
+<input type="radio" name="q9" value="1">
+1877
+</label>
+
+<label class="option">
+<input type="radio" name="q9">
+1859
+</label>
+
+<label class="option">
+<input type="radio" name="q9">
+1881
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>10. Când a avut loc Primul Război Mondial?</b>
+
+<label class="option">
+<input type="radio" name="q10" value="1">
+1914–1918
+</label>
+
+<label class="option">
+<input type="radio" name="q10">
+1939–1945
+</label>
+
+<label class="option">
+<input type="radio" name="q10">
+1877–1878
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>11. Ce eveniment este legat de 1 Decembrie 1918?</b>
+
+<label class="option">
+<input type="radio" name="q11" value="1">
+Unirea Transilvaniei cu România
+</label>
+
+<label class="option">
+<input type="radio" name="q11">
+Unirea Principatelor
+</label>
+
+<label class="option">
+<input type="radio" name="q11">
+Proclamarea Regatului
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>12. Când a avut loc Al Doilea Război Mondial?</b>
+
+<label class="option">
+<input type="radio" name="q12" value="1">
+1939–1945
+</label>
+
+<label class="option">
+<input type="radio" name="q12">
+1914–1918
+</label>
+
+<label class="option">
+<input type="radio" name="q12">
+1947–1950
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>13. Ce an marchează sfârșitul regimului comunist în România?</b>
+
+<label class="option">
+<input type="radio" name="q13" value="1">
+1989
+</label>
+
+<label class="option">
+<input type="radio" name="q13">
+1991
+</label>
+
+<label class="option">
+<input type="radio" name="q13">
+1945
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>14. Ce este o sursă istorică?</b>
+
+<label class="option">
+<input type="radio" name="q14" value="1">
+O mărturie sau urmă care poate oferi informații despre trecut
+</label>
+
+<label class="option">
+<input type="radio" name="q14">
+Doar un manual
+</label>
+
+<label class="option">
+<input type="radio" name="q14">
+Doar o fotografie modernă
+</label>
+
+</div>
+
+
+<div class="question">
+
+<b>15. Ce trebuie să facă istoricul când găsește două surse contradictorii?</b>
+
+<label class="option">
+<input type="radio" name="q15" value="1">
+Să le compare și să le verifice
+</label>
+
+<label class="option">
+<input type="radio" name="q15">
+Să aleagă automat prima sursă
+</label>
+
+<label class="option">
+<input type="radio" name="q15">
+Să ignore ambele surse
+</label>
+
+</div>
+
+
+<button onclick="calculateScore()">
+VERIFICĂ REZULTATUL
+</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATII
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-header">
+
+<div class="kicker">
+Pentru cercetător
+</div>
+
+<h2>Informații suplimentare</h2>
+
+</div>
+
+
+<div class="sources">
+
+<div class="source">
+
+<h3>Izvoare scrise</h3>
+
+<p>
+Cronici, tratate, scrisori, acte diplomatice,
+inscripții și alte documente.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>Izvoare arheologice</h3>
+
+<p>
+Unelte, monede, clădiri, arme, ceramică,
+morminte și alte obiecte descoperite.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>Cronologia</h3>
+
+<p>
+Cronologia ajută istoricul să stabilească ordinea
+evenimentelor și relațiile dintre ele.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>Cauză și consecință</h3>
+
+<p>
+Un eveniment istoric nu apare fără context.
+Analizează cauzele, desfășurarea și consecințele.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
 <p>
-CIORA MARIA SOFIA
+<strong>FOCUL ISTORIEI</strong>
 </p>
 
 <p>
-<strong>ACADEMIA DE ISTORIE</strong>
+Academie digitală de istorie
 </p>
 
 <p>
-Study the past. Understand the present.
+© 2026 · Lecții · Cronologii · Izvoare · Teste
 </p>
 
 </footer>
@@ -1583,335 +2275,70 @@ Study the past. Understand the present.
 
 <script>
 
+/* =========================
+   TEST FINAL
+========================= */
 
-const questions = [
-
-{
-q:"1. Ce reprezenta polisul în lumea greacă?",
-a:[
-"Un imperiu continental",
-"O comunitate politică independentă",
-"O legiune romană",
-"O provincie persană"
-],
-c:1
-},
-
-{
-q:"2. În ce an a avut loc bătălia de la Maraton?",
-a:[
-"509 î.Hr.",
-"490 î.Hr.",
-"480 î.Hr.",
-"431 î.Hr."
-],
-c:1
-},
-
-{
-q:"3. Care polis era renumit pentru organizarea sa militară?",
-a:[
-"Atena",
-"Sparta",
-"Corint",
-"Milet"
-],
-c:1
-},
-
-{
-q:"4. În ce perioadă s-a desfășurat Războiul peloponesiac?",
-a:[
-"431–404 î.Hr.",
-"264–146 î.Hr.",
-"101–102",
-"490–480 î.Hr."
-],
-c:0
-},
-
-{
-q:"5. Cine a creat un mare imperiu elenistic?",
-a:[
-"Solon",
-"Pericle",
-"Alexandru cel Mare",
-"Hannibal"
-],
-c:2
-},
-
-{
-q:"6. În ce an este plasat tradițional începutul Republicii Romane?",
-a:[
-"753 î.Hr.",
-"509 î.Hr.",
-"44 î.Hr.",
-"27 î.Hr."
-],
-c:1
-},
-
-{
-q:"7. Împotriva cui a luptat Roma în războaiele punice?",
-a:[
-"Sparta",
-"Persia",
-"Cartagina",
-"Dacia"
-],
-c:2
-},
-
-{
-q:"8. Câte războaie punice au existat?",
-a:[
-"Două",
-"Trei",
-"Patru",
-"Șase"
-],
-c:1
-},
-
-{
-q:"9. În ce an a fost asasinat Iulius Caesar?",
-a:[
-"44 î.Hr.",
-"27 î.Hr.",
-"14 d.Hr.",
-"117"
-],
-c:0
-},
-
-{
-q:"10. Cine a devenit primul împărat roman?",
-a:[
-"Caesar",
-"Augustus",
-"Traian",
-"Dioclețian"
-],
-c:1
-},
-
-{
-q:"11. În ce an a început tradițional Principatul lui Augustus?",
-a:[
-"44 î.Hr.",
-"31 î.Hr.",
-"27 î.Hr.",
-"14"
-],
-c:2
-},
-
-{
-q:"12. Cine era regele Daciei în timpul războaielor lui Traian?",
-a:[
-"Burebista",
-"Decebal",
-"Deceneu",
-"Boerebista"
-],
-c:1
-},
-
-{
-q:"13. Când a avut loc primul război dacic al lui Traian?",
-a:[
-"85–89",
-"101–102",
-"105–106",
-"117–118"
-],
-c:1
-},
-
-{
-q:"14. Când a avut loc al doilea război dacic?",
-a:[
-"98–99",
-"101–102",
-"105–106",
-"106–109"
-],
-c:2
-},
-
-{
-q:"15. Ce s-a întâmplat în 106?",
-a:[
-"A început Republica Romană",
-"A fost cucerită Dacia",
-"A murit Caesar",
-"A început Primul Război Mondial"
-],
-c:1
-},
-
-{
-q:"16. Care eveniment a declanșat criza din 1914?",
-a:[
-"Invazia Franței",
-"Asasinarea lui Franz Ferdinand",
-"Revoluția Rusă",
-"Tratatul de la Versailles"
-],
-c:1
-},
-
-{
-q:"17. În ce an a început Primul Război Mondial?",
-a:[
-"1912",
-"1914",
-"1916",
-"1918"
-],
-c:1
-},
+function calculateScore(){
 
-{
-q:"18. În ce an a intrat România în Primul Război Mondial?",
-a:[
-"1914",
-"1915",
-"1916",
-"1917"
-],
-c:2
-},
+    let score = 0;
 
-{
-q:"19. În ce an s-a încheiat Primul Război Mondial?",
-a:[
-"1916",
-"1917",
-"1918",
-"1919"
-],
-c:2
-}
+    for(let i=1;i<=15;i++){
 
-];
+        let answer =
+        document.querySelector(
+        'input[name="q'+i+'"]:checked'
+        );
 
+        if(answer && answer.value==="1"){
+            score++;
+        }
 
-const quizBox=document.getElementById("quizBox");
+    }
 
+    let result =
+    document.getElementById("result");
 
-questions.forEach((item,index)=>{
+    result.style.display="block";
 
-let html=`
+    let message="";
 
-<div class="question">
+    if(score===15){
 
-<div class="question-title">
-${item.q}
-</div>
+        message=
+        "Rezultat perfect. 15/15 — ai stăpânit toate întrebările.";
 
-`;
+    }else if(score>=13){
 
-item.a.forEach((answer,i)=>{
+        message=
+        "Foarte bine. Ai o bază istorică solidă.";
 
-html+=`
+    }else if(score>=10){
 
-<label class="option">
+        message=
+        "Bine. Mai trebuie consolidate câteva capitole.";
 
-<input
-type="radio"
-name="question${index}"
-value="${i}"
->
+    }else if(score>=7){
 
-${answer}
+        message=
+        "Ai început bine, dar recitește lecțiile și încearcă din nou.";
 
-</label>
+    }else{
 
-`;
+        message=
+        "Este un început. Recitește lecțiile și construiește cronologia.";
 
-});
+    }
 
-html+=`</div>`;
-
-quizBox.innerHTML+=html;
-
-});
-
-
-function gradeQuiz(){
-
-let score=0;
-
-
-questions.forEach((question,index)=>{
-
-const selected=document.querySelector(
-`input[name="question${index}"]:checked`
-);
-
-if(selected && Number(selected.value)===question.c){
-
-score++;
-
-}
-
-});
-
-
-let title="";
-
-
-if(score===19){
-
-title="EXCEPȚIONAL";
-
-}
-
-else if(score>=17){
-
-title="EXCELENT";
-
-}
-
-else if(score>=14){
-
-title="FOARTE BINE";
-
-}
-
-else if(score>=10){
-
-title="BINE";
-
-}
-
-else{
-
-title="CONTINUĂ STUDIUL";
-
-}
-
-
-document.getElementById("result").innerHTML=
-
-`${title}<br>
-
-<span style="
-font-family:Inter;
-font-size:17px;
-color:#999;
-">
-
-Rezultat: ${score}/19
-
-</span>`;
+    result.innerHTML=
+    "<strong>Scor: "+
+    score+
+    "/15</strong><br><br>"+
+    message;
 
 }
 
 </script>
-
 
 </body>
     </html>
