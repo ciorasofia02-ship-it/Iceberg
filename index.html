@@ -3,520 +3,1150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focul Istoriei - Ghid Complet de Istorie</title>
+    <title>Ciora Maria Sofia - Portal de Istorie</title>
     <style>
+        /* STILURI GENERALE - ASPECT MATUR ȘI ELEGANT */
         :root {
-            --primary: #1c2833;
-            --accent: #900c3f;
-            --gold: #c70039;
-            --gold-accent: #d4af37;
-            --bg-light: #f4f6f7;
-            --card-bg: #ffffff;
-            --text-main: #212f3d;
-            --text-muted: #566573;
+            --primary-color: #0f172a; /* Bleumarin închis */
+            --secondary-color: #1e293b;
+            --accent-gold: #d4af37; /* Auriu */
+            --accent-silver: #cbd5e1; /* Argintiu */
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --bg-light: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Georgia', 'Times New Roman', serif;
             background-color: var(--bg-light);
-            color: var(--text-main);
+            color: var(--text-dark);
             line-height: 1.8;
         }
 
-        /* HEADER & NAVIGATION */
+        /* HEADER & NAVIGARE */
         header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 4px solid var(--gold-accent);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
         }
 
         .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-container img {
-            max-height: 55px;
-            border-radius: 4px;
-        }
-
-        .logo-text {
-            font-size: 1.6rem;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            color: var(--gold-accent);
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 18px;
-            font-size: 0.95rem;
-            font-family: sans-serif;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--gold-accent);
-        }
-
-        /* MAIN CONTAINER */
-        .container {
-            max-width: 950px;
-            margin: 2.5rem auto;
-            padding: 0 20px;
-        }
-
-        /* SECTIUNI */
-        section {
-            background: var(--card-bg);
-            padding: 3rem;
-            margin-bottom: 4rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            border-left: 6px solid var(--primary);
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Times New Roman', serif;
-            color: var(--primary);
-        }
-
-        h2 {
-            border-bottom: 2px solid var(--gold-accent);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-            font-size: 2rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-top: 1.5rem;
-        }
-
-        /* DESPRE SITE SI AUTOARE */
-        .intro-box {
-            background-color: #ebedef;
-            padding: 1.8rem;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--accent);
-        }
-
-        .intro-box h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-
-        /* LECTII */
-        .lesson-card {
-            margin-bottom: 2rem;
-        }
-
-        .lesson-date {
-            font-weight: bold;
-            color: var(--accent);
-            font-family: sans-serif;
-            font-size: 1.1rem;
             margin-bottom: 1rem;
         }
 
-        .lesson-image {
+        /* SVG reprezentând fidel logo-ul trimis (C M S) */
+        .logo-svg {
+            width: 140px;
+            height: 140px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            color: var(--accent-silver);
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            font-family: sans-serif;
+        }
+
+        nav li a:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* SECȚIUNI PREZENTARE */
+        .info-card {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        /* LECȚII - AȘEZARE VERTICALĂ (UNA SUB ALTA) */
+        .lectie-card {
+            background-color: #ffffff;
+            margin-bottom: 4rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .lectie-header {
+            background-color: var(--primary-color);
+            color: var(--accent-gold);
+            padding: 1.5rem 2rem;
+        }
+
+        .lectie-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .lectie-header .epoca-tag {
+            color: var(--accent-silver);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+        }
+
+        .lectie-body {
+            padding: 2rem;
+        }
+
+        .lectie-img {
             width: 100%;
-            max-height: 420px;
+            max-height: 400px;
             object-fit: cover;
             border-radius: 6px;
-            margin: 1.8rem 0;
-            border: 1px solid #ccc;
+            margin: 1.5rem 0;
         }
 
-        .lesson-card p {
-            text-align: justify;
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-        }
-
-        /* ELEMENTE SPECIALE LECTIE */
-        .teacher-note {
-            background-color: #eaf2f8;
-            border-left: 4px solid #2980b9;
-            padding: 1.2rem 1.5rem;
-            margin: 2rem 0;
+        /* STIL PROFESOR & IZVOARE */
+        .profesor-explica {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             font-style: italic;
             border-radius: 0 6px 6px 0;
         }
 
-        .teacher-note::before {
-            content: "👨‍🏫 Ce ar spune profesorul:";
+        .profesor-explica::before {
+            content: "💡 Explicația profesorului:";
+            display: block;
             font-weight: bold;
             font-style: normal;
-            color: #2980b9;
-            display: block;
-            margin-bottom: 0.4rem;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
             font-family: sans-serif;
         }
 
-        .source-quote {
-            background-color: #fef9e7;
-            border-left: 4px solid var(--gold-accent);
-            padding: 1.2rem 1.5rem;
-            margin: 2rem 0;
-            font-family: 'Georgia', serif;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .source-quote::before {
-            content: "📜 Izvor istoric scris:";
-            font-weight: bold;
-            color: #b7950b;
-            display: block;
-            margin-bottom: 0.4rem;
-            font-family: sans-serif;
-        }
-
-        /* TESTE */
-        .quiz-container {
-            background-color: #f8f9f9;
-            border: 1px solid #d5dbdb;
-            padding: 2rem;
+        .izvor-istoric {
+            background-color: #fffbeb;
+            border: 1px dashed var(--accent-gold);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             border-radius: 6px;
-            margin-top: 2.5rem;
         }
 
-        .quiz-container h4 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.2rem;
+        .izvor-istoric blockquote {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #78350f;
         }
 
-        .quiz-option {
-            display: block;
-            margin: 10px 0;
+        .izvor-istoric .sursa {
+            text-align: right;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: #92400e;
+        }
+
+        .ani-importanti {
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
             font-family: sans-serif;
-            cursor: pointer;
-            font-size: 0.98rem;
         }
 
-        .quiz-btn {
-            background-color: var(--primary);
-            color: white;
+        .ani-importanti h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* QUIZ / TEST LA FINAL DE LECȚIE */
+        .test-container {
+            background-color: #f8fafc;
+            border-top: 2px solid var(--accent-gold);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .test-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: sans-serif;
+        }
+
+        .opțiune-test {
+            display: block;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+
+        .btn-verificare {
+            background-color: var(--primary-color);
+            color: var(--accent-gold);
             border: none;
-            padding: 12px 24px;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 1rem;
+            transition: 0.3s;
             font-family: sans-serif;
-            font-weight: bold;
-            transition: background-color 0.3s;
         }
 
-        .quiz-btn:hover {
-            background-color: var(--accent);
+        .btn-verificare:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-color);
         }
 
-        .result-message {
-            margin-top: 12px;
+        .rezultat-test {
+            margin-top: 1rem;
             font-weight: bold;
             font-family: sans-serif;
-            font-size: 1rem;
         }
 
+        /* FOOTER */
         footer {
+            background-color: var(--primary-color);
+            color: var(--accent-silver);
             text-align: center;
-            padding: 2.5rem;
-            background-color: var(--primary);
-            color: white;
+            padding: 2rem;
             margin-top: 4rem;
+            border-top: 3px solid var(--accent-gold);
             font-family: sans-serif;
-            font-size: 0.95rem;
-            border-top: 4px solid var(--gold-accent);
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER & NAVIGATION -->
     <header>
         <div class="logo-container">
-            <!-- Înlocuiește 'logo.png' cu numele fișierului tău de logo -->
-            <img src="logo.png" alt="Logo Focul Istoriei" id="site-logo">
-            <span class="logo-text">Focul Istoriei</span>
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="85" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="400" stroke-dashoffset="50" />
+                <circle cx="100" cy="100" r="80" fill="none" stroke="url(#silverGrad)" stroke-width="2" />
+                
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#d4af37" />
+                        <stop offset="100%" stop-color="#aa7c11" />
+                    </linearGradient>
+                    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="100%" stop-color="#94a3b8" />
+                    </linearGradient>
+                </defs>
+
+                <path d="M 85 65 A 35 35 0 1 0 85 135" fill="none" stroke="url(#goldGrad)" stroke-width="7" stroke-linecap="round"/>
+                <path d="M 75 140 L 75 75 L 100 120 L 125 75 L 125 140" fill="none" stroke="url(#goldGrad)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M 115 85 C 115 70, 85 70, 85 95 C 85 120, 115 120, 115 140 C 115 160, 85 160, 85 145" fill="none" stroke="url(#silverGrad)" stroke-width="6" stroke-linecap="round"/>
+                
+                <path d="M 85 165 Q 100 160 100 170 Q 100 160 115 165 L 115 170 Q 100 165 100 173 Q 100 165 85 170 Z" fill="url(#goldGrad)"/>
+            </svg>
         </div>
-        <nav>
-            <a href="#despre">Despre</a>
-            <a href="#preistorie">Preistorie</a>
-            <a href="#antichitate">Antichitate</a>
-            <a href="#evul-mediu">Evul Mediu</a>
-            <a href="#epocamoderna">Epoca Modernă</a>
-            <a href="#contemporana">Epoca Contemporană</a>
-        </nav>
+        <h1>Ciora Maria Sofia</h1>
+        <p>Harta Timpului — De la Origini la Modernitate</p>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="#despre">Despre Autoare</a></li>
+            <li><a href="#importanta">De ce Istoria?</a></li>
+            <li><a href="#preistorie">Preistorie</a></li>
+            <li><a href="#antichitate">Antichitate</a></li>
+            <li><a href="#evul-mediu">Evul Mediu</a></li>
+            <li><a href="#moderna">Epoca Modernă</a></li>
+            <li><a href="#contemporana">Epoca Contemporană</a></li>
+        </ul>
+    </nav>
 
     <div class="container">
 
-        <!-- INTRODUCERE SI AUTOARE -->
-        <section id="despre">
-            <h2>Despre Proiect & Autoare</h2>
-            
-            <div class="intro-box">
-                <h3>De ce am creat acest site?</h3>
-                <p>Am creat platforma <strong>Focul Istoriei</strong> din dorința de a transforma studiul trecutului într-o experiență profundă, clară și captivantă. Istoria este deseori redusă greșit la o simplă memorare de ani și nume. Prin acest proiect, îmi doresc să aprind „focul” cunoașterii istorice, oferind o perspectivă structurată asupra marilor transformări care au definit omenirea.</p>
+        <section id="despre" class="info-card">
+            <h2>Despre Autoare</h2>
+            <p>Numele meu este <strong>Ciora Maria Sofia</strong> și sunt o elevă pasionată de fascinanta lume a istoriei. Am creat această platformă din dorința de a transforma studiul trecutului dintr-o simplă memorare de date într-o călătorie captivantă de înțelegere a umanității.</p>
+        </section>
+
+        <section id="importanta" class="info-card">
+            <h2>De ce am creat acest site și de ce este importantă Istoria?</h2>
+            <p><strong>De ce am creat acest site?</strong><br>
+            Am simțit nevoia unui spațiu educațional bine structurat, serios și aerisit, unde lecțiile să nu fie aglomerate sau rezumate superficial. Aici, fiecare pasionat sau elev poate găsi explicații clare, cronologii precise și izvoare istorice autentice.</p>
+            <br>
+            <p><strong>Cu ce ne poate ajuta istoria?</strong><br>
+            Istoria nu este doar despre trecut; ea este ghidul nostru pentru prezent. Ne ajută să înțelegem de ce lumea arată așa cum este astăzi, de ce există anumite granițe, culturi și sisteme politice.</p>
+            <br>
+            <p><strong>De ce este importantă?</strong><br>
+            Așa cum spunea marele istoric Nicolae Iorga: <em>„Un popor care nu-și cunoaște istoria este ca un copil care nu-și cunoaște părinții.”</em> Istoria dezvoltă gândirea critică și ne învață să nu repetăm greșelile trecutului.</p>
+        </section>
+
+        <article id="preistorie" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca I</span>
+                <h2>Revoluția Neolitică și Trecerea la Viața Sedentară</h2>
             </div>
-            
-            <div class="intro-box">
-                <h3>Cu ce ne poate ajuta istoria și de ce este importantă?</h3>
-                <p>Istoria reprezintă memoria colectivă a umanității. Ea ne ajută să înțelegem de ce lumea arată așa cum este astăzi: de ce avem anumite granițe, de ce funcționează anumite sisteme politice și de unde provin valorile noastre culturale. Studiul istoriei dezvoltă gândirea critică, ne învață să verificăm sursele de informație și ne oferă repere morale. Fără să ne cunoaștem trecutul, riscăm să repetăm greșelile catastrofale ale generațiilor anterioare.</p>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1000&q=80" alt="Preistorie - Unelte și picturi rupestre" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>cca. 2.500.000 î.Hr.</strong> – Apariția primilor hominizi și începutul Paleoliticului.</li>
+                        <li><strong>cca. 10.000 – 4.500 î.Hr.</strong> – Revoluția Neolitică (trecerea la agricultură și creșterea animalelor).</li>
+                        <li><strong>cca. 3.500 î.Hr.</strong> – Inventarea scrierii în Mesopotamia (sfârșitul Preistoriei).</li>
+                    </ul>
+                </div>
+
+                <p>Preistoria reprezintă cea mai lungă epocă din istoria omenirii. Ea începe odată cu apariția primilor hominizi și se încheie odată cu inventarea scrierii. Cea mai profundă transformare din această perioadă a fost Revoluția Neolitică.</p>
+
+                <div class="profesor-explica">
+                    Gândiți-vă la oamenii din Paleolitic ca la niște călători permanenți. Ei depindeau direct de natură: dacă animalele plecau, trebuiau să se mute și ei. În Neolitic însă, omul învăță să controleze natura. Descoperirea agriculturii a schimbat totul: oamenii au construit primele case, primele sate și au învățat să producă hrană în loc să o caute.
+                </div>
+
+                <p>Comunitățile umane au început să se specializeze. Au apărut meșteșugurile (olari, țesători) și primele forme de organizare socială și religioasă. Această sedentarizare a pus bazele primelor mari civilizații ale lumii.</p>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Rămășițele arheologice din neolitic ne arată nu doar unelte din piatră șlefuită, ci și primele dovezi ale artei ceramice și ale cultului fertilității, semn că omul începuse să privească lumea dincolo de simpla supraviețuire.”</blockquote>
+                    <div class="sursa">— Notă arheologică privind cultura Cucuteni</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Preistorie</h3>
+                    <p>Care a fost cea mai importantă schimbare în timpul Revoluției Neolitice?</p>
+                    <label class="opțiune-test"><input type="radio" name="q1" value="a"> A) Descoperirea focului</label>
+                    <label class="opțiune-test"><input type="radio" name="q1" value="b"> B) Trecerea la agricultură și viața sedentară</label>
+                    <label class="opțiune-test"><input type="radio" name="q1" value="c"> C) Inventarea tiparului</label>
+                    <button class="btn-verificare" onclick="verificaTest('q1', 'b', 'rezultat1')">Verifică Răspunsul</button>
+                    <div id="rezultat1" class="rezultat-test"></div>
+                </div>
             </div>
+        </article>
 
-            <div class="intro-box">
-                <h3>Despre Autoare</h3>
-                <p>Sunt Sofia, o elevă pasionată de istorie, fascinată de modul în care marile idei, bătălii și reforme au modelat cursul civilizației. Acest site reprezintă munca mea personală de cercetare și sinteză, dedicată tuturor elevilor și pasionaților care doresc să înțeleagă dedesubturile trecutului într-un mod serios și riguros.</p>
+        <article id="antichitate" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca II</span>
+                <h2>Democrația Ateniană și Moștenirea ei Culturală</h2>
             </div>
-        </section>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1000&q=80" alt="Antichitate - Partenonul din Atena" class="lectie-img">
 
-        <!-- EPOCA 1: PREISTORIE -->
-        <section id="preistorie">
-            <h2>1. Preistoria</h2>
-            
-            <article class="lesson-card">
-                <h3>Lecția: Revoluția Neolitică – Originea Civilizației Umane</h3>
-                <div class="lesson-date">Cronologie: c. 10.000 î.Hr. – 3.000 î.Hr.</div>
-                
-                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1000&q=80" alt="Preistorie - Unelte si Asezari" class="lesson-image">
-                
-                <p>Cea mai lungă epocă din istoria omenirii este Preistoria, iar cel mai important punct de cotitură din interiorul ei îl reprezintă <strong>Revoluția Neolitică</strong>. Până în jurul anului 10.000 î.Hr., oamenii din Paleolitic trăiau ca nomazi. Ei depindeau exclusiv de ceea ce le oferea natura, ocupându-se cu vânătoarea, pescuitul și culesul. Această dependență directă de mediu limita drastic numărul populației și împiedica dezvoltarea unor structuri sociale complexe.</p>
-
-                <p>Trecerea la Neolitic (Epoca Nouă a Pietrei) a început în regiunea numită „Semiluna Roditoare” (Mijlociul Orient). Oamenii au descoperit că semințele plantelor pot fi semănate și recoltate, și au învățat să îmblânzească animale precum oile, caprele, vitele și porcii. Astfel, din consumatori, oamenii au devenit <strong>producători de hrană</strong>. Acest proces de domesticire și cultivare a schimbat complet stilul de viață uman.</p>
-
-                <p>Producția stabilită de hrană a impus un stil de viață <strong>sedentar</strong>. Oamenii nu mai trebuiau să se deplaseze constant în căutarea vânatului, așa că au construit primele așezări permanente, care mai târziu au evoluat în sate fortificate și primele orașe (cum ar fi Ierihon sau Çatalhöyük). Totodată, apariția excedentului alimentar a permis specializarea muncii: unii oameni au devenit agricultori, alții meșteșugari (olaritul, țesutul, prelucrarea metalelor), iar alții au preluat roluri de conducere sau religioase, punând bazele ierarhiei sociale.</p>
-
-                <div class="teacher-note">
-                    Retineți că termenul de „revoluție” nu se referă aici la o revoltă politică violentă, ci la o transformare profundă și ireversibilă a modului de viață. Fără sedentarizarea neolitică, apariția scrisului, a orașelor și a primelor state nu ar fi fost posibilă.
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>508 î.Hr.</strong> – Reformele lui Clistene (bazele democrației la Atena).</li>
+                        <li><strong>461 – 429 î.Hr.</strong> – „Secolul de aur” al lui Pericle.</li>
+                        <li><strong>509 î.Hr. – 27 î.Hr.</strong> – Republica Romană.</li>
+                    </ul>
                 </div>
 
-                <div class="source-quote">
-                    „Trecerea de la cules și vânătoare la agricultură a fost cel mai decisiv pas făcut vreodată de oameni. A fost clipa în care omul a încetat să mai fie doar un locatar al naturii și a devenit un constructor al propriului său mediu.”
+                <p>Antichitatea este epoca marilor civilizații care au creat fundamentele dreptului, filosofiei și politicii moderne. În Grecia Antică, orașul-stat (polisul) Atena a creat un sistem politic unic: democrația directă.</p>
+
+                <div class="profesor-explica">
+                    Este important să înțelegeți că democrația ateniană era diferită de cea de astăzi. Era o democrație *directă*: cetățenii nu alegeau reprezentanți (cum sunt parlamentarii azi), ci votau ei înșiși legile în adunarea populară (Ecclesia). Cu toate acestea, dreptul de vot îl aveau doar bărbații adulți care erau cetățeni atenieni.
                 </div>
 
-                <!-- TEST LECTIE -->
-                <div class="quiz-container">
-                    <h4>Test rapid: Preistorie</h4>
-                    <p>Care a fost consecința directă a trecerii la agricultură în timpul Revoluției Neolitice?</p>
-                    <label class="quiz-option"><input type="radio" name="q1" value="a"> A) Dispariția definitivă a uneltelor din piatră</label>
-                    <label class="quiz-option"><input type="radio" name="q1" value="b"> B) Sedentarizarea comunităților umane și apariția primelor așezări permanente</label>
-                    <label class="quiz-option"><input type="radio" name="q1" value="c"> C) Inventarea imediată a tiparului și a motoarelor cu abur</label>
-                    <button class="quiz-btn" onclick="checkAnswer('q1', 'b', 'ans1')">Verifică răspunsul</button>
-                    <div id="ans1" class="result-message"></div>
-                </div>
-            </article>
-        </section>
-
-        <!-- EPOCA 2: ANTICHITATE -->
-        <section id="antichitate">
-            <h2>2. Antichitatea</h2>
-            
-            <article class="lesson-card">
-                <h3>Lecția: Epoca de Aur a Democrației Ateniene și Reformele lui Pericle</h3>
-                <div class="lesson-date">Cronologie: Secolul al V-lea î.Hr. (461 î.Hr. – 429 î.Hr.)</div>
-                
-                <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1000&q=80" alt="Antichitate Greaca - Partenonul" class="lesson-image">
-                
-                <p>În Grecia Antică, organizarea politică s-a realizat sub forma orașelor-stat numite <strong>polisuri</strong>. Dintre acestea, Atena s-a remarcat prin crearea unui sistem politic unic în lume: <strong>democrația directă</strong>. Această formă de guvernare a atins punctul său de maximă dezvoltare în secolul al V-lea î.Hr., perioadă cunoscută sub numele de „Secolul de Aur al lui Pericle”.</p>
-
-                <p>Spre deosebire de democrațiile reprezentative de astăzi, unde cetățenii aleg reprezentanți (deputați, senatori) care iau decizii în numele lor, în Atena cetățenii participau <strong>direct</strong> la luarea deciziilor. Principala instituție a statului era <em>Ecclesia</em> (Adunarea Poporului), unde toți cetățenii bărbați aveau dreptul de a vorbi și de a vota legile, declarațiile de război sau tratatele de pace. O altă instituție cheie era <em>Heliaia</em> (Tribunalul Poporului), ai cărui judecători erau trași la sorți pentru a garanta imparțialitatea.</p>
-
-                <p>Pericle a introdus o reformă esențială: <strong>misthoforia</strong> (plata unei indemnizații de stat pentru participarea la funcțiile publice). Înainte de această măsură, doar cetățenii bogați își permiteau să lase munca câmpului sau atelierul pentru a se dedica politicii. Prin remunerarea funcțiilor, și cei mai săraci cetățeni au putut participa activ la conducerea cetății. Totuși, democrația ateniană avea limite severe: drepturile politice erau rezervate exclusiv bărbaților adulți cu părinți atenieni, în timp ce femeile, metecii (străinii rezidenți) și sclavii erau complet excluși.</p>
-
-                <div class="teacher-note">
-                    Nu uitați să analizați democrația ateniană în contextul epocii sale. Deși era limitată prin includerea doar a bărbaților cetățeni, ea a consacrat pentru prima dată ideea că puterea aparține poporului (demos = popor, kratos = putere) și că legile trebuie să fie egale pentru toți cetățenii.
+                <div class="izvor-istoric">
+                    <blockquote>„Avem o constituție care nu imit legile vecinilor... Numele ei este democrație, pentru că cârmuirea nu este în mâna celor puțini, ci a celor mulți.”</blockquote>
+                    <div class="sursa">— Tucidide, *Discursul funebru al lui Pericle*</div>
                 </div>
 
-                <div class="source-quote">
-                    „Avem o constituție care nu imită legile vecinilor noștri... Numele ei este democrație, pentru că cârmuirea nu este în mâna celor puțini, ci a celor mulți. Când este vorba de rezolvarea neînțelegerilor private, toți sunt egali în fața legii.” — Tucidide, <em>Istoria Războiului Peloponesiac</em> (Discursul funebru al lui Pericle)
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Antichitate</h3>
+                    <p>Cine conducea statul în democrația ateniană directă?</p>
+                    <label class="opțiune-test"><input type="radio" name="q2" value="a"> A) Un rege absolut</label>
+                    <label class="opțiune-test"><input type="radio" name="q2" value="b"> B) Adunarea cetățenilor atenieni</label>
+                    <label class="opțiune-test"><input type="radio" name="q2" value="c"> C) Un grup restrâns de generali</label>
+                    <button class="btn-verificare" onclick="verificaTest('q2', 'b', 'rezultat2')">Verifică Răspunsul</button>
+                    <div id="rezultat2" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+        <article id="evul-mediu" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca III</span>
+                <h2>Feudalismul și Marea Migrație a Popoarelor</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" alt="Evul Mediu - Castel Medieval" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>476 d.Hr.</strong> – Prăbușirea Imperiului Roman de Apus (Începutul Evului Mediu).</li>
+                        <li><strong>800 d.Hr.</strong> – Încoronarea lui Carol cel Mare ca Împărat al Apusului.</li>
+                        <li><strong>1453 d.Hr.</strong> – Căderea Constantinopolului sub otomani (Sfârșitul Evului Mediu).</li>
+                    </ul>
                 </div>
 
-                <!-- TEST LECTIE -->
-                <div class="quiz-container">
-                    <h4>Test rapid: Antichitate</h4>
-                    <p>Ce reprezenta măsura numită „misthoforia”, introdusă de Pericle la Atena?</p>
-                    <label class="quiz-option"><input type="radio" name="q2" value="a"> A) O taxă plătită obligatoriu de toți sclavii din cetate</label>
-                    <label class="quiz-option"><input type="radio" name="q2" value="b"> B) Plata unei indemnizații pentru cetățenii care îndeplineau funcții publice, permițând și celor săraci să participe la politică</label>
-                    <label class="quiz-option"><input type="radio" name="q2" value="c"> C) Un decret de expulzare a filosofilor din Grecia</label>
-                    <button class="quiz-btn" onclick="checkAnswer('q2', 'b', 'ans2')">Verifică răspunsul</button>
-                    <div id="ans2" class="result-message"></div>
-                </div>
-            </article>
-        </section>
+                <p>Evul Mediu a fost o perioadă de profunde transformări sociale și politice, dominată de sistemul feudal și de autoritatea Bisericii. Societatea medievală era strict ierarhizată în trei stări: cei ce se roagă (clorul), cei ce se luptă (nobilii/cavalerii) și cei ce muncesc (țăranii).</p>
 
-        <!-- EPOCA 3: EVUL MEDIU -->
-        <section id="evul-mediu">
-            <h2>3. Evul Mediu</h2>
-            
-            <article class="lesson-card">
-                <h3>Lecția: Structura Societății Feudale și Marea Schismă din 1054</h3>
-                <div class="lesson-date">Cronologie: Secolele V – XV (Marea Schismă: 1054)</div>
-                
-                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1000&q=80" alt="Evul Mediu - Castel Feudal" class="lesson-image">
-                
-                <p>Evul Mediu european s-a structurat pe ruinele Imperiului Roman de Apus. Trăsătura sa fundamentală a fost <strong>feudalismul</strong>, un sistem politic, economic și social bazat pe deținerea pământului (feuda) și pe legături personale de credință între oameni liberi. Societatea era strict ierarhizată în piramida feudală și împărțită în trei categorii numite „stări”:</p>
-
-                <p>1. <strong>Oratores</strong> (cei care se roagă) – Clerul, care deținea monopolul asupra culturii și învățământului;<br>
-                2. <strong>Bellatores</strong> (cei care se luptă) – Nobilii și cavalerii, care asigurau apărarea și conducerea militară;<br>
-                3. <strong>Laboratores</strong> (cei care muncesc) – Țăranii (slobozi sau șerbi), care asigurau hrana întregii societăți prin munca pământului.</p>
-
-                <p>Relațiile dintre nobili erau reglementate prin contractul de vasalitate. Un senior oferea protecție și un pământ (feudă) unui vasal, iar vasalul jura credință, sprijin militar și sfat seniorului său. Această organizare a dus la o fragmentare puternică a puterii centrale a regilor.</p>
-
-                <p>În plan religios, anul <strong>1054</strong> reprezintă momentul de cotitură al Evului Mediu: <strong>Marea Schismă</strong>. Tensiunile acumulate de-a lungul secolelor între Creștinismul Apusean (de limbă latină, condus de Papă la Roma) și Creștinismul Răsăritan (de limbă greacă, condus de Patriarh la Constantinopol) au izbucnit violent. Disputele teologice și dorința de autoritate supremă au dus la excomunicarea reciprocă a celor doi lideri religioși. Această ruptură a împărțit lumea creștină în două mari ramuri: Biserica Romano-Catolică și Biserica Ortodoxă.</p>
-
-                <div class="teacher-note">
-                    Fiți foarte atenți la Marea Schismă! Aceasta nu a fost doar o neînțelegere teologică, ci un eveniment cu consecințe geopolitice majore, care a marcat definitiv diferențele culturale dintre Europa de Vest și Europa de Est.
+                <div class="profesor-explica">
+                    Relațiile feudale se bazau pe un contract de fidelitate: seniorul îi oferea vazalului pământ (feud) și protecție, iar vazalul îi jura credință și ajutor militar. Totul gravita în jurul posesiunii de pământ.
                 </div>
 
-                <div class="source-quote">
-                    „Trei sunt ordinele ce alcătuiesc comunitatea: unii se roagă, alții se luptă, iar ceilalți muncesc. Aceste trei părți nu pot fi desprinse unele de altele; slujbele uneia fac posibile operele celorlalte două.” — Bishop Adalberon de Laon (Secolul al XI-lea)
+                <div class="izvor-istoric">
+                    <blockquote>„Cel ce jură credință seniorului său trebuie să aibă mereu în minte aceste șase cuvinte: siguranță, dreptate, cinste, folos, ușurință și posibilitate.”</blockquote>
+                    <div class="sursa">— Scrisoare a episcopului Fulbert de Chartres (1020)</div>
                 </div>
 
-                <!-- TEST LECTIE -->
-                <div class="quiz-container">
-                    <h4>Test rapid: Evul Mediu</h4>
-                    <p>Care a fost cauza principală și rezultatul Marii Schisme din anul 1054?</p>
-                    <label class="quiz-option"><input type="radio" name="q3" value="a"> A) Războiul dintre țărani și nobili, soldat cu desființarea ierarhiei feudale</label>
-                    <label class="quiz-option"><input type="radio" name="q3" value="b"> B) Ruptura definitivă din interiorul Bisericii creștine, ducând la separarea dintre Catolicism și Ortodoxie</label>
-                    <label class="quiz-option"><input type="radio" name="q3" value="c"> C) Invazia mongolă asupra întregului continent european</label>
-                    <button class="quiz-btn" onclick="checkAnswer('q3', 'b', 'ans3')">Verifică răspunsul</button>
-                    <div id="ans3" class="result-message"></div>
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Evul Mediu</h3>
+                    <p>Ce eveniment marchează în mod tradițional începutul Evului Mediu?</p>
+                    <label class="opțiune-test"><input type="radio" name="q3" value="a"> A) Căderea Imperiului Roman de Apus (476 d.Hr.)</label>
+                    <label class="opțiune-test"><input type="radio" name="q3" value="b"> B) Descoperirea Americii</label>
+                    <label class="opțiune-test"><input type="radio" name="q3" value="c"> C) Inventarea scrisului</label>
+                    <button class="btn-verificare" onclick="verificaTest('q3', 'a', 'rezultat3')">Verifică Răspunsul</button>
+                    <div id="rezultat3" class="rezultat-test"></div>
                 </div>
-            </article>
-        </section>
+            </div>
+        </article>
 
-        <!-- EPOCA 4: EPOCA MODERNA -->
-        <section id="epocamoderna">
-            <h2>4. Epoca Modernă</h2>
-            
-            <article class="lesson-card">
-                <h3>Lecția: Revoluția Franceză – Prăbușirea Absolutismului și Nașterea Drepturilor Cetățenești</h3>
-                <div class="lesson-date">Cronologie: 1789 – 1799</div>
-                
-                <img src="https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1000&q=80" alt="Epoca Moderna - Revolutia Franceza" class="lesson-image">
-                
-                <p><strong>Revoluția Franceză</strong> din 1789 este considerată evenimentul de frontieră care marchează trecerea de la Epoca Feudală/Absolutistă la Epoca Modernă. În secolul al XVIII-lea, Franța era guvernată de o monarhie absolută de drept divin (sub regele Ludovic al XVI-lea), iar societatea era divizată în Starea I (clerul), Starea a II-a (nobilimea) și Starea a III-a (peste 97% din populație: burghezie, meșteșugari, țărani). Deși Starea a III-a susținea din taxe întreaga economie, ea nu avea niciun cuvânt de spus în conducerea țării.</p>
+        <article id="moderna" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca IV</span>
+                <h2>Iluminismul și Revoluția Franceză</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1000&q=80" alt="Epoca Modernă - Revoluție și Iluminism" class="lectie-img">
 
-                <p>Criza financiară gravă, seceta și răspândirea ideilor <strong>Iluminismului</strong> (promovate de filosofi precum Voltaire, Montesquieu și Rousseau) au declanșat revolta. La 14 iulie 1789, poporul din Paris a atacat și dărâmat închisoarea <strong>Bastilia</strong>, simbolul tiraniei regale. Acest act a declanșat valul revoluționar în întreaga țară.</p>
-
-                <p>Adunarea Națională Constituantă a adoptat rapid măsuri radicale: a abolit privilegiile feudale și a emis, la 26 august 1789, <strong>Declarația Drepturilor Omului și ale Cetățeanului</strong>. Acest document istoric afirma egalitatea tuturor oamenilor în fața legii, libertatea de exprimare, suveranitatea poporului și dreptul la proprietate. Monarhia a fost ulterior abolită, iar Franța a devenit republică. Deși revoluția a trecut și prin perioade violente (Teroarea iacobină), moștenirea ei a transformat definitiv sistemele politice din întreaga lume.</p>
-
-                <div class="teacher-note">
-                    Urmăriți impactul Iluminismului asupra Revoluției: ideea că toți oamenii se nasc egali și au drepturi naturale inalienabile nu a rămas o simplă teorie, ci a fost transformată în legi scrise care stau la baza democrațiilor moderne de astăzi.
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>1789 (14 Iulie)</strong> – Căderea Bastiliei și Izbucnirea Revoluției Franceze.</li>
+                        <li><strong>1789 (26 August)</strong> – Adoptarea *Declarației Drepturilor Omului și ale Cetățeanului*.</li>
+                        <li><strong>1804 – 1815</strong> – Epoca Napoleoniană.</li>
+                    </ul>
                 </div>
 
-                <div class="source-quote">
-                    „Articolul 1: Oamenii se nasc și rămân liberi și egali în drepturi. Deosebirile sociale nu pot fi întemeiate decât pe utilitatea comună. Articolul 3: Principiul oricărei suveranități rezidă în mod esențial în națiune.” — <em>Declarația Drepturilor Omului și ale Cetățeanului</em> (1789)
+                <p>Epoca Modernă a adus schimbări radicale prin răspândirea ideilor Iluminismului – un curent filosofic ce promova rațiunea, egalitatea și libertatea. Aceste idei au culminat cu Revoluția Franceză din 1789, care a dărâmat Vechiul Regim absolutist.</p>
+
+                <div class="profesor-explica">
+                    Revoluția Franceză a schimbat lumea pentru totdeauna. Pentru prima dată, s-a afirmat că puterea nu vine de la Dumnezeu către rege, ci aparține poporului (suveranitatea națională). Deviza „Libertate, Egalitate, Fraternitate” a devenit un simbol universal.
                 </div>
 
-                <!-- TEST LECTIE -->
-                <div class="quiz-container">
-                    <h4>Test rapid: Epoca Modernă</h4>
-                    <p>Ce principiu fundamental afirma Declarația Drepturilor Omului și ale Cetățeanului din 1789?</p>
-                    <label class="quiz-option"><input type="radio" name="q4" value="a"> A) Regele este ales direct de Dumnezeu și nu trebuie să dea socoteală nimănui</label>
-                    <label class="quiz-option"><input type="radio" name="q4" value="b"> B) Oamenii se nasc și rămân liberi și egali în drepturi, iar suveranitatea aparține națiunii</label>
-                    <label class="quiz-option"><input type="radio" name="q4" value="c"> C) Nobilii sunt singurii cetățeni care au dreptul de a nu plăti impozite</label>
-                    <button class="quiz-btn" onclick="checkAnswer('q4', 'b', 'ans4')">Verifică răspunsul</button>
-                    <div id="ans4" class="result-message"></div>
-                </div>
-            </article>
-        </section>
-
-        <!-- EPOCA 5: EPOCA CONTEMPORANA -->
-        <section id="contemporana">
-            <h2>5. Epoca Contemporană</h2>
-            
-            <article class="lesson-card">
-                <h3>Lecția: Primul Război Mondial – Prăbușirea Imperiilor și Reconfigurarea Lumii</h3>
-                <div class="lesson-date">Cronologie: 28 iulie 1914 – 11 noiembrie 1918</div>
-                
-                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" alt="Epoca Contemporana - Război Mondial" class="lesson-image">
-                
-                <p><strong>Primul Război Mondial</strong> a fost primul conflict militar total la scară globală, o confruntare care a zdruncinat din temelii structura politică și socială a lumii. Cauzele profunde ale războiului au fost acumularea tensiunilor imperialiste, concurența economică, cursa înarmărilor și formarea a două blocuri militare rivale: <strong>Triplei Alianțe</strong> (Puterile Centrale: Germania, Austro-Ungaria) și <strong>Triplei Înțelegeri</strong> (Antanta: Franța, Marea Britanie, Rusia).</p>
-
-                <p>Pretextul izbucnirii războiului a fost atentatul de la Sarajevo din 28 iunie 1914, în care arhiducele Franz Ferdinand, moștenitorul tronului Austro-Ungariei, a fost asasinat de un naționalist sârb. În scurt timp, sistemul rigid de alianțe s-a activat, iar marile puteri s-au declarat război reciproc.</p>
-
-                <p>Conflictul a depășit orice estimare anterioară. S-a transformat rapid dintr-un război de mișcare într-un <strong>război de poziții (de tranșee)</strong>. Tehnologia industrială a fost folosită pentru prima dată la scară masivă pentru distrugere: au apărut mitralierele grele, gazele toxice, tancurile, aviația militară și submarinele. Milioane de soldați au trăit și au murit în condiții cumplite în tranșeele de pe Frontul de Vest și de Est.</p>
-
-                <p>Războiul s-a încheiat la 11 noiembrie 1918 cu victoria Antantei. Consecințele au fost uriașe: patru mari imperii s-au prăbușit (Imperiul German, Austro-Ungar, Otoman și Rus). În urma lor, pe baza principiului autodeterminării naționale, s-au format sau s-au întregit state naționale independente în Europa Centrală și de Est, inclusiv Marea Unire a României din 1918.</p>
-
-                <div class="teacher-note">
-                    Observați schimbarea totală de paradigmă: Primul Război Mondial a fost un „război total”, în care nu doar armatele, ci întreaga economie și societate civilă a statelor au fost mobilizate pentru efortul de război.
+                <div class="izvor-istoric">
+                    <blockquote>„Oamenii se nasc și rămân liberi și egali în drepturi. Deosebirile sociale nu pot fi întemeiate decât pe utilitatea publică.”</blockquote>
+                    <div class="sursa">— Articolul 1 din *Declarația Drepturilor Omului și ale Cetățeanului* (1789)</div>
                 </div>
 
-                <div class="source-quote">
-                    „Nu este vorba doar despre un război militar, ci despre o catastrofă industrială. Tranșeele au înghițit o întreagă generație de tineri, iar bătrâna Europă nu va mai fi niciodată la fel.” — Jurnal de front (1916)
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Epoca Modernă</h3>
+                    <p>Care a fost deviza principală a Revoluției Franceze din 1789?</p>
+                    <label class="opțiune-test"><input type="radio" name="q4" value="a"> A) Ordine, Pace și Credință</label>
+                    <label class="opțiune-test"><input type="radio" name="q4" value="b"> B) Libertate, Egalitate, Fraternitate</label>
+                    <label class="opțiune-test"><input type="radio" name="q4" value="c"> C) Putere, Tradiție și Națiune</label>
+                    <button class="btn-verificare" onclick="verificaTest('q4', 'b', 'rezultat4')">Verifică Răspunsul</button>
+                    <div id="rezultat4" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+        <article id="contemporana" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca V</span>
+                <h2>Marea Unire din 1918 și Reconfigurarea Lumii</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=1000&q=80" alt="Epoca Contemporană - Documente istorice" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>1914 – 1918</strong> – Primul Război Mondial.</li>
+                        <li><strong>1 Decembrie 1918</strong> – Marea Adunare Națională de la Alba Iulia (Marea Unire).</li>
+                        <li><strong>1939 – 1945</strong> – Al Doilea Război Mondial.</li>
+                        <li><strong>1989</strong> – Căderea regimurilor comuniste în Europa de Est.</li>
+                    </ul>
                 </div>
 
-                <!-- TEST LECTIE -->
-                <div class="quiz-container">
-                    <h4>Test rapid: Epoca Contemporană</h4>
-                    <p>Care a fost una dintre principalele consecințe politice globale la finalul Primului Război Mondial (1918)?</p>
-                    <label class="quiz-option"><input type="radio" name="q1" value="a"> A) Reînființarea sistemului feudal în toată Europa</label>
-                    <label class="quiz-option"><input type="radio" name="q5" value="b"> B) Prăbușirea marilor imperii absolutiste și apariția/întregirea statelor naționale</label>
-                    <label class="quiz-option"><input type="radio" name="q5" value="c"> C) Cucerirea completă a Europei de către Imperiul Otoman</label>
-                    <button class="quiz-btn" onclick="checkAnswer('q5', 'b', 'ans5')">Verifică răspunsul</button>
-                    <div id="ans5" class="result-message"></div>
+                <p>Epoca Contemporană debutează odată cu Primul Război Mondial și este marcată de mari confruntări ideologice, redefiniri de granițe, dar și de un progres tehnologic fără precedent. Pentru români, anul 1918 reprezintă împlinirea visului național: desăvârșirea statului național unitar.</p>
+
+                <div class="profesor-explica">
+                    Anul 1918 a fost momentul în care dreptul popoarelor la autodeterminare a fost pus în practică. Prin unirea Basarabiei, Bucovinei și Transilvaniei cu Regatul României, s-a creat România Mare, un eveniment pregătit prin sacrificiul armatei române în Primul Război Mondial.
                 </div>
-            </article>
-        </section>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Adunarea Națională a tuturor Românilor din Transilvania, Banat și Țara Ungurească, adunați prin reprezentanții lor îndreptățiți la Alba-Iulia în ziua de 1 Decembrie 1918, decretează unirea acelor români și a tuturor ținuturilor locuite de dângii cu România.”</blockquote>
+                    <div class="sursa">— Rezoluția Adunării Naționale de la Alba Iulia</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Epoca Contemporană</h3>
+                    <p>Unde a fost adoptată Rezoluția de Unire a Transilvaniei cu România la 1 Decembrie 1918?</p>
+                    <label class="opțiune-test"><input type="radio" name="q5" value="a"> A) La București</label>
+                    <label class="opțiune-test"><input type="radio" name="q5" value="b"> B) La Iași</label>
+                    <label class="opțiune-test"><input type="radio" name="q5" value="c"> C) La Alba Iulia</label>
+                    <button class="btn-verificare" onclick="verificaTest('q5', 'c', 'rezultat5')">Verifică Răspunsul</button>
+                    <div id="rezultat5" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Focul Istoriei. Proiect realizat și redactat de Sofia.</p>
+        <p>&copy; 2026 Portal de Istorie — Concept creat de <strong>Ciora Maria Sofia</strong></p>
+        <p><small>Pasiune, Rigoare și Adevăr Istoric</small></p>
     </footer>
 
-    <!-- SCRIPT FUNCTIONARE TESTE -->
     <script>
-        function checkAnswer(questionName, correctAnswer, resultId) {
-            const options = document.getElementsByName(questionName);
-            let selectedValue = null;
-            
-            for (const option of options) {
-                if (option.checked) {
-                    selectedValue = option.value;
+        function verificaTest(numeGrup, raspunsCorect, idRezultat) {
+            const optiuni = document.getElementsByName(numeGrup);
+            let raspunsSelectat = null;
+
+            for (const opt de pe optiuni) {
+                if (opt.checked) {
+                    raspunsSelectat = opt.value;
                     break;
                 }
             }
 
-            const resultElement = document.getElementById(resultId);
+            const divRezultat = document.getElementById(idRezultat);
 
-            if (!selectedValue) {
-                resultElement.textContent = "Te rog să selectezi o opțiune înainte de a verifica!";
-                resultElement.style.color = "#d35400";
+            if (!raspunsSelectat) {
+                divRezultat.style.color = "#d97706";
+                divRezultat.innerHTML = "⚠️ Te rog să selectezi o opțiune înainte de a verifica!";
                 return;
             }
 
-            if (selectedValue === correctAnswer) {
-                resultElement.textContent = "Corect! Felicitări, ai înțeles perfect lecția!";
-                resultElement.style.color = "#27ae60";
+            if (raspunsSelectat === raspunsCorect) {
+                divRezultat.style.color = "#16a34a";
+                divRezultat.innerHTML = "✅ Corect! Felicitări, ai înțeles lecția!";
             } else {
-                resultElement.textContent = "Incorect. Reorganizează ideile, recitește textul lecției și încearcă din nou!";
-                resultElement.style.color = "#c0392b";
+                divRezultat.style.color = "#dc2626";
+                divRezultat.innerHTML = "❌ Răspuns incorect. Recitește explicațiile de mai sus și încearcă din nou!";
             }
         }
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciora Maria Sofia - Portal de Istorie</title>
+    <style>
+        /* STILURI GENERALE - ASPECT MATUR ȘI ELEGANT */
+        :root {
+            --primary-color: #0f172a; /* Bleumarin închis */
+            --secondary-color: #1e293b;
+            --accent-gold: #d4af37; /* Auriu */
+            --accent-silver: #cbd5e1; /* Argintiu */
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --bg-light: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* HEADER & NAVIGARE */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .logo-container {
+            margin-bottom: 1rem;
+        }
+
+        /* SVG reprezentând fidel logo-ul trimis (C M S) */
+        .logo-svg {
+            width: 140px;
+            height: 140px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            color: var(--accent-silver);
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            font-family: sans-serif;
+        }
+
+        nav li a:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* CONTAINER PRINCIPAL */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* SECȚIUNI PREZENTARE */
+        .info-card {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .info-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        /* LECȚII - AȘEZARE VERTICALĂ (UNA SUB ALTA) */
+        .lectie-card {
+            background-color: #ffffff;
+            margin-bottom: 4rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .lectie-header {
+            background-color: var(--primary-color);
+            color: var(--accent-gold);
+            padding: 1.5rem 2rem;
+        }
+
+        .lectie-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .lectie-header .epoca-tag {
+            color: var(--accent-silver);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+        }
+
+        .lectie-body {
+            padding: 2rem;
+        }
+
+        .lectie-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        /* STIL PROFESOR & IZVOARE */
+        .profesor-explica {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .profesor-explica::before {
+            content: "💡 Explicația profesorului:";
+            display: block;
+            font-weight: bold;
+            font-style: normal;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+            font-family: sans-serif;
+        }
+
+        .izvor-istoric {
+            background-color: #fffbeb;
+            border: 1px dashed var(--accent-gold);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+        }
+
+        .izvor-istoric blockquote {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #78350f;
+        }
+
+        .izvor-istoric .sursa {
+            text-align: right;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: #92400e;
+        }
+
+        .ani-importanti {
+            background-color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            font-family: sans-serif;
+        }
+
+        .ani-importanti h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* QUIZ / TEST LA FINAL DE LECȚIE */
+        .test-container {
+            background-color: #f8fafc;
+            border-top: 2px solid var(--accent-gold);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .test-container h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: sans-serif;
+        }
+
+        .opțiune-test {
+            display: block;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+
+        .btn-verificare {
+            background-color: var(--primary-color);
+            color: var(--accent-gold);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: 0.3s;
+            font-family: sans-serif;
+        }
+
+        .btn-verificare:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-color);
+        }
+
+        .rezultat-test {
+            margin-top: 1rem;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--accent-silver);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--accent-gold);
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="85" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="400" stroke-dashoffset="50" />
+                <circle cx="100" cy="100" r="80" fill="none" stroke="url(#silverGrad)" stroke-width="2" />
+                
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#d4af37" />
+                        <stop offset="100%" stop-color="#aa7c11" />
+                    </linearGradient>
+                    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="100%" stop-color="#94a3b8" />
+                    </linearGradient>
+                </defs>
+
+                <path d="M 85 65 A 35 35 0 1 0 85 135" fill="none" stroke="url(#goldGrad)" stroke-width="7" stroke-linecap="round"/>
+                <path d="M 75 140 L 75 75 L 100 120 L 125 75 L 125 140" fill="none" stroke="url(#goldGrad)" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M 115 85 C 115 70, 85 70, 85 95 C 85 120, 115 120, 115 140 C 115 160, 85 160, 85 145" fill="none" stroke="url(#silverGrad)" stroke-width="6" stroke-linecap="round"/>
+                
+                <path d="M 85 165 Q 100 160 100 170 Q 100 160 115 165 L 115 170 Q 100 165 100 173 Q 100 165 85 170 Z" fill="url(#goldGrad)"/>
+            </svg>
+        </div>
+        <h1>Ciora Maria Sofia</h1>
+        <p>Harta Timpului — De la Origini la Modernitate</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#despre">Despre Autoare</a></li>
+            <li><a href="#importanta">De ce Istoria?</a></li>
+            <li><a href="#preistorie">Preistorie</a></li>
+            <li><a href="#antichitate">Antichitate</a></li>
+            <li><a href="#evul-mediu">Evul Mediu</a></li>
+            <li><a href="#moderna">Epoca Modernă</a></li>
+            <li><a href="#contemporana">Epoca Contemporană</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <section id="despre" class="info-card">
+            <h2>Despre Autoare</h2>
+            <p>Numele meu este <strong>Ciora Maria Sofia</strong> și sunt o elevă pasionată de fascinanta lume a istoriei. Am creat această platformă din dorința de a transforma studiul trecutului dintr-o simplă memorare de date într-o călătorie captivantă de înțelegere a umanității.</p>
+        </section>
+
+        <section id="importanta" class="info-card">
+            <h2>De ce am creat acest site și de ce este importantă Istoria?</h2>
+            <p><strong>De ce am creat acest site?</strong><br>
+            Am simțit nevoia unui spațiu educațional bine structurat, serios și aerisit, unde lecțiile să nu fie aglomerate sau rezumate superficial. Aici, fiecare pasionat sau elev poate găsi explicații clare, cronologii precise și izvoare istorice autentice.</p>
+            <br>
+            <p><strong>Cu ce ne poate ajuta istoria?</strong><br>
+            Istoria nu este doar despre trecut; ea este ghidul nostru pentru prezent. Ne ajută să înțelegem de ce lumea arată așa cum este astăzi, de ce există anumite granițe, culturi și sisteme politice.</p>
+            <br>
+            <p><strong>De ce este importantă?</strong><br>
+            Așa cum spunea marele istoric Nicolae Iorga: <em>„Un popor care nu-și cunoaște istoria este ca un copil care nu-și cunoaște părinții.”</em> Istoria dezvoltă gândirea critică și ne învață să nu repetăm greșelile trecutului.</p>
+        </section>
+
+        <article id="preistorie" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca I</span>
+                <h2>Revoluția Neolitică și Trecerea la Viața Sedentară</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=1000&q=80" alt="Preistorie - Unelte și picturi rupestre" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>cca. 2.500.000 î.Hr.</strong> – Apariția primilor hominizi și începutul Paleoliticului.</li>
+                        <li><strong>cca. 10.000 – 4.500 î.Hr.</strong> – Revoluția Neolitică (trecerea la agricultură și creșterea animalelor).</li>
+                        <li><strong>cca. 3.500 î.Hr.</strong> – Inventarea scrierii în Mesopotamia (sfârșitul Preistoriei).</li>
+                    </ul>
+                </div>
+
+                <p>Preistoria reprezintă cea mai lungă epocă din istoria omenirii. Ea începe odată cu apariția primilor hominizi și se încheie odată cu inventarea scrierii. Cea mai profundă transformare din această perioadă a fost Revoluția Neolitică.</p>
+
+                <div class="profesor-explica">
+                    Gândiți-vă la oamenii din Paleolitic ca la niște călători permanenți. Ei depindeau direct de natură: dacă animalele plecau, trebuiau să se mute și ei. În Neolitic însă, omul învăță să controleze natura. Descoperirea agriculturii a schimbat totul: oamenii au construit primele case, primele sate și au învățat să producă hrană în loc să o caute.
+                </div>
+
+                <p>Comunitățile umane au început să se specializeze. Au apărut meșteșugurile (olari, țesători) și primele forme de organizare socială și religioasă. Această sedentarizare a pus bazele primelor mari civilizații ale lumii.</p>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Rămășițele arheologice din neolitic ne arată nu doar unelte din piatră șlefuită, ci și primele dovezi ale artei ceramice și ale cultului fertilității, semn că omul începuse să privească lumea dincolo de simpla supraviețuire.”</blockquote>
+                    <div class="sursa">— Notă arheologică privind cultura Cucuteni</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Preistorie</h3>
+                    <p>Care a fost cea mai importantă schimbare în timpul Revoluției Neolitice?</p>
+                    <label class="opțiune-test"><input type="radio" name="q1" value="a"> A) Descoperirea focului</label>
+                    <label class="opțiune-test"><input type="radio" name="q1" value="b"> B) Trecerea la agricultură și viața sedentară</label>
+                    <label class="opțiune-test"><input type="radio" name="q1" value="c"> C) Inventarea tiparului</label>
+                    <button class="btn-verificare" onclick="verificaTest('q1', 'b', 'rezultat1')">Verifică Răspunsul</button>
+                    <div id="rezultat1" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+        <article id="antichitate" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca II</span>
+                <h2>Democrația Ateniană și Moștenirea ei Culturală</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1000&q=80" alt="Antichitate - Partenonul din Atena" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>508 î.Hr.</strong> – Reformele lui Clistene (bazele democrației la Atena).</li>
+                        <li><strong>461 – 429 î.Hr.</strong> – „Secolul de aur” al lui Pericle.</li>
+                        <li><strong>509 î.Hr. – 27 î.Hr.</strong> – Republica Romană.</li>
+                    </ul>
+                </div>
+
+                <p>Antichitatea este epoca marilor civilizații care au creat fundamentele dreptului, filosofiei și politicii moderne. În Grecia Antică, orașul-stat (polisul) Atena a creat un sistem politic unic: democrația directă.</p>
+
+                <div class="profesor-explica">
+                    Este important să înțelegeți că democrația ateniană era diferită de cea de astăzi. Era o democrație *directă*: cetățenii nu alegeau reprezentanți (cum sunt parlamentarii azi), ci votau ei înșiși legile în adunarea populară (Ecclesia). Cu toate acestea, dreptul de vot îl aveau doar bărbații adulți care erau cetățeni atenieni.
+                </div>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Avem o constituție care nu imit legile vecinilor... Numele ei este democrație, pentru că cârmuirea nu este în mâna celor puțini, ci a celor mulți.”</blockquote>
+                    <div class="sursa">— Tucidide, *Discursul funebru al lui Pericle*</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Antichitate</h3>
+                    <p>Cine conducea statul în democrația ateniană directă?</p>
+                    <label class="opțiune-test"><input type="radio" name="q2" value="a"> A) Un rege absolut</label>
+                    <label class="opțiune-test"><input type="radio" name="q2" value="b"> B) Adunarea cetățenilor atenieni</label>
+                    <label class="opțiune-test"><input type="radio" name="q2" value="c"> C) Un grup restrâns de generali</label>
+                    <button class="btn-verificare" onclick="verificaTest('q2', 'b', 'rezultat2')">Verifică Răspunsul</button>
+                    <div id="rezultat2" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+        <article id="evul-mediu" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca III</span>
+                <h2>Feudalismul și Marea Migrație a Popoarelor</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" alt="Evul Mediu - Castel Medieval" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>476 d.Hr.</strong> – Prăbușirea Imperiului Roman de Apus (Începutul Evului Mediu).</li>
+                        <li><strong>800 d.Hr.</strong> – Încoronarea lui Carol cel Mare ca Împărat al Apusului.</li>
+                        <li><strong>1453 d.Hr.</strong> – Căderea Constantinopolului sub otomani (Sfârșitul Evului Mediu).</li>
+                    </ul>
+                </div>
+
+                <p>Evul Mediu a fost o perioadă de profunde transformări sociale și politice, dominată de sistemul feudal și de autoritatea Bisericii. Societatea medievală era strict ierarhizată în trei stări: cei ce se roagă (clorul), cei ce se luptă (nobilii/cavalerii) și cei ce muncesc (țăranii).</p>
+
+                <div class="profesor-explica">
+                    Relațiile feudale se bazau pe un contract de fidelitate: seniorul îi oferea vazalului pământ (feud) și protecție, iar vazalul îi jura credință și ajutor militar. Totul gravita în jurul posesiunii de pământ.
+                </div>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Cel ce jură credință seniorului său trebuie să aibă mereu în minte aceste șase cuvinte: siguranță, dreptate, cinste, folos, ușurință și posibilitate.”</blockquote>
+                    <div class="sursa">— Scrisoare a episcopului Fulbert de Chartres (1020)</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Evul Mediu</h3>
+                    <p>Ce eveniment marchează în mod tradițional începutul Evului Mediu?</p>
+                    <label class="opțiune-test"><input type="radio" name="q3" value="a"> A) Căderea Imperiului Roman de Apus (476 d.Hr.)</label>
+                    <label class="opțiune-test"><input type="radio" name="q3" value="b"> B) Descoperirea Americii</label>
+                    <label class="opțiune-test"><input type="radio" name="q3" value="c"> C) Inventarea scrisului</label>
+                    <button class="btn-verificare" onclick="verificaTest('q3', 'a', 'rezultat3')">Verifică Răspunsul</button>
+                    <div id="rezultat3" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+        <article id="moderna" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca IV</span>
+                <h2>Iluminismul și Revoluția Franceză</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1000&q=80" alt="Epoca Modernă - Revoluție și Iluminism" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>1789 (14 Iulie)</strong> – Căderea Bastiliei și Izbucnirea Revoluției Franceze.</li>
+                        <li><strong>1789 (26 August)</strong> – Adoptarea *Declarației Drepturilor Omului și ale Cetățeanului*.</li>
+                        <li><strong>1804 – 1815</strong> – Epoca Napoleoniană.</li>
+                    </ul>
+                </div>
+
+                <p>Epoca Modernă a adus schimbări radicale prin răspândirea ideilor Iluminismului – un curent filosofic ce promova rațiunea, egalitatea și libertatea. Aceste idei au culminat cu Revoluția Franceză din 1789, care a dărâmat Vechiul Regim absolutist.</p>
+
+                <div class="profesor-explica">
+                    Revoluția Franceză a schimbat lumea pentru totdeauna. Pentru prima dată, s-a afirmat că puterea nu vine de la Dumnezeu către rege, ci aparține poporului (suveranitatea națională). Deviza „Libertate, Egalitate, Fraternitate” a devenit un simbol universal.
+                </div>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Oamenii se nasc și rămân liberi și egali în drepturi. Deosebirile sociale nu pot fi întemeiate decât pe utilitatea publică.”</blockquote>
+                    <div class="sursa">— Articolul 1 din *Declarația Drepturilor Omului și ale Cetățeanului* (1789)</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Epoca Modernă</h3>
+                    <p>Care a fost deviza principală a Revoluției Franceze din 1789?</p>
+                    <label class="opțiune-test"><input type="radio" name="q4" value="a"> A) Ordine, Pace și Credință</label>
+                    <label class="opțiune-test"><input type="radio" name="q4" value="b"> B) Libertate, Egalitate, Fraternitate</label>
+                    <label class="opțiune-test"><input type="radio" name="q4" value="c"> C) Putere, Tradiție și Națiune</label>
+                    <button class="btn-verificare" onclick="verificaTest('q4', 'b', 'rezultat4')">Verifică Răspunsul</button>
+                    <div id="rezultat4" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+        <article id="contemporana" class="lectie-card">
+            <div class="lectie-header">
+                <span class="epoca-tag">Epoca V</span>
+                <h2>Marea Unire din 1918 și Reconfigurarea Lumii</h2>
+            </div>
+            <div class="lectie-body">
+                <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=1000&q=80" alt="Epoca Contemporană - Documente istorice" class="lectie-img">
+
+                <div class="ani-importanti">
+                    <h4>📌 Cronologie Esențială:</h4>
+                    <ul>
+                        <li><strong>1914 – 1918</strong> – Primul Război Mondial.</li>
+                        <li><strong>1 Decembrie 1918</strong> – Marea Adunare Națională de la Alba Iulia (Marea Unire).</li>
+                        <li><strong>1939 – 1945</strong> – Al Doilea Război Mondial.</li>
+                        <li><strong>1989</strong> – Căderea regimurilor comuniste în Europa de Est.</li>
+                    </ul>
+                </div>
+
+                <p>Epoca Contemporană debutează odată cu Primul Război Mondial și este marcată de mari confruntări ideologice, redefiniri de granițe, dar și de un progres tehnologic fără precedent. Pentru români, anul 1918 reprezintă împlinirea visului național: desăvârșirea statului național unitar.</p>
+
+                <div class="profesor-explica">
+                    Anul 1918 a fost momentul în care dreptul popoarelor la autodeterminare a fost pus în practică. Prin unirea Basarabiei, Bucovinei și Transilvaniei cu Regatul României, s-a creat România Mare, un eveniment pregătit prin sacrificiul armatei române în Primul Război Mondial.
+                </div>
+
+                <div class="izvor-istoric">
+                    <blockquote>„Adunarea Națională a tuturor Românilor din Transilvania, Banat și Țara Ungurească, adunați prin reprezentanții lor îndreptățiți la Alba-Iulia în ziua de 1 Decembrie 1918, decretează unirea acelor români și a tuturor ținuturilor locuite de dângii cu România.”</blockquote>
+                    <div class="sursa">— Rezoluția Adunării Naționale de la Alba Iulia</div>
+                </div>
+
+                <div class="test-container">
+                    <h3>📝 Test de verificare - Epoca Contemporană</h3>
+                    <p>Unde a fost adoptată Rezoluția de Unire a Transilvaniei cu România la 1 Decembrie 1918?</p>
+                    <label class="opțiune-test"><input type="radio" name="q5" value="a"> A) La București</label>
+                    <label class="opțiune-test"><input type="radio" name="q5" value="b"> B) La Iași</label>
+                    <label class="opțiune-test"><input type="radio" name="q5" value="c"> C) La Alba Iulia</label>
+                    <button class="btn-verificare" onclick="verificaTest('q5', 'c', 'rezultat5')">Verifică Răspunsul</button>
+                    <div id="rezultat5" class="rezultat-test"></div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Portal de Istorie — Concept creat de <strong>Ciora Maria Sofia</strong></p>
+        <p><small>Pasiune, Rigoare și Adevăr Istoric</small></p>
+    </footer>
+
+    <script>
+        function verificaTest(numeGrup, raspunsCorect, idRezultat) {
+            const optiuni = document.getElementsByName(numeGrup);
+            let raspunsSelectat = null;
+
+            for (const opt de pe optiuni) {
+                if (opt.checked) {
+                    raspunsSelectat = opt.value;
+                    break;
+                }
+            }
+
+            const divRezultat = document.getElementById(idRezultat);
+
+            if (!raspunsSelectat) {
+                divRezultat.style.color = "#d97706";
+                divRezultat.innerHTML = "⚠️ Te rog să selectezi o opțiune înainte de a verifica!";
+                return;
+            }
+
+            if (raspunsSelectat === raspunsCorect) {
+                divRezultat.style.color = "#16a34a";
+                divRezultat.innerHTML = "✅ Corect! Felicitări, ai înțeles lecția!";
+            } else {
+                divRezultat.style.color = "#dc2626";
+                divRezultat.innerHTML = "❌ Răspuns incorect. Recitește explicațiile de mai sus și încearcă din nou!";
+            }
+        }
+    </script>
+</body>
+</html>
+
 
 
 
